@@ -27,6 +27,10 @@
     if (self = [super init]) {
         self.low = oLow;
         self.high = oHigh;
+        if (self.low >= self.high) {
+            @throw [NSException exceptionWithName:NSRangeException
+                                           reason:@"Error, range low value can't be equal or higher than high value." userInfo:nil];
+        }
     }
     return self;
 }
@@ -35,6 +39,10 @@
     if (self = [super init]) {
         self.low = [dict[LU_SCORE_RANGE_LOW] doubleValue];
         self.high = [dict[LU_SCORE_RANGE_HIGH] doubleValue];
+        if (self.low >= self.high) {
+            @throw [NSException exceptionWithName:NSRangeException
+                                           reason:@"Error, range low value can't be equal or higher than high value." userInfo:nil];
+        }
     }
     
     return self;
@@ -74,6 +82,13 @@
         self.name = oName;
         self.higherBetter = oHigherBetter;
         self.range = oRange;
+        
+        // if the score is descending, the start value should be
+        // the high value, otherwise it's very confusing that the initial
+        // score is the lowest
+        if (!self.higherBetter) {
+            self.startValue = range.high;
+        }
     }
     return self;
 }
@@ -84,6 +99,13 @@
         self.name = dict[LU_NAME];
         self.higherBetter = [dict[LU_SCORE_HIGHBETTER] boolValue];
         self.range = [[Range alloc] initWithDictionary:dict[LU_SCORE_RANGE]];
+
+        // if the score is descending, the start value should be
+        // the high value, otherwise it's very confusing that the initial
+        // score is the lowest
+        if (!self.higherBetter) {
+            self.startValue = range.high;
+        }
     }
     return self;
 }
