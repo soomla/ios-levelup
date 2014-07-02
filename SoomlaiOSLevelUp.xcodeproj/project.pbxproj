@@ -13,8 +13,6 @@
 		EF081C94193723AD00847E47 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = EF081C92193723AD00847E47 /* Level.m */; };
 		EF081C971937252B00847E47 /* LevelStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = EF081C961937252B00847E47 /* LevelStorage.m */; };
 		EF081C981937252B00847E47 /* LevelStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = EF081C961937252B00847E47 /* LevelStorage.m */; };
-		EF1892791963F2AE0096F624 /* libSoomlaiOSStore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF1892781963F28B0096F624 /* libSoomlaiOSStore.a */; };
-		EF4CDD5A194F31AC008B1CF2 /* libSoomlaiOSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF4CDD59194F31AC008B1CF2 /* libSoomlaiOSCore.a */; };
 		EF73CCA11932292D00A171E5 /* RangeScore.m in Sources */ = {isa = PBXBuildFile; fileRef = EF73CCA01932292D00A171E5 /* RangeScore.m */; };
 		EF73CCA21932293000A171E5 /* RangeScore.m in Sources */ = {isa = PBXBuildFile; fileRef = EF73CCA01932292D00A171E5 /* RangeScore.m */; };
 		EF73CCA619323E3200A171E5 /* Gate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF73CCA519323E3200A171E5 /* Gate.m */; };
@@ -195,8 +193,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF4CDD5A194F31AC008B1CF2 /* libSoomlaiOSCore.a in Frameworks */,
-				EF1892791963F2AE0096F624 /* libSoomlaiOSStore.a in Frameworks */,
 				EFCDC729192E1EB5001D0824 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
