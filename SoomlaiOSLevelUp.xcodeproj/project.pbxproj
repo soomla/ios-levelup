@@ -714,6 +714,7 @@
 				PUBLIC_HEADERS_FOLDER_PATH = /headers/public;
 				SKIP_INSTALL = YES;
 				SOOMLA_HOME = "${SRCROOT}/../..";
+				SYMROOT = out;
 			};
 			name = Debug;
 		};
@@ -738,6 +739,7 @@
 				PUBLIC_HEADERS_FOLDER_PATH = /headers/public;
 				SKIP_INSTALL = YES;
 				SOOMLA_HOME = "${SRCROOT}/../..";
+				SYMROOT = out;
 			};
 			name = Release;
 		};
