@@ -28,9 +28,19 @@
 
 - (void)initializeWithInitialWorlds:(NSArray *)oInitialWorlds;
 
-- (Score*) getScoreWithScoreId:(NSString*)scoreId;
+- (Score*)getScoreWithScoreId:(NSString*)scoreId;
 
-- (World*) getWorldWithWorldId:(NSString*)worldId;
+- (World*)getWorldWithWorldId:(NSString*)worldId;
+
+- (int)getLevelCount;
+
+- (int)getLevelCountInWorld:(World *)world;
+
+- (int)getWorldCount:(BOOL)withLevels;
+
+- (int)getCompletedLevelCount;
+
+- (int)getCompletedWorldCount;
 
 + (LevelUp*)getInstance;
 

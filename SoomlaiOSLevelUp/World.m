@@ -15,7 +15,6 @@
  */
 
 #import "World.h"
-#import "Level.h"
 #import "Challenge.h"
 #import "Score.h"
 #import "RangeScore.h"

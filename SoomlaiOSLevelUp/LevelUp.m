@@ -18,6 +18,7 @@
 #import "LUJSONConsts.h"
 #import "Score.h"
 #import "World.h"
+#import "Level.h"
 #import "SoomlaUtils.h"
 #import "StorageManager.h"
 #import "KeyValueStorage.h"
@@ -44,8 +45,66 @@ static NSString* TAG = @"SOOMLA LevelUp";
     return [self fetchWorldWithWorldId:worldId andWorlds:initialWorlds];
 }
 
+- (int)getLevelCount {
+    int count = 0;
+    for (NSString* key in initialWorlds) {
+        count += [self getLevelCountInWorld:initialWorlds[key]];
+    }
+    return count;
+}
 
-// private
+- (int)getLevelCountInWorld:(World *)world {
+    return [self getRecursiveCoundWithWorld:world andPredicate:^BOOL(World *innerWorld) {
+
+        // Count only levels
+        return [innerWorld isKindOfClass:[Level class]];
+    }];
+}
+
+- (int)getWorldCount:(BOOL)withLevels {
+    int count = 0;
+    for (NSString* key in initialWorlds) {
+        count += [self getRecursiveCoundWithWorld:initialWorlds[key] andPredicate:^BOOL(World *innerWorld) {
+            
+            // Count only worlds
+            return withLevels ?
+                    ([innerWorld isKindOfClass:[World class]]) : // Counts both `World`s and `Level`s
+                    ([innerWorld isKindOfClass:[World class]] && ![innerWorld isKindOfClass:[Level class]]);
+        }];
+    }
+    return count;
+}
+
+- (int)getCompletedLevelCount {
+    int count = 0;
+    for (NSString* key in initialWorlds) {
+        count += [self getRecursiveCoundWithWorld:initialWorlds[key] andPredicate:^BOOL(World *innerWorld) {
+            
+            // Count only completed levels
+            return [innerWorld isKindOfClass:[Level class]] && [innerWorld isCompleted];
+        }];
+    }
+    return count;
+}
+
+- (int)getCompletedWorldCount {
+    int count = 0;
+    for (NSString* key in initialWorlds) {
+        count += [self getRecursiveCoundWithWorld:initialWorlds[key] andPredicate:^BOOL(World *innerWorld) {
+
+            // Count only completed worlds
+            return [innerWorld isKindOfClass:[World class]] &&
+                    ![innerWorld isKindOfClass:[Level class]] &&
+                    [innerWorld isCompleted];
+        }];
+    }
+    return count;
+}
+
+
+//
+// Private methods
+//
 
 + (LevelUp*)getInstance {
     static LevelUp* _instance = nil;
@@ -99,6 +158,26 @@ static NSString* TAG = @"SOOMLA LevelUp";
     }
     
     return retWorld;
+}
+
+
+typedef BOOL (^predicate)(World* innerWorld);
+
+- (int)getRecursiveCoundWithWorld:(World *)world andPredicate:(predicate)predicate {
+    int count = 0;
+
+    // If the predicate is true, increment
+    if (predicate(world)) {
+        count++;
+    }
+
+    for (NSString* key in world.innerWorlds) {
+        World* innerWorld = world.innerWorlds[key];
+        
+        // Recursively count for inner world
+        count += [self getRecursiveCoundWithWorld:innerWorld andPredicate:predicate];
+    }
+    return count;
 }
 
 @end
