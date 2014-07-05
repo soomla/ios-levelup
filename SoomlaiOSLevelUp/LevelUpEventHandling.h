@@ -31,6 +31,8 @@
 #define EVENT_WORLD_COMPLETED                @"lu_world_completed"
 #define EVENT_LEVEL_STARTED                  @"lu_level_started"
 #define EVENT_LEVEL_ENDED                    @"lu_level_ended"
+#define EVENT_WORLD_REWARD_ASSIGNED          @"lu_world_reward_assigned"
+
 
 // UserInfo Elements
 #define DICT_ELEMENT_SCORE                   @"score"
@@ -61,6 +63,8 @@
 + (void)postMissionCompletionRevoked:(Mission *)mission;
 
 + (void)postWorldCompleted:(World *)world;
+
++ (void)postWorldRewardAssigned:(World *)world;
 
 + (void)postLevelStarted:(Level *)level;
 

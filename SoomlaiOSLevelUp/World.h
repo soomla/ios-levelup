@@ -18,6 +18,7 @@
 @class Gate;
 @class GatesList;
 @class Score;
+@class Reward;
 
 @interface World : NSObject {
     
@@ -66,6 +67,10 @@
 - (void)setCompleted:(BOOL)completed recursively:(BOOL)recursive;
 
 - (BOOL)canStart;
+
+- (void)assignReward:(Reward*)reward;
+
+- (NSString*)getAssignedRewardId;
 
 // Static methods
 

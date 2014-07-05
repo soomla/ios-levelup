@@ -47,6 +47,22 @@
     return (val && [val length] > 0);
 }
 
++ (void)setReward:(NSString*)rewardId forWorld:(World *)world {
+    NSString* key = [self keyRewardWithWorldId:world.worldId];
+    
+    if (rewardId && [rewardId length]>0) {
+        [KeyValueStorage setValue:rewardId forKey:key];
+    } else {
+        [KeyValueStorage deleteValueForKey:key];
+    }
+    
+    [LevelUpEventHandling postWorldRewardAssigned:world];
+}
+
++ (NSString*)getAssignedReward:(World *)world {
+    NSString* key = [self keyRewardWithWorldId:world.worldId];
+    return [KeyValueStorage getValueForKey:key];
+}
 
 // Private
 + (NSString *)keyWorldsWithWorldId:(NSString *)worldId andPostfix:(NSString *)postfix {
@@ -55,6 +71,10 @@
 
 + (NSString *)keyWorldCompletedWithWorldId:(NSString *)worldId {
     return [self keyWorldsWithWorldId:worldId andPostfix:@"completed"];
+}
+
++ (NSString *)keyRewardWithWorldId:(NSString *)worldId {
+    return [self keyWorldsWithWorldId:worldId andPostfix:@"assignedReward"];
 }
 
 @end

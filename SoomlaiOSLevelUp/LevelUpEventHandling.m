@@ -31,6 +31,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_WORLD_COMPLETED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_LEVEL_STARTED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_LEVEL_ENDED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_WORLD_REWARD_ASSIGNED object:nil];
 }
 
 + (void)postScoreRecordChanged:(Score *)score {
@@ -77,6 +78,11 @@
 + (void)postLevelStarted:(Level *)level {
     NSDictionary *userInfo = @{DICT_ELEMENT_LEVEL: level};
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_LEVEL_STARTED object:self userInfo:userInfo];
+}
+
++ (void)postWorldRewardAssigned:(World *)world {
+    NSDictionary *userInfo = @{DICT_ELEMENT_WORLD: world};
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_WORLD_REWARD_ASSIGNED object:self userInfo:userInfo];
 }
 
 + (void)postLevelEnded:(Level *)level {
