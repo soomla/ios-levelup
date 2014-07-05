@@ -31,7 +31,7 @@
 #define EVENT_WORLD_COMPLETED                @"lu_world_completed"
 #define EVENT_LEVEL_STARTED                  @"lu_level_started"
 #define EVENT_LEVEL_ENDED                    @"lu_level_ended"
-#define EVENT_WORLD_BADGE_ASSIGNED           @"lu_world_badge_assigned"
+#define EVENT_WORLD_REWARD_ASSIGNED          @"lu_world_reward_assigned"
 
 
 // UserInfo Elements
@@ -64,7 +64,7 @@
 
 + (void)postWorldCompleted:(World *)world;
 
-+ (void)postWorldBadgeAssigned:(World *)world;
++ (void)postWorldRewardAssigned:(World *)world;
 
 + (void)postLevelStarted:(Level *)level;
 

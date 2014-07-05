@@ -24,8 +24,8 @@
 
 + (BOOL)isWorldCompleted:(World *)world;
 
-+ (void)setBadge:(NSString*)badgeRewardId forWorld:(World *)world;
++ (void)setReward:(NSString*)rewardId forWorld:(World *)world;
 
-+ (NSString*)getAssignedBadge:(World *)world;
++ (NSString*)getAssignedReward:(World *)world;
 
 @end

@@ -18,7 +18,7 @@
 @class Gate;
 @class GatesList;
 @class Score;
-@class BadgeReward;
+@class Reward;
 
 @interface World : NSObject {
     
@@ -68,9 +68,9 @@
 
 - (BOOL)canStart;
 
-- (void)assignBadge:(BadgeReward*)badgeReward;
+- (void)assignReward:(Reward*)reward;
 
-- (NSString*)getAssignedBadgeId;
+- (NSString*)getAssignedRewardId;
 
 // Static methods
 

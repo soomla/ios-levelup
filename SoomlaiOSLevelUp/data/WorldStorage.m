@@ -47,20 +47,20 @@
     return (val && [val length] > 0);
 }
 
-+ (void)setBadge:(NSString*)badgeRewardId forWorld:(World *)world {
-    NSString* key = [self keyBadgeWithWorldId:world.worldId];
++ (void)setReward:(NSString*)rewardId forWorld:(World *)world {
+    NSString* key = [self keyRewardWithWorldId:world.worldId];
     
-    if (badgeRewardId && [badgeRewardId length]>0) {
-        [KeyValueStorage setValue:badgeRewardId forKey:key];
+    if (rewardId && [rewardId length]>0) {
+        [KeyValueStorage setValue:rewardId forKey:key];
     } else {
         [KeyValueStorage deleteValueForKey:key];
     }
     
-    [LevelUpEventHandling postWorldBadgeAssigned:world];
+    [LevelUpEventHandling postWorldRewardAssigned:world];
 }
 
-+ (NSString*)getAssignedBadge:(World *)world {
-    NSString* key = [self keyBadgeWithWorldId:world.worldId];
++ (NSString*)getAssignedReward:(World *)world {
+    NSString* key = [self keyRewardWithWorldId:world.worldId];
     return [KeyValueStorage getValueForKey:key];
 }
 
@@ -73,8 +73,8 @@
     return [self keyWorldsWithWorldId:worldId andPostfix:@"completed"];
 }
 
-+ (NSString *)keyBadgeWithWorldId:(NSString *)worldId {
-    return [self keyWorldsWithWorldId:worldId andPostfix:@"badge"];
++ (NSString *)keyRewardWithWorldId:(NSString *)worldId {
+    return [self keyWorldsWithWorldId:worldId andPostfix:@"assignedReward"];
 }
 
 @end
