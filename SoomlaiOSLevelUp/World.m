@@ -108,7 +108,12 @@ static DictionaryFactory* dictionaryFactory;
 
         
         NSDictionary* gateListDict = dict[LU_GATES];
-        gates = [GatesList fromDictionary:gateListDict];
+        if (!gateListDict || [gateListDict count] == 0) {
+            gates = nil;
+        }
+        else {
+            gates = [GatesList fromDictionary:gateListDict];
+        }
     }
     
     return self;
