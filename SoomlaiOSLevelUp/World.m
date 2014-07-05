@@ -27,6 +27,7 @@
 #import "LUJSONConsts.h"
 #import "SoomlaUtils.h"
 #import "DictionaryFactory.h"
+#import "BadgeReward.h"
 
 @implementation World
 
@@ -207,6 +208,14 @@ static DictionaryFactory* dictionaryFactory;
 
 - (BOOL)canStart {
     return !self.gates || [self.gates isOpen];
+}
+
+- (void)assignBadge:(BadgeReward*)badgeReward {
+    [WorldStorage setBadge:badgeReward.rewardId forWorld:self];
+}
+
+- (NSString*)getAssignedBadgeId {
+    return [WorldStorage getAssignedBadge:self];
 }
 
 
