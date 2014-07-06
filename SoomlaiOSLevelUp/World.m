@@ -144,7 +144,9 @@ static DictionaryFactory* dictionaryFactory;
     }
     [dict setObject:challengesArr forKey:LU_CHALLENGES];
     
-    [dict setObject:self.gates.toDictionary forKey:LU_GATES];
+    if(gates) {
+        [dict setObject:self.gates.toDictionary forKey:LU_GATES];
+    }
     
     return dict;
 }
