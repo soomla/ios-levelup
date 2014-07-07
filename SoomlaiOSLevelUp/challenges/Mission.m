@@ -68,6 +68,9 @@ static DictionaryFactory* dictionaryFactory;
     
     if (self) {
         
+        self.missionId = dict[LU_MISSION_MISSIONID];
+        self.name = dict[LU_NAME];
+        
         NSMutableArray* tmpRewards = [NSMutableArray array];
         NSArray* rewardsArr = dict[LU_REWARDS];
         
