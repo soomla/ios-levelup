@@ -45,15 +45,15 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_GATE_OPENED object:self userInfo:userInfo];
 }
 
-+ (void)postRewardGiven:(Reward *)reward {
-    NSDictionary *userInfo = @{DICT_ELEMENT_REWARD: reward};
-    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_REWARD_GIVEN object:self userInfo:userInfo];
-}
-
-+ (void)postRewardTaken:(Reward *)reward {
-    NSDictionary *userInfo = @{DICT_ELEMENT_REWARD: reward};
-    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_REWARD_TAKEN object:self userInfo:userInfo];
-}
+//+ (void)postRewardGiven:(Reward *)reward {
+//    NSDictionary *userInfo = @{DICT_ELEMENT_REWARD: reward};
+//    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_REWARD_GIVEN object:self userInfo:userInfo];
+//}
+//
+//+ (void)postRewardTaken:(Reward *)reward {
+//    NSDictionary *userInfo = @{DICT_ELEMENT_REWARD: reward};
+//    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_REWARD_TAKEN object:self userInfo:userInfo];
+//}
 
 + (void)postMissionCompleted:(Mission *)mission {
     NSDictionary *userInfo = @{
