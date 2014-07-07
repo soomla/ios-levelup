@@ -24,8 +24,9 @@
 + (void)observeAllEventsWithObserver:(id)observer withSelector:(SEL)selector{
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_SCORE_RECORD_CHANGED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_GATE_OPENED object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_REWARD_GIVEN object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_REWARD_GIVEN object:nil];
+    // todo: remove? should be handled in core, no?
+//    [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_REWARD_GIVEN object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_REWARD_TAKEN object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_MISSION_COMPLETED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_MISSION_COMPLETION_REVOKED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_WORLD_COMPLETED object:nil];
