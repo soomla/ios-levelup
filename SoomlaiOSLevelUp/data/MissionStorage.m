@@ -19,16 +19,19 @@
 #import "LevelUp.h"
 #import "LevelUpEventHandling.h"
 #import "KeyValueStorage.h"
+#import "SoomlaUtils.h"
 
 @implementation MissionStorage
 
+static NSString* TAG = @"SOOMLA MissionStorage";
 
 + (void)setCompleted:(BOOL)completed forMission:(Mission *)mission {
     [self setCompleted:completed forMission:mission andNotify:YES];
 }
 
 + (void)setCompleted:(BOOL)completed forMission:(Mission *)mission andNotify:(BOOL)notify {
-    
+    NSString* msg = [NSString stringWithFormat:@"setCompleted %d %@", completed, mission.missionId];
+    LogDebug(TAG, msg);
     NSString* key = [self keyMissionCompletedWithMissionId:mission.missionId];
     
     if (completed) {
@@ -48,13 +51,15 @@
 + (BOOL)isMissionCompleted:(Mission *)mission {
     NSString* key = [self keyMissionCompletedWithMissionId:mission.missionId];
     NSString* val = [KeyValueStorage getValueForKey:key];
+    NSString* msg = [NSString stringWithFormat:@"key:%@ val:%@", key, val];
+    LogDebug(TAG, msg)
     return (val && [val length] > 0);
 }
 
 
 // Private
 + (NSString *)keyMissionsWithMissionId:(NSString *)missionId andPostfix:(NSString *)postfix {
-    return [NSString stringWithFormat: @"%@missiona.%@.%@", LU_DB_KEY_PREFIX, missionId, postfix];
+    return [NSString stringWithFormat: @"%@missions.%@.%@", LU_DB_KEY_PREFIX, missionId, postfix];
 }
 
 + (NSString *)keyMissionCompletedWithMissionId:(NSString *)missionId {

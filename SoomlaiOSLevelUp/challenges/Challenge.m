@@ -103,7 +103,7 @@ static NSString* TAG = @"SOOMLA Challenge";
 }
 
 - (void)missionCompleted:(NSNotification *)notification {
-    
+    LogDebug(TAG, @"missionCompleted notification");
     Mission* mission = notification.userInfo[DICT_ELEMENT_MISSION];
     
     if ([self.missions containsObject:mission]) {
@@ -122,7 +122,7 @@ static NSString* TAG = @"SOOMLA Challenge";
 }
 
 - (void)missionCompletionRevoked:(NSNotification *)notification {
-    
+    LogDebug(TAG, @"missionCompletionRevoked notification");
     Mission* mission = notification.userInfo[DICT_ELEMENT_MISSION];
     
     
@@ -140,7 +140,9 @@ static NSString* TAG = @"SOOMLA Challenge";
  Overrides parent method to customize the observed notifications for `Challenge`
  */
 - (void)observeNotifications {
+    LogDebug(TAG, @"observeNotifications called");
     if (![self isCompleted]) {
+        LogDebug(TAG, @"observing!");
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(missionCompleted:) name:EVENT_MISSION_COMPLETED object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(missionCompletionRevoked:) name:EVENT_MISSION_COMPLETION_REVOKED object:nil];
     }
