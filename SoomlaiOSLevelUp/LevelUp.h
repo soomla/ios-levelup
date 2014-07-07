@@ -14,7 +14,7 @@
  limitations under the License.
  */
 
-#define LU_DB_KEY_PREFIX @"soomla.levelup"
+#define LU_DB_KEY_PREFIX @"soomla.levelup."
 
 @class Score;
 @class World;
