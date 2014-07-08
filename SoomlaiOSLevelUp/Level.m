@@ -66,14 +66,6 @@ static NSString* TAG = @"SOOMLA Level";
     return duration / 1000.0;
 }
 
-- (void)decAmount:(double)amount forScoreWithScoreId:(NSString *)scoreId {
-    [self.scores[scoreId] decBy:amount];
-}
-
-- (void)incAmount:(double)amount forScoreWithScoreId:(NSString *)scoreId {
-    [self.scores[scoreId] incBy:amount];
-}
-
 - (BOOL)start {
     
     

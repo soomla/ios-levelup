@@ -49,7 +49,7 @@
 @property (strong, nonatomic) Range* range;
 
 
-- (id)initWithScoreId:(NSString *)oScoreId andName:(NSString *)oName andRange:(Range *)oRange;
+- (id)initWithScoreId:(NSString *)oScoreId andRange:(Range *)oRange;
 
 - (id)initWithScoreId:(NSString *)oScoreId andName:(NSString *)oName andHigherBetter:(BOOL)oHigherBetter andRange:(Range *)oRange;
 
