@@ -108,5 +108,10 @@
     }
 }
 
+- (void)stopObservingNotifications {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:EVENT_CURRENCY_BALANCE_CHANGED object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:EVENT_GOOD_BALANCE_CHANGED object:nil];
+}
+
 
 @end

@@ -93,5 +93,9 @@
     }
 }
 
+- (void)stopObservingNotifications {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:EVENT_SCORE_RECORD_CHANGED object:nil];
+}
+
 
 @end
