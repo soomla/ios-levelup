@@ -67,20 +67,15 @@
 @synthesize range;
 
 
-- (id)initWithScoreId:(NSString *)oScoreId andName:(NSString *)oName andRange:(Range *)oRange {
-    if (self = [super init]) {
-        self.scoreId = oScoreId;
-        self.name = oName;
+- (id)initWithScoreId:(NSString *)oScoreId andRange:(Range *)oRange {
+    if (self = [super initWithScoreId:oScoreId]) {
         self.range = oRange;
     }
     return self;
 }
 
 - (id)initWithScoreId:(NSString *)oScoreId andName:(NSString *)oName andHigherBetter:(BOOL)oHigherBetter andRange:(Range *)oRange {
-    if (self = [super init]) {
-        self.scoreId = oScoreId;
-        self.name = oName;
-        self.higherBetter = oHigherBetter;
+    if (self = [super initWithScoreId:oScoreId andName:oName andHigherBetter:oHigherBetter]) {
         self.range = oRange;
         
         // if the score is descending, the start value should be

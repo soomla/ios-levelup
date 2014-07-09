@@ -31,7 +31,7 @@
 @property (nonatomic) BOOL higherBetter;
 
 
-- (id)initWithScoreId:(NSString *)oScoreId andName:(NSString *)oName;
+- (id)initWithScoreId:(NSString *)oScoreId;
 
 - (id)initWithScoreId:(NSString *)scoreId andName:(NSString *)oName andHigherBetter:(BOOL)oHigherBetter;
 

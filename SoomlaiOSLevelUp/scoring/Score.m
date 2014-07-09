@@ -30,10 +30,10 @@
 static DictionaryFactory* dictionaryFactory;
 
 
-- (id)initWithScoreId:(NSString *)oScoreId andName:(NSString *)oName {
+- (id)initWithScoreId:(NSString *)oScoreId {
     if (self = [super init]) {
         self.scoreId = oScoreId;
-        self.name = oName;
+        self.name = @"temp_score_name";
         self.startValue = 0;
         self.higherBetter = YES;
 

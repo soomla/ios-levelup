@@ -29,10 +29,9 @@
  Constructor
  
  @param scoreId see parent
- @param name see parent
  @param associatedItemId the ID of the virtual item associated with this score
  */
-- (id)initWithScoreId:(NSString *)oScoreId andName:(NSString *)oName andAssociatedItemId:(NSString *)oAssociatedItemId;
+- (id)initWithScoreId:(NSString *)oScoreId andAssociatedItemId:(NSString *)oAssociatedItemId;
 
 /**
  Constructor

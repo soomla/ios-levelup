@@ -45,10 +45,6 @@ typedef NS_ENUM(NSInteger, LevelState) {
 
 - (double)getPlayDuration;
 
-- (void)decAmount:(double)amount forScoreWithScoreId:(NSString *)scoreId;
-
-- (void)incAmount:(double)amount forScoreWithScoreId:(NSString *)scoreId;
-
 - (BOOL)start;
 
 - (void)pause;

@@ -28,8 +28,8 @@
 
 static NSString* TAG = @"SOOMLA VirtualItemScore";
 
-- (id)initWithScoreId:(NSString *)oScoreId andName:(NSString *)oName andAssociatedItemId:(NSString *)oAssociatedItemId {
-    if (self = [super initWithScoreId:oScoreId andName:oName]) {
+- (id)initWithScoreId:(NSString *)oScoreId andAssociatedItemId:(NSString *)oAssociatedItemId {
+    if (self = [super initWithScoreId:oScoreId]) {
         self.associatedItemId = oAssociatedItemId;
     }
     
