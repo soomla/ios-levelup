@@ -49,11 +49,11 @@ static NSString* TAG = @"SOOMLA Level";
     return [LevelStorage getTimesPlayedForLevel:self];
 }
 
-- (long)getSlowestDurationMillis {
+- (long long)getSlowestDurationMillis {
     return [LevelStorage getSlowestDurationMillisForLevel:self];
 }
 
-- (long)getFastestDurationMillis {
+- (long long)getFastestDurationMillis {
     return [LevelStorage getFastestDurationMillisforLevel:self];
 }
 
@@ -116,11 +116,11 @@ static NSString* TAG = @"SOOMLA Level";
     
     // Calculate the slowest \ fastest durations of level play
     
-    if (duration > [self getSlowestDuration]) {
+    if (duration > [self getSlowestDurationMillis]) {
         [LevelStorage setSlowestDurationMillis:duration forLevel:self];
     }
     
-    if (duration < [self getFastestDuration]) {
+    if (duration < [self getFastestDurationMillis]) {
         [LevelStorage setFastestDurationMillis:duration forLevel:self];
     }
     
