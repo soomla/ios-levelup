@@ -20,13 +20,13 @@
 
 @interface LevelStorage : NSObject
 
-+ (void)setSlowestDuration:(double)duration forLevel:(Level *)level;
++ (void)setSlowestDurationMillis:(double)duration forLevel:(Level *)level;
 
-+ (double)getSlowestDurationForLevel:(Level *)level;
++ (double)getSlowestDurationMillisForLevel:(Level *)level;
 
-+ (void)setFastestDuration:(double)duration forLevel:(Level *)level;
++ (void)setFastestDurationMillis:(double)duration forLevel:(Level *)level;
 
-+ (double)getFastestDurationforLevel:(Level *)level;
++ (double)getFastestDurationMillisforLevel:(Level *)level;
 
 + (int)incTimesStartedForLevel:(Level *)level;
 

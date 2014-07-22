@@ -39,11 +39,11 @@ typedef NS_ENUM(NSInteger, LevelState) {
 
 - (int)getTimesPlayed;
 
-- (double)getSlowestDuration;
+- (long long)getSlowestDurationMillis;
 
-- (double)getFastestDuration;
+- (long long)getFastestDurationMillis;
 
-- (double)getPlayDuration;
+- (long long)getPlayDurationMillis;
 
 - (BOOL)start;
 

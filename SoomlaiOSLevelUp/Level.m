@@ -49,15 +49,15 @@ static NSString* TAG = @"SOOMLA Level";
     return [LevelStorage getTimesPlayedForLevel:self];
 }
 
-- (double)getSlowestDuration {
-    return [LevelStorage getSlowestDurationForLevel:self];
+- (long)getSlowestDurationMillis {
+    return [LevelStorage getSlowestDurationMillisForLevel:self];
 }
 
-- (double)getFastestDuration {
-    return [LevelStorage getFastestDurationforLevel:self];
+- (long)getFastestDurationMillis {
+    return [LevelStorage getFastestDurationMillisforLevel:self];
 }
 
-- (double)getPlayDuration {
+- (long long)getPlayDurationMillis {
     long long now = (long long)([[NSDate date] timeIntervalSince1970] * 1000);
     long long duration = elapsed;
     if (startTime != 0) {
@@ -111,17 +111,17 @@ static NSString* TAG = @"SOOMLA Level";
         return;
     }
     
-    double duration = [self getPlayDuration];
+    long long duration = [self getPlayDurationMillis];
     state = ENDED;
     
     // Calculate the slowest \ fastest durations of level play
     
     if (duration > [self getSlowestDuration]) {
-        [LevelStorage setSlowestDuration:duration forLevel:self];
+        [LevelStorage setSlowestDurationMillis:duration forLevel:self];
     }
     
     if (duration < [self getFastestDuration]) {
-        [LevelStorage setFastestDuration:duration forLevel:self];
+        [LevelStorage setFastestDurationMillis:duration forLevel:self];
     }
     
     for (NSString* key in self.scores) {
