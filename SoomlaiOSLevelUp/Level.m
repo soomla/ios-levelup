@@ -63,7 +63,7 @@ static NSString* TAG = @"SOOMLA Level";
     if (startTime != 0) {
         duration += now - startTime;
     }
-    return duration / 1000.0;
+    return duration;
 }
 
 - (BOOL)start {
