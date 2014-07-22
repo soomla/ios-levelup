@@ -22,11 +22,11 @@
 
 + (void)setSlowestDurationMillis:(double)duration forLevel:(Level *)level;
 
-+ (double)getSlowestDurationMillisForLevel:(Level *)level;
++ (long long)getSlowestDurationMillisForLevel:(Level *)level;
 
 + (void)setFastestDurationMillis:(double)duration forLevel:(Level *)level;
 
-+ (double)getFastestDurationMillisforLevel:(Level *)level;
++ (long long)getFastestDurationMillisforLevel:(Level *)level;
 
 + (int)incTimesStartedForLevel:(Level *)level;
 

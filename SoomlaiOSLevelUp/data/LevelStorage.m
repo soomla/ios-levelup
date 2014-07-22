@@ -34,7 +34,7 @@
 + (long long)getSlowestDurationMillisForLevel:(Level *)level {
     NSString* key = [self keySlowestDurationWithLevelId:level.worldId];
     NSString* val = [KeyValueStorage getValueForKey:key];
-    return (val && [val length] > 0) ? [val longLongValue] : DBL_MIN;
+    return (val && [val length] > 0) ? [val longLongValue] : LONG_LONG_MIN;
 }
 
 + (void)setFastestDurationMillis:(long long)duration forLevel:(Level *)level {
@@ -46,7 +46,7 @@
 + (long long)getFastestDurationMillisforLevel:(Level *)level {
     NSString* key = [self keyFastestDurationWithLevelId:level.worldId];
     NSString* val = [KeyValueStorage getValueForKey:key];
-    return (val && [val length] > 0) ? [val longLongValue] : DBL_MAX;
+    return (val && [val length] > 0) ? [val longLongValue] : LONG_LONG_MAX;
 }
 
 + (int)incTimesStartedForLevel:(Level *)level {
