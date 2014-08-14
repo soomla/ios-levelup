@@ -111,32 +111,33 @@ static NSString* TAG = @"SOOMLA Level";
         return;
     }
     
-    long long duration = [self getPlayDurationMillis];
     state = ENDED;
     
-    // Calculate the slowest \ fastest durations of level play
-    
-    if (duration > [self getSlowestDurationMillis]) {
-        [LevelStorage setSlowestDurationMillis:duration forLevel:self];
-    }
-    
-    if (duration < [self getFastestDurationMillis]) {
-        [LevelStorage setFastestDurationMillis:duration forLevel:self];
-    }
-    
-    for (NSString* key in self.scores) {
-        [(Score*)self.scores[key] saveAndReset]; // resetting scores
-    }
-    
-    // Count number of times this level was played
-    [LevelStorage incTimesPlayedForLevel:self];
-    
-    // reset timers
-    startTime = 0;
-    elapsed = 0;
-    currentTime = 0;
-    
-    if(completed) {
+    if (completed) {
+        long long duration = [self getPlayDurationMillis];
+        
+        // Calculate the slowest \ fastest durations of level play
+        
+        if (duration > [self getSlowestDurationMillis]) {
+            [LevelStorage setSlowestDurationMillis:duration forLevel:self];
+        }
+        
+        if (duration < [self getFastestDurationMillis]) {
+            [LevelStorage setFastestDurationMillis:duration forLevel:self];
+        }
+        
+        for (NSString* key in self.scores) {
+            [(Score*)self.scores[key] saveAndReset]; // resetting scores
+        }
+        
+        // Count number of times this level was played
+        [LevelStorage incTimesPlayedForLevel:self];
+        
+        // reset timers
+        startTime = 0;
+        elapsed = 0;
+        currentTime = 0;
+        
         [self setCompleted:YES];
     }
 }
