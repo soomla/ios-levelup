@@ -281,7 +281,7 @@ static DictionaryFactory* dictionaryFactory;
 }
 
 - (void)assignReward:(Reward*)reward {
-    [WorldStorage setReward:reward.rewardId forWorld:self];
+    [WorldStorage setReward:reward.ID forWorld:self];
 }
 
 - (NSString*)getAssignedRewardId {
