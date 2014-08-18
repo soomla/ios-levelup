@@ -73,11 +73,7 @@ static NSString* TAG = @"SOOMLA PurchasableGate";
         
         PurchasableVirtualItem* pvi = (PurchasableVirtualItem*)[[StoreInfo getInstance] virtualItemWithId:self.associatedItemId];
         PurchaseWithMarket* ptype = (PurchaseWithMarket*)[pvi purchaseType];
-        
-        // TODO: Change ios-store to accept custom payload string when buying with market item
-        // For reference, in Android it is:
-        //      SoomlaStore.getInstance().buyWithMarket(ptype.getMarketItem(), getGateId());
-        [[SoomlaStore getInstance] buyInMarketWithMarketItem:ptype.marketItem];
+        [[SoomlaStore getInstance] buyInMarketWithMarketItem:ptype.marketItem andPayload:nil];
         return YES;
 
     } @catch (VirtualItemNotFoundException *ex) {
