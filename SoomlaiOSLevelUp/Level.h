@@ -35,22 +35,4 @@ typedef NS_ENUM(NSInteger, LevelState) {
 
 @property LevelState state;
 
-- (int)getTimesStarted;
-
-- (int)getTimesPlayed;
-
-- (long long)getSlowestDurationMillis;
-
-- (long long)getFastestDurationMillis;
-
-- (long long)getPlayDurationMillis;
-
-- (BOOL)start;
-
-- (void)pause;
-
-- (void)resume;
-
-- (void)end:(BOOL)completed;
-
 @end

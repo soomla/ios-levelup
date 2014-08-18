@@ -106,26 +106,6 @@ static DictionaryFactory* dictionaryFactory;
     return dict;
 }
 
-- (BOOL)isCompleted {
-    return [MissionStorage isMissionCompleted:self];
-}
-
-- (void)setCompleted:(BOOL)completed {
-    [MissionStorage setCompleted:completed forMission:self];
-    if (completed) {
-        
-        // Stop observing notifications.  Not interesting until revoked.
-        [self stopObservingNotifications];
-        
-        [self giveRewards];
-    } else {
-        [self takeRewards];
-
-        // listen again for chance to be completed
-        [self observeNotifications];
-    }
-}
-
 - (BOOL)isEqualToMission:(Mission *)mission {
     if (!mission) {
         return NO;
@@ -146,14 +126,8 @@ static DictionaryFactory* dictionaryFactory;
     return [self isEqualToMission:(Mission *)object];
 }
 
-- (void)observeNotifications {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:@"Error, attempting to invoke abstract method directly." userInfo:nil];
-}
-
-- (void)stopObservingNotifications {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:@"Error, attempting to invoke abstract method directly." userInfo:nil];
+- (NSUInteger)hash {
+    return [self.missionId hash];
 }
 
 
@@ -172,10 +146,6 @@ static DictionaryFactory* dictionaryFactory;
 //
 // Private methods
 //
-
-- (NSUInteger)hash {
-    return [self.missionId hash];
-}
 
 - (void)giveRewards {
     for (Reward* reward in self.rewards) {

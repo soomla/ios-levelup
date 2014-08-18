@@ -41,23 +41,6 @@
 
 - (BOOL)isHigherBetter;
 
-- (void)incBy:(double)amount;
-
-- (void)decBy:(double)amount;
-
-- (void)saveAndReset;
-
-- (void)reset;
-
-- (BOOL)hasTempScoreReached:(double)scoreVal;
-
-- (BOOL)hasRecordReachedScore:(double)scoreVal;
-
-- (void)performSaveActions;
-
-- (double)getRecord;
-
-- (double)getLatest;
 
 // Static methods
 

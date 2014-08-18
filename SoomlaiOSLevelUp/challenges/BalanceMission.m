@@ -36,7 +36,6 @@
         self.desiredBalance = oDesiredBalance;
     }
     
-    [self observeNotifications];
     return self;
 }
 
@@ -48,7 +47,6 @@
         self.desiredBalance = oDesiredBalance;
     }
     
-    [self observeNotifications];
     return self;
 }
 
@@ -60,7 +58,6 @@
         self.desiredBalance = [dict[LU_DESIRED_BALANCE] intValue];
     }
     
-    [self observeNotifications];
     return self;
 }
 
@@ -74,44 +71,5 @@
     
     return toReturn;
 }
-
-
-
-// Private Methods
-
-- (void)checkBalance:(int)balance forItemId:(NSString*)itemId {
-    if ([itemId isEqualToString:self.associatedItemId] && balance >= self.desiredBalance) {
-        [self setCompleted:YES];
-    }
-}
-
-- (void)currencyBalanceChanged:(NSNotification*)notification {
-    NSDictionary* userInfo = notification.userInfo;
-    VirtualCurrency* currency = userInfo[DICT_ELEMENT_CURRENCY];
-    int balance = [userInfo[DICT_ELEMENT_BALANCE] intValue];
-    
-    [self checkBalance:balance forItemId:currency.itemId];
-}
-
-- (void)goodBalanceChanged:(NSNotification*)notification {
-    NSDictionary* userInfo = notification.userInfo;
-    VirtualGood* good = userInfo[DICT_ELEMENT_GOOD];
-    int balance = [userInfo[DICT_ELEMENT_BALANCE] intValue];
-    
-    [self checkBalance:balance forItemId:good.itemId];
-}
-
-- (void)observeNotifications {
-    if (![self isCompleted]) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(currencyBalanceChanged:) name:EVENT_CURRENCY_BALANCE_CHANGED object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(goodBalanceChanged:) name:EVENT_GOOD_BALANCE_CHANGED object:nil];
-    }
-}
-
-- (void)stopObservingNotifications {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:EVENT_CURRENCY_BALANCE_CHANGED object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:EVENT_GOOD_BALANCE_CHANGED object:nil];
-}
-
 
 @end

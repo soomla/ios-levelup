@@ -31,31 +31,4 @@
     return toReturn;
 }
 
-- (BOOL)isOpen {
-
-    // this flag is required since `World` / `Level`
-    // actually creates a fake AND gate (list) even for a single gate
-    // it means that it should answer `YES` when the (only) child subgate is open
-    // without being required to open the (anonymous) AND parent
-    if (self.autoOpenBehavior) {
-        for (Gate* gate in self.gates) {
-            if (![gate isOpen]) {
-                return NO;
-            }
-        }
-        return YES;
-    } else {
-        return [super isOpen];
-    }
-}
-
-- (BOOL)canOpen {
-    for (Gate* gate in self.gates) {
-        if (![gate isOpen]) {
-            return NO;
-        }
-    }
-    return YES;
-}
-
 @end

@@ -37,19 +37,8 @@
 
 - (NSDictionary *)toDictionary;
 
-- (BOOL)isCompleted;
-
-- (void)setCompleted:(BOOL)completed;
-
 - (BOOL)isEqualToMission:(Mission *)mission;
 
-- (BOOL)isEqual:(id)object;
-
-- (NSUInteger)hash;
-
-- (void)observeNotifications;
-
-- (void)stopObservingNotifications;
 
 // Static methods
 

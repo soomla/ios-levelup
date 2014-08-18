@@ -105,29 +105,6 @@ static DictionaryFactory* dictionaryFactory;
     return toReturn;
 }
 
-- (void)addGate:(Gate *)gate {
-    [self.gates addObject:gate];
-}
-
-- (int)size {
-    return (int)[self.gates count];
-}
-
-- (BOOL)tryOpenInner {
-    if (self.autoOpenBehavior) {
-        for (Gate* gate in self.gates) {
-            [gate tryOpen];
-        }
-        return [self isOpen];
-    } else {
-        if ([self canOpen]) {
-            [self forceOpen:YES];
-            return YES;
-        }
-        return NO;
-    }
-}
-
 
 // Static methods
 

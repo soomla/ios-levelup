@@ -37,11 +37,6 @@ static NSString* TAG = @"SOOMLA BalanceGate";
         self.desiredBalance = oDesiredBalance;
     }
     
-    if (![self isOpen]) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(currencyBalanceChanged:) name:EVENT_CURRENCY_BALANCE_CHANGED object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(goodBalanceChanged:) name:EVENT_GOOD_BALANCE_CHANGED object:nil];
-    }
-   
     return self;
 }
 
@@ -49,11 +44,6 @@ static NSString* TAG = @"SOOMLA BalanceGate";
     if (self = [super initWithDictionary:dict]) {
         self.associatedItemId = dict[LU_ASSOCITEMID];
         self.desiredBalance = [dict[LU_DESIRED_BALANCE] intValue];
-    }
-    
-    if (![self isOpen]) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(currencyBalanceChanged:) name:EVENT_CURRENCY_BALANCE_CHANGED object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(goodBalanceChanged:) name:EVENT_GOOD_BALANCE_CHANGED object:nil];
     }
     
     return self;
@@ -68,68 +58,6 @@ static NSString* TAG = @"SOOMLA BalanceGate";
     [toReturn setObject:[NSNumber numberWithInt:self.desiredBalance] forKey:LU_DESIRED_BALANCE];
     
     return toReturn;
-}
-
-
-- (BOOL)canOpen {
-    if ([GateStorage isOpen:self]) {
-        return YES;
-    }
-    
-    @try {
-        if ([StoreInventory getItemBalance:self.associatedItemId] < self.desiredBalance) {
-            return NO;
-        }
-    } @catch (VirtualItemNotFoundException* ex) {
-        LogError(TAG, ([NSString stringWithFormat:@"(canOpen) Couldn't find itemId. itemId: %@", self.associatedItemId]));
-        return NO;
-    }
-
-    return YES;
-}
-
-- (BOOL)tryOpenInner {
-    
-    if ([self canOpen]) {
-        @try {
-            [StoreInventory takeAmount:self.desiredBalance ofItem:self.associatedItemId];
-        }
-        @catch (NSException *exception) {
-            LogError(TAG, ([NSString stringWithFormat:@"(open) Couldn't find itemId. itemId: %@", self.associatedItemId]));
-            return NO;
-        }
-        
-        [self forceOpen:YES];
-        return YES;
-    }
-
-    return NO;
-}
-
-- (void)currencyBalanceChanged:(NSNotification*)notification {
-    NSDictionary* userInfo = notification.userInfo;
-    VirtualCurrency* currency = userInfo[DICT_ELEMENT_CURRENCY];
-    int balance = [userInfo[DICT_ELEMENT_BALANCE] intValue];
-
-    [self checkBalance:balance forItemId:currency.itemId];
-}
-
-- (void)goodBalanceChanged:(NSNotification*)notification {
-    NSDictionary* userInfo = notification.userInfo;
-    VirtualGood* good = userInfo[DICT_ELEMENT_GOOD];
-    int balance = [userInfo[DICT_ELEMENT_BALANCE] intValue];
-    
-    [self checkBalance:balance forItemId:good.itemId];
-}
-
-
-// Private
-
-- (void)checkBalance:(int)balance forItemId:(NSString*)itemId {
-    if ([itemId isEqualToString:self.associatedItemId] && balance >= self.desiredBalance) {
-        [[NSNotificationCenter defaultCenter] removeObserver:self];
-        // gate can open now
-    }
 }
 
 @end

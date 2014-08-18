@@ -34,9 +34,6 @@
 
 - (id)initWithGateId:(NSString *)oGateId andGates:(NSArray*)oGates;
 
-- (void)addGate:(Gate *)gate;
-
-- (int)size;
 
 // Static methods
 

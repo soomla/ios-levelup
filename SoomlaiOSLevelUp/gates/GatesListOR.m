@@ -30,26 +30,4 @@
     return toReturn;
 }
 
-- (BOOL)isOpen {
-    if (self.autoOpenBehavior) {
-        for (Gate* gate in self.gates) {
-            if (![gate isOpen]) {
-                return YES;
-            }
-        }
-        return NO;
-    } else {
-        return [super isOpen];
-    }
-}
-
-- (BOOL)canOpen {
-    for (Gate* gate in self.gates) {
-        if ([gate isOpen]) {
-            return YES;
-        }
-    }
-    return NO;
-}
-
 @end

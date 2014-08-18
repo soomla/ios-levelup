@@ -37,10 +37,6 @@ static NSString* TAG = @"SOOMLA PurchasableGate";
     if (self = [super initWithGateId:oGateId]) {
         self.associatedItemId = oAssociatedItemId;
     }
-    
-    if (![self isOpen]) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(marketPurchased:) name:EVENT_MARKET_PURCHASED object:nil];
-    }
 
     return self;
 }
@@ -49,10 +45,6 @@ static NSString* TAG = @"SOOMLA PurchasableGate";
 - (id)initWithDictionary:(NSDictionary *)dict {
     if (self = [super initWithDictionary:dict]) {
         self.associatedItemId = dict[LU_ASSOCITEMID];
-    }
-    
-    if (![self isOpen]) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(marketPurchased:) name:EVENT_MARKET_PURCHASED object:nil];
     }
     
     return self;
@@ -65,45 +57,6 @@ static NSString* TAG = @"SOOMLA PurchasableGate";
     [toReturn setObject:self.associatedItemId forKey:LU_ASSOCITEMID];
     
     return toReturn;
-}
-
-- (BOOL)tryOpenInner {
-    
-    @try {
-        
-        PurchasableVirtualItem* pvi = (PurchasableVirtualItem*)[[StoreInfo getInstance] virtualItemWithId:self.associatedItemId];
-        PurchaseWithMarket* ptype = (PurchaseWithMarket*)[pvi purchaseType];
-        [[SoomlaStore getInstance] buyInMarketWithMarketItem:ptype.marketItem andPayload:nil];
-        return YES;
-
-    } @catch (VirtualItemNotFoundException *ex) {
-        LogError(TAG, ([NSString stringWithFormat:@"The item needed for purchase doesn't exist. itemId: %@", self.associatedItemId]));
-    } @catch (NSException *ex) {
-        LogError(TAG, ([NSString stringWithFormat:@"The associated item is not a purchasable item. itemId: %@", self.associatedItemId]));
-        @throw ex;
-    }
-    
-    return NO;
-}
-
-- (BOOL)canOpen {
-    return YES;
-}
-
-// Private
-
-- (void)marketPurchased:(NSNotification*)notification {
-
-    NSDictionary* userInfo = notification.userInfo;
-    
-    // TODO: How to get the payload?
-    // Java: if (marketPurchaseEvent.getPayload().equals(getGateId())) {
-    NSString* gateId = userInfo[DICT_ELEMENT_GATE];
-    
-    if ([gateId isEqualToString:self.gateId]) {
-        [[NSNotificationCenter defaultCenter] removeObserver:self];
-        [self forceOpen:YES];
-    }
 }
 
 @end

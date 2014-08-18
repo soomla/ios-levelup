@@ -68,38 +68,6 @@ static DictionaryFactory* dictionaryFactory;
              };
 }
 
-- (BOOL)tryOpen {
-    if ([GateStorage isOpen:self]) {
-        return YES;
-    }
-    
-    return [self tryOpenInner];
-}
-
-- (void)forceOpen:(BOOL)open {
-    [GateStorage setOpen:open forGate:self];
-}
-
-- (BOOL)isOpen {
-    return [GateStorage isOpen:self];
-}
-
-// Abstract methods
-
-- (BOOL)tryOpenInner {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:[NSString stringWithFormat:@"You must override %@ in a subclass",
-                                           NSStringFromSelector(_cmd)]
-                                 userInfo:nil];
-}
-
-- (BOOL)canOpen {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:[NSString stringWithFormat:@"You must override %@ in a subclass",
-                                           NSStringFromSelector(_cmd)]
-                                 userInfo:nil];
-}
-
 
 // Static methods
 

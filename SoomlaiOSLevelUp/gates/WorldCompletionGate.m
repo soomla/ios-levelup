@@ -32,20 +32,12 @@
         self.associatedWorldId = oAssociatedWorldId;
     }
     
-    if (![self isOpen]) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(worldCompleted:) name:EVENT_WORLD_COMPLETED object:nil];
-    }
-    
     return self;
 }
 
 - (id)initWithDictionary:(NSDictionary *)dict {
     if (self = [super initWithDictionary:dict]) {
         self.associatedWorldId = dict[LU_ASSOCWORLDID];
-    }
-    
-    if (![self isOpen]) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(worldCompleted:) name:EVENT_WORLD_COMPLETED object:nil];
     }
     
     return self;
@@ -59,31 +51,5 @@
     
     return toReturn;
 }
-
-- (BOOL)canOpen {
-    World* world = [[LevelUp getInstance] getWorldWithWorldId:self.associatedWorldId];
-    return (world && [world isCompleted]);
-}
-
-- (BOOL)tryOpenInner {
-    if ([self canOpen]) {
-        [self forceOpen:YES];
-        return YES;
-    }
-    return NO;
-}
-
-// Private
-
-- (void)worldCompleted:(NSNotification *)notification {
-    
-    NSDictionary* userInfo = notification.userInfo;
-    World* world = userInfo[DICT_ELEMENT_WORLD];
-    
-    if ([world.worldId isEqualToString:self.associatedWorldId]) {
-        [[NSNotificationCenter defaultCenter] removeObserver:self];
-        // gate can now open
-    }
-};
 
 @end

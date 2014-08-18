@@ -33,7 +33,6 @@
         self.desiredRecord = oDesiredRecord;
     }
     
-    [self observeNotifications];
     return self;
 }
 
@@ -45,7 +44,6 @@
         self.desiredRecord = oDesiredRecord;
     }
     
-    [self observeNotifications];
     return self;
 }
 
@@ -55,11 +53,6 @@
         self.desiredRecord = [dict[LU_DESIRED_RECORD] doubleValue];
     }
     
-    if (![self isCompleted]) {
-        [self observeNotifications];
-    }
-    
-    [self observeNotifications];
     return self;
 }
 
@@ -73,29 +66,5 @@
     
     return toReturn;
 }
-
-
-// Private
-
-- (void)scoreRecordChanged:(NSNotification *)notification {
-    
-    NSDictionary* userInfo = notification.userInfo;
-    Score* score = userInfo[DICT_ELEMENT_SCORE];
-    
-    if ([score.scoreId isEqualToString:self.associatedScoreId] && [score hasRecordReachedScore:self.desiredRecord]) {
-        [self setCompleted:YES];
-    }
-};
-
-- (void)observeNotifications {
-    if (![self isCompleted]) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scoreRecordChanged:) name:EVENT_SCORE_RECORD_CHANGED object:nil];
-    }
-}
-
-- (void)stopObservingNotifications {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:EVENT_SCORE_RECORD_CHANGED object:nil];
-}
-
 
 @end

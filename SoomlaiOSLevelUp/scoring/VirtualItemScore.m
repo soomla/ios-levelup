@@ -61,19 +61,4 @@ static NSString* TAG = @"SOOMLA VirtualItemScore";
     return toReturn;
 }
 
-- (void)performSaveActions {
-    
-    [super performSaveActions];
-    
-    @try {
-        int amount = self.tempScore;
-        [StoreInventory giveAmount:amount ofItem:self.associatedItemId];
-    }
-    @catch (VirtualItemNotFoundException *ex) {
-        LogError(TAG, ([NSString stringWithFormat:@"Couldn't find item associated with a given \
-                        VirtualItemScore. itemId: %@", self.associatedItemId]));
-    }
-}
-
-
 @end

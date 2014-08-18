@@ -66,7 +66,6 @@
 
 @synthesize range;
 
-
 - (id)initWithScoreId:(NSString *)oScoreId andRange:(Range *)oRange {
     if (self = [super initWithScoreId:oScoreId]) {
         self.range = oRange;
@@ -111,33 +110,5 @@
     [toReturn setObject:[self.range toDictionary] forKey:LU_SCORE_RANGE];
     return toReturn;
 }
-    
-- (void)incBy:(double)amount {
-    
-    // Don't increment if we've hit the range's highest value
-    if ([self tempScore] >= self.range.high) return;
-    [super incBy:amount];
-}
-
-- (void)decBy:(double)amount {
-
-    // Don't increment if we've hit the range's lowest value
-    if ([self tempScore] >= self.range.low) return;
-    [super decBy:amount];
-}
-
-// TODO: document setter override
-// TODO: Consult Refael
-- (void)setTempScore:(double)scoreValue {
-    if (scoreValue > self.range.high) {
-        scoreValue = self.range.high;
-    }
-    if (scoreValue < self.range.low) {
-        scoreValue = self.range.low;
-    }
-    super.tempScore = scoreValue;
-}
-
-
 
 @end

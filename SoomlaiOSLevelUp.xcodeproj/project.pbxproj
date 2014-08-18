@@ -86,8 +86,6 @@
 		EFE7A1021963026D0054B3E9 /* Level.h in Headers */ = {isa = PBXBuildFile; fileRef = EF081C91193723AD00847E47 /* Level.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFFB7A3C192E3E8100BB8BB5 /* ScoreStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A3B192E3E8100BB8BB5 /* ScoreStorage.m */; };
 		EFFB7A3D192E3E8100BB8BB5 /* ScoreStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A3B192E3E8100BB8BB5 /* ScoreStorage.m */; };
-		EFFB7A40192E406900BB8BB5 /* LevelUp.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A3F192E406900BB8BB5 /* LevelUp.m */; };
-		EFFB7A41192E406900BB8BB5 /* LevelUp.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A3F192E406900BB8BB5 /* LevelUp.m */; };
 		EFFB7A461931E25000BB8BB5 /* VirtualItemScore.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A451931E25000BB8BB5 /* VirtualItemScore.m */; };
 		EFFB7A471931E25000BB8BB5 /* VirtualItemScore.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A451931E25000BB8BB5 /* VirtualItemScore.m */; };
 		EFFB7A4B1931EC5200BB8BB5 /* LevelUpEventHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A4A1931EC5200BB8BB5 /* LevelUpEventHandling.m */; };
@@ -176,7 +174,6 @@
 		EFFB7A3A192E3E8100BB8BB5 /* ScoreStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScoreStorage.h; path = data/ScoreStorage.h; sourceTree = "<group>"; };
 		EFFB7A3B192E3E8100BB8BB5 /* ScoreStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScoreStorage.m; path = data/ScoreStorage.m; sourceTree = "<group>"; };
 		EFFB7A3E192E406900BB8BB5 /* LevelUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelUp.h; sourceTree = "<group>"; };
-		EFFB7A3F192E406900BB8BB5 /* LevelUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelUp.m; sourceTree = "<group>"; };
 		EFFB7A441931E25000BB8BB5 /* VirtualItemScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VirtualItemScore.h; sourceTree = "<group>"; };
 		EFFB7A451931E25000BB8BB5 /* VirtualItemScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VirtualItemScore.m; sourceTree = "<group>"; };
 		EFFB7A491931EC5200BB8BB5 /* LevelUpEventHandling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelUpEventHandling.h; sourceTree = "<group>"; };
@@ -292,7 +289,6 @@
 				EFCDC750192E218F001D0824 /* scoring */,
 				EFCDC72B192E1EB5001D0824 /* Supporting Files */,
 				EFFB7A3E192E406900BB8BB5 /* LevelUp.h */,
-				EFFB7A3F192E406900BB8BB5 /* LevelUp.m */,
 				EFFB7A491931EC5200BB8BB5 /* LevelUpEventHandling.h */,
 				EFFB7A4A1931EC5200BB8BB5 /* LevelUpEventHandling.m */,
 				EF7BA105193379E600FCF3C9 /* World.h */,
@@ -524,7 +520,6 @@
 				EF7BA12D1935C7E300FCF3C9 /* MissionStorage.m in Sources */,
 				EF7BA13919365DF700FCF3C9 /* ActionMission.m in Sources */,
 				EFFB7A3C192E3E8100BB8BB5 /* ScoreStorage.m in Sources */,
-				EFFB7A40192E406900BB8BB5 /* LevelUp.m in Sources */,
 				EF7BA0EB1932555700FCF3C9 /* GatesList.m in Sources */,
 				EF7BA1351935FF2B00FCF3C9 /* RecordMission.m in Sources */,
 				EFFB7A461931E25000BB8BB5 /* VirtualItemScore.m in Sources */,
@@ -559,7 +554,6 @@
 				EF73CCAB1932420300A171E5 /* GateStorage.m in Sources */,
 				EF7BA108193379E600FCF3C9 /* World.m in Sources */,
 				EF73CCA719323E3200A171E5 /* Gate.m in Sources */,
-				EFFB7A41192E406900BB8BB5 /* LevelUp.m in Sources */,
 				EF7BA1321935D56B00FCF3C9 /* BalanceMission.m in Sources */,
 				EFFB7A471931E25000BB8BB5 /* VirtualItemScore.m in Sources */,
 				EF081C90193708D400847E47 /* WorldStorage.m in Sources */,
