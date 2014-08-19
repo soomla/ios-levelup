@@ -15,21 +15,17 @@
  */
 
 #import "BalanceGate.h"
-#import "JSONConsts.h"
 #import "LUJSONConsts.h"
-#import "StoreEventHandling.h"
-#import "GateStorage.h"
-#import "StoreInventory.h"
-#import "VirtualItemNotFoundException.h"
 #import "SoomlaUtils.h"
-#import "VirtualCurrency.h"
-#import "VirtualGood.h"
 
 @implementation BalanceGate
 
 @synthesize associatedItemId, desiredBalance;
     
 static NSString* TAG = @"SOOMLA BalanceGate";
+
+// TODO: Override other constructors and throw exceptions, since they don't have the associated item ID and desired balance
+
 
 - (id)initWithGateId:(NSString *)oGateId andAssociatedItemId:(NSString *)oAssociatedItemId andDesiredBalance:(int)oDesiredBalance {
     if (self = [super initWithGateId:oGateId]) {

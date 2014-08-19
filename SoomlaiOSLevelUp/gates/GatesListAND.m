@@ -15,20 +15,9 @@
  */
 
 #import "GatesListAND.h"
-#import "GateStorage.h"
-#import "JSONConsts.h"
-#import "LUJSONConsts.h"
 
 
 @implementation GatesListAND
 
-
-- (NSDictionary*)toDictionary {
-    NSDictionary* parentDict = [super toDictionary];
-    
-    NSMutableDictionary* toReturn = [[NSMutableDictionary alloc] initWithDictionary:parentDict];
-    
-    return toReturn;
-}
 
 @end

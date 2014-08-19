@@ -20,17 +20,12 @@
 /** Global **/
 
 NSString *const LU_ASSOCITEMID       = @"associatedItemId";
-NSString *const LU_ASSOCSCOREID      = @"associatedScoreId";
-NSString *const LU_ASSOCWORLDID      = @"associatedWorldId";
-NSString *const LU_DESIRED_RECORD    = @"desiredRecord";
 NSString *const LU_DESIRED_BALANCE   = @"desiredBalance";
-NSString *const LU_NAME              = @"name";
 
 
 /** Score **/
 
 NSString *const LU_SCORES            = @"scores";
-NSString *const LU_SCORE_SCOREID     = @"scoreId";
 NSString *const LU_SCORE_STARTVAL    = @"startValue";
 NSString *const LU_SCORE_HIGHBETTER  = @"higherBetter";
 
@@ -39,30 +34,21 @@ NSString *const LU_SCORE_RANGE_LOW   = @"low";
 NSString *const LU_SCORE_RANGE_HIGH  = @"high";
 
 
-/** Reward **/
-
-NSString *const LU_REWARDS           = @"rewards";
-NSString *const LU_REWARD_REPEAT     = @"repeatable";
-NSString *const LU_REWARD_REWARDID   = @"rewardId";
-NSString *const LU_REWARD_AMOUNT     = @"amount";
-NSString *const LU_REWARD_ICONURL    = @"iconUrl";
-
-
 /** Gate **/
 
+NSString *const LU_GATE              = @"gate";
 NSString *const LU_GATES             = @"gates";
-NSString *const LU_GATE_GATEID       = @"gateId";
+NSString *const LU_ASSOCSCOREID      = @"associatedScoreId";
+NSString *const LU_DESIRED_RECORD    = @"desiredRecord";
 
 
 /** Challenge **/
 
-NSString *const LU_CHALLENGES        = @"challenges";
 NSString *const LU_MISSIONS          = @"missions";
-NSString *const LU_MISSION_MISSIONID = @"missionId";
 
 
 /** World **/
 
 NSString *const LU_WORLDS            = @"worlds";
-NSString *const LU_WORLD_WORLDID     = @"worldId";
+NSString *const LU_ASSOCWORLDID      = @"associatedWorldId";
 

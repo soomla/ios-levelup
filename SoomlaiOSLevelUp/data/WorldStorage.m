@@ -28,7 +28,17 @@
 }
 
 + (void)setCompleted:(BOOL)completed forWorld:(World *)world andNotify:(BOOL)notify {
-    NSString* key = [self keyWorldCompletedWithWorldId:world.worldId];
+    
+    BOOL currentStatus = [self isWorldCompleted:world];
+    if (currentStatus == completed) {
+        
+        // we don't need to set the status of a world to the same status over and over again.
+        // couldn't only cause trouble.
+        return;
+    }
+    
+    
+    NSString* key = [self keyWorldCompletedWithWorldId:world.ID];
     
     if (completed) {
         [KeyValueStorage setValue:@"yes" forKey:key];
@@ -42,31 +52,32 @@
 }
 
 + (BOOL)isWorldCompleted:(World *)world {
-    NSString* key = [self keyWorldCompletedWithWorldId:world.worldId];
+    NSString* key = [self keyWorldCompletedWithWorldId:world.ID];
     NSString* val = [KeyValueStorage getValueForKey:key];
     return (val && [val length] > 0);
 }
 
 + (void)setReward:(NSString*)rewardId forWorld:(World *)world {
-    NSString* key = [self keyRewardWithWorldId:world.worldId];
+    NSString* key = [self keyRewardWithWorldId:world.ID];
     
-    if (rewardId && [rewardId length]>0) {
+    if (rewardId && [rewardId length] > 0) {
         [KeyValueStorage setValue:rewardId forKey:key];
     } else {
         [KeyValueStorage deleteValueForKey:key];
     }
     
+    // Notify world was assigned a reward
     [LevelUpEventHandling postWorldRewardAssigned:world];
 }
 
 + (NSString*)getAssignedReward:(World *)world {
-    NSString* key = [self keyRewardWithWorldId:world.worldId];
+    NSString* key = [self keyRewardWithWorldId:world.ID];
     return [KeyValueStorage getValueForKey:key];
 }
 
 // Private
 + (NSString *)keyWorldsWithWorldId:(NSString *)worldId andPostfix:(NSString *)postfix {
-    return [NSString stringWithFormat: @"%@world.%@.%@", LU_DB_KEY_PREFIX, worldId, postfix];
+    return [NSString stringWithFormat: @"%@worlds.%@.%@", LU_DB_KEY_PREFIX, worldId, postfix];
 }
 
 + (NSString *)keyWorldCompletedWithWorldId:(NSString *)worldId {

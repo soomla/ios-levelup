@@ -14,41 +14,31 @@
  limitations under the License.
  */
 
-@class Challenge;
-@class Gate;
-@class GatesList;
-@class Score;
-@class Reward;
+#import "SoomlaEntity.h"
 
-@interface World : NSObject {
+@class Mission;
+@class Gate;
+@class Score;
+
+@interface World : SoomlaEntity {
     
     @private
-    NSString* worldId;
-    GatesList* gates;
-    NSMutableDictionary* innerWorlds;
+    Gate* gate;
+    NSMutableDictionary* innerWorldsMap;
     NSMutableDictionary* scores;
-    NSMutableArray* challenges;
+    NSMutableArray* missions;
 }
 
-@property (strong, nonatomic, readonly) NSString* worldId;
-@property (strong, nonatomic, readonly) GatesList* gates;
-@property (strong, nonatomic, readonly) NSMutableDictionary* innerWorlds;
+@property (strong, nonatomic, readonly) Gate* gate;
+@property (strong, nonatomic, readonly) NSMutableDictionary* innerWorldsMap;
 @property (strong, nonatomic, readonly) NSMutableDictionary* scores;
-@property (strong, nonatomic, readonly) NSMutableArray* challenges;
+@property (strong, nonatomic, readonly) NSMutableArray* missions;
 
 
 - (id)initWithWorldId:(NSString *)oWorldId;
 
-- (id)initWithWorldId:(NSString *)oWorldId andSingleScoreFlag:(BOOL)isSingleScore;
-
-- (id)initWithWorldId:(NSString *)oWorldId andNumberOfLevels:(int)numLevels andInnerLevelsSingleScoreFlag:(BOOL)innerLevelsSingleScore;
-
-- (id)initWithWorldId:(NSString *)oWorldId andGates:(GatesList *)oGates
-     andInnerWorlds:(NSMutableDictionary *)oInnerWorlds andScores:(NSMutableDictionary *)oScores andChallenges:(NSArray *)oChallenges;
-
-- (id)initWithDictionary:(NSDictionary *)dict;
-
-- (NSDictionary*)toDictionary;
+- (id)initWithWorldId:(NSString *)oWorldId andGate:(Gate *)oGate
+     andInnerWorldsMap:(NSMutableDictionary *)oInnerWorldsMap andScores:(NSMutableDictionary *)oScores andMissions:(NSArray *)oMissions;
 
 
 // Static methods

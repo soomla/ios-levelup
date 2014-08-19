@@ -15,16 +15,8 @@
  */
 
 #import "PurchasableGate.h"
-#import "JSONConsts.h"
 #import "LUJSONConsts.h"
-#import "LevelUpEventHandling.h"
-#import "StoreEventHandling.h"
-#import "PurchasableVirtualItem.h"
-#import "PurchaseWithMarket.h"
-#import "SoomlaStore.h"
-#import "StoreInfo.h"
 #import "SoomlaUtils.h"
-#import "VirtualItemNotFoundException.h"
 
 
 @implementation PurchasableGate
@@ -32,6 +24,9 @@
 @synthesize associatedItemId;
 
 static NSString* TAG = @"SOOMLA PurchasableGate";
+
+// TODO: Override other constructors and throw exceptions, since they don't have the associated item ID and desired balance
+
 
 - (id)initWithGateId:(NSString *)oGateId andAssociatedItemId:(NSString *)oAssociatedItemId {
     if (self = [super initWithGateId:oGateId]) {

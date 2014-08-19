@@ -17,7 +17,7 @@
 #import "Score.h"
 
 
-@interface Range : NSObject {
+@interface Range : Score {
     
     @private
     double low;
@@ -28,10 +28,6 @@
 @property (nonatomic) double high;
 
 - (id)initWithLow:(double)oLow andHigh:(double)oHigh;
-
-- (id)initWithDictionary:(NSDictionary *)dict;
-
-- (NSDictionary*)toDictionary;
 
 @end
 

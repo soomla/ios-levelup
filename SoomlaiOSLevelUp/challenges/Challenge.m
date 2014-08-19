@@ -15,12 +15,7 @@
  */
 
 #import "Challenge.h"
-#import "BalanceMission.h"
-#import "MissionStorage.h"
-#import "JSONConsts.h"
 #import "LUJSONConsts.h"
-#import "RecordMission.h"
-#import "LevelUpEventHandling.h"
 #import "SoomlaUtils.h"
 
 @implementation Challenge

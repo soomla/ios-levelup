@@ -15,10 +15,7 @@
  */
 
 #import "VirtualItemScore.h"
-#import "JSONConsts.h"
 #import "LUJSONConsts.h"
-#import "StoreInventory.h"
-#import "VirtualItemNotFoundException.h"
 #import "SoomlaUtils.h"
 
 
@@ -27,6 +24,9 @@
 @synthesize associatedItemId;
 
 static NSString* TAG = @"SOOMLA VirtualItemScore";
+
+
+// TODO: Override other constructors and throw exceptions, since they don't have the associated item ID and desired balance
 
 - (id)initWithScoreId:(NSString *)oScoreId andAssociatedItemId:(NSString *)oAssociatedItemId {
     if (self = [super initWithScoreId:oScoreId]) {

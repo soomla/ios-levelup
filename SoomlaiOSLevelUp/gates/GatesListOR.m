@@ -15,19 +15,8 @@
  */
 
 #import "GatesListOR.h"
-#import "JSONConsts.h"
-#import "LUJSONConsts.h"
 
 
 @implementation GatesListOR
-
-
-- (NSDictionary*)toDictionary {
-    NSDictionary* parentDict = [super toDictionary];
-    
-    NSMutableDictionary* toReturn = [[NSMutableDictionary alloc] initWithDictionary:parentDict];
-    
-    return toReturn;
-}
 
 @end

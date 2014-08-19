@@ -15,11 +15,7 @@
  */
 
 #import "RecordGate.h"
-#import "Score.h"
-#import "LevelUp.h"
-#import "JSONConsts.h"
 #import "LUJSONConsts.h"
-#import "LevelUpEventHandling.h"
 #import "SoomlaUtils.h"
 
 @implementation RecordGate
@@ -27,6 +23,9 @@
 @synthesize associatedScoreId, desiredRecord;
 
 static NSString* TAG = @"SOOMLA RecordGate";
+
+// TODO: Override other constructors and throw exceptions, since they don't have the associated item ID and desired balance
+
 
 - (id)initWithGateId:(NSString *)oGateId andScoreId:(NSString *)oScoreId andDesiredRecord:(double)oDesiredRecord {
     if (self = [super initWithGateId:oGateId]) {

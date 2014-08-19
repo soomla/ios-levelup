@@ -15,17 +15,15 @@
  */
 
 #import "WorldCompletionGate.h"
-#import "World.h"
-#import "LevelUp.h"
-#import "JSONConsts.h"
 #import "LUJSONConsts.h"
-#import "LevelUpEventHandling.h"
 #import "SoomlaUtils.h"
 
 @implementation WorldCompletionGate
 
 @synthesize associatedWorldId;
 
+
+// TODO: Override other constructors and throw exceptions, since they don't have the associated item ID and desired balance
 
 - (id)initWithGateId:(NSString *)oGateId andAssociatedWorldId:(NSString *)oAssociatedWorldId {
     if (self = [super initWithGateId:oGateId]) {

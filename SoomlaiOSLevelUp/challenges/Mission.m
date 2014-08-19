@@ -21,46 +21,50 @@
 #import "LUJSONConsts.h"
 #import "DictionaryFactory.h"
 #import "SoomlaUtils.h"
+#import "Schedule.h"
+#import "Gate.h"
 
 @implementation Mission
 
-@synthesize missionId, name, rewards;
+@synthesize rewards, schedule, gate;
 
 static NSString* TAG = @"SOOMLA Mission";
 static DictionaryFactory* dictionaryFactory;
 
 
 - (id)initWithMissionId:(NSString *)oMissionId andName:(NSString *)oName {
-    self = [super init];
-    if ([self class] == [Mission class]) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"Error, attempting to instantiate AbstractClass directly." userInfo:nil];
-    }
-
-    if (self) {
-        self.missionId = oMissionId;
-        self.name = oName;
-    }
-    return self;
+    return [self initWithMissionId:oMissionId
+                           andName:oName
+                  andGateClassName:nil
+                 andGateInitParams:nil];
 }
 
 - (id)initWithMissionId:(NSString *)oMissionId andName:(NSString *)oName andRewards:(NSArray *)oRewards {
-    self = [super init];
-    if ([self class] == [Mission class]) {
-        @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:@"Error, attempting to instantiate AbstractClass directly." userInfo:nil];
-    }
-    
-    if (self) {
-        self.missionId = oMissionId;
-        self.name = oName;
-        self.rewards = oRewards;
-    }
-    return self;
+    return [self initWithMissionId:oMissionId
+                           andName:oName
+                        andRewards:oRewards
+                  andGateClassName:nil
+                 andGateInitParams:nil];
 }
 
-- (id)initWithDictionary:(NSDictionary *)dict {
-    self = [super init];
+- (id)initWithMissionId:(NSString *)oMissionId
+                andName:(NSString *)oName
+       andGateClassName:(NSString *)oClassName
+      andGateInitParams:(NSArray *)oGateInitParams {
+    return [self initWithMissionId:oMissionId
+                           andName:oName
+                        andRewards:[NSMutableArray array]
+                  andGateClassName:oClassName
+                 andGateInitParams:oGateInitParams];
+}
+
+
+- (id)initWithMissionId:(NSString *)oMissionId
+                andName:(NSString *)oName
+             andRewards:(NSArray *)oRewards
+       andGateClassName:(NSString *)oClassName
+      andGateInitParams:(NSArray *)oGateInitParams {
+    self = [super initWithName:oName andDescription:@"" andID:oMissionId];
     if ([self class] == [Mission class]) {
         @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                        reason:@"Error, attempting to instantiate AbstractClass directly." userInfo:nil];
@@ -68,11 +72,35 @@ static DictionaryFactory* dictionaryFactory;
     
     if (self) {
         
-        self.missionId = dict[LU_MISSION_MISSIONID];
-        self.name = dict[LU_NAME];
+        self.rewards = oRewards;
+//        self.gate = gate
+        
+        if (oClassName) {
+            Class gateClass = NSClassFromString(oClassName);
+            self.gate = [[gateClass alloc] init];
+            
+            // STUCK - need to initialize in reflection according
+            // to number of arguments in gateInitParams and that's not possible in Objective C
+        }
+//        self.schedule = [Schedule AnyTimeOnce];
+        
+    }
+    return self;
+
+}
+
+
+- (id)initWithDictionary:(NSDictionary *)dict {
+    self = [super initWithDictionary:dict];
+    if ([self class] == [Mission class]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:@"Error, attempting to instantiate AbstractClass directly." userInfo:nil];
+    }
+    
+    if (self) {
         
         NSMutableArray* tmpRewards = [NSMutableArray array];
-        NSArray* rewardsArr = dict[LU_REWARDS];
+        NSArray* rewardsArr = dict[SOOM_REWARDS];
         
         // Iterate over all rewards in the JSON array and for each one create
         // an instance according to the reward type
@@ -85,49 +113,33 @@ static DictionaryFactory* dictionaryFactory;
         }
         
         self.rewards = tmpRewards;
+        
+        self.gate = [Gate fromDictionary:dict[LU_GATE]];
+        if (dict[SOOM_SCHEDULE]) {
+            self.schedule = [[Schedule alloc] initWithDictionary:dict[SOOM_SCHEDULE]];
+        }
     }
     
     return self;
 }
 
 - (NSDictionary *)toDictionary {
-    NSMutableDictionary* dict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                 NSStringFromClass([self class]), SOOM_CLASSNAME,
-                                 self.missionId, LU_MISSION_MISSIONID,
-                                 self.name, LU_NAME,
-                                 nil];
+    NSMutableDictionary* dict = [NSMutableDictionary dictionaryWithDictionary:[super toDictionary]];
+    
     
     NSMutableArray* rewardsArr = [NSMutableArray array];
     for (Reward* reward in self.rewards) {
         [rewardsArr addObject:[reward toDictionary]];
     }
-    [dict setObject:rewardsArr forKey:LU_REWARDS];
+    [dict setObject:rewardsArr forKey:SOOM_REWARDS];
+    [dict setObject:[self.gate toDictionary] forKey:LU_GATE];
+    [dict setObject:[self.schedule toDictionary] forKey:SOOM_SCHEDULE];
     
     return dict;
 }
 
-- (BOOL)isEqualToMission:(Mission *)mission {
-    if (!mission) {
-        return NO;
-    }
-    
-    return [self.missionId isEqualToString:mission.missionId];
-}
-
-- (BOOL)isEqual:(id)object {
-    if (self == object) {
-        return YES;
-    }
-    
-    if (![object isKindOfClass:[Mission class]]) {
-        return NO;
-    }
-    
-    return [self isEqualToMission:(Mission *)object];
-}
-
-- (NSUInteger)hash {
-    return [self.missionId hash];
+- (NSString *)autoGateId {
+    return [NSString stringWithFormat:@"gate_%@", ID];
 }
 
 
@@ -142,22 +154,5 @@ static DictionaryFactory* dictionaryFactory;
         dictionaryFactory = [[DictionaryFactory alloc] init];
     }
 }
-
-//
-// Private methods
-//
-
-- (void)giveRewards {
-    for (Reward* reward in self.rewards) {
-        [reward give];
-    }
-}
-
-- (void)takeRewards {
-    for (Reward* reward in self.rewards) {
-        [reward take];
-    }
-}
-
 
 @end

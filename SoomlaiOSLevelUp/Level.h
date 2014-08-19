@@ -28,7 +28,6 @@ typedef NS_ENUM(NSInteger, LevelState) {
 
     @private
     long long startTime;
-    long long currentTime;
     long long elapsed;
     LevelState state;
 }

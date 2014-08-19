@@ -16,16 +16,14 @@
 
 @class Score;
 @class Gate;
-@class Reward;
 @class Mission;
 @class World;
 @class Level;
 
 // Events
 #define EVENT_SCORE_RECORD_CHANGED           @"lu_score_record_changed"
+#define EVENT_SCORE_RECORD_REACHED           @"lu_score_record_reached"
 #define EVENT_GATE_OPENED                    @"lu_gate_opened"
-#define EVENT_REWARD_GIVEN                   @"lu_reward_given"
-#define EVENT_REWARD_TAKEN                   @"lu_reward_taken"
 #define EVENT_MISSION_COMPLETED              @"lu_mission_completed"
 #define EVENT_MISSION_COMPLETION_REVOKED     @"lu_mission_completeion_revoked"
 #define EVENT_WORLD_COMPLETED                @"lu_world_completed"
@@ -52,11 +50,9 @@
 
 + (void)postScoreRecordChanged:(Score *)score;
 
++ (void)postScoreRecordReached:(Score *)score;
+
 + (void)postGateOpened:(Gate *)gate;
-
-+ (void)postRewardGiven:(Reward *)reward;
-
-+ (void)postRewardTaken:(Reward *)reward;
 
 + (void)postMissionCompleted:(Mission *)mission;
 

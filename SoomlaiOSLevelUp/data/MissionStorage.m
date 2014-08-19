@@ -30,30 +30,34 @@ static NSString* TAG = @"SOOMLA MissionStorage";
 }
 
 + (void)setCompleted:(BOOL)completed forMission:(Mission *)mission andNotify:(BOOL)notify {
-    NSString* msg = [NSString stringWithFormat:@"setCompleted %d %@", completed, mission.missionId];
-    LogDebug(TAG, msg);
-    NSString* key = [self keyMissionCompletedWithMissionId:mission.missionId];
     
-    if (completed) {
-        [KeyValueStorage setValue:@"yes" forKey:key];
-        
-        if (notify) {
+    int total = [self getTimesCompleted:mission] + (completed ? 1 : -1);
+    if (total < 0) {
+        total = 0;
+    }
+    NSString* key = [self keyMissionTimesCompletedWithMissionId:mission.ID];
+    [KeyValueStorage setValue:[@(total) stringValue] forKey:key];
+    
+    if (notify) {
+        if (completed) {
             [LevelUpEventHandling postMissionCompleted:mission];
-        }
-    } else {
-        [KeyValueStorage deleteValueForKey:key];
-        if (notify) {
+        } else {
             [LevelUpEventHandling postMissionCompletionRevoked:mission];
         }
     }
 }
 
 + (BOOL)isMissionCompleted:(Mission *)mission {
-    NSString* key = [self keyMissionCompletedWithMissionId:mission.missionId];
+    return [self getTimesCompleted:mission] > 0;
+}
+
++ (int)getTimesCompleted:(Mission *)mission {
+    NSString* key = [self keyMissionTimesCompletedWithMissionId:mission.ID];
     NSString* val = [KeyValueStorage getValueForKey:key];
     NSString* msg = [NSString stringWithFormat:@"key:%@ val:%@", key, val];
     LogDebug(TAG, msg)
-    return (val && [val length] > 0);
+    
+    return (![val length]) ? 0 : [val intValue];
 }
 
 
@@ -62,8 +66,8 @@ static NSString* TAG = @"SOOMLA MissionStorage";
     return [NSString stringWithFormat: @"%@missions.%@.%@", LU_DB_KEY_PREFIX, missionId, postfix];
 }
 
-+ (NSString *)keyMissionCompletedWithMissionId:(NSString *)missionId {
-    return [self keyMissionsWithMissionId:missionId andPostfix:@"completed"];
++ (NSString *)keyMissionTimesCompletedWithMissionId:(NSString *)missionId {
+    return [self keyMissionsWithMissionId:missionId andPostfix:@"timesCompleted"];
 }
 
 

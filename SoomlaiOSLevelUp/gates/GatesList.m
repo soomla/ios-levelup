@@ -15,10 +15,7 @@
  */
 
 #import "GatesList.h"
-#import "JSONConsts.h"
 #import "LUJSONConsts.h"
-#import "GatesListAND.h"
-#import "GatesListOR.h"
 #import "DictionaryFactory.h"
 #import "SoomlaUtils.h"
 
@@ -26,17 +23,22 @@
 // TODO: Document ABSTRACT class
 @implementation GatesList
 
-@synthesize gates, autoOpenBehavior;
+@synthesize gates;
 
 static NSString* TAG = @"SOOMLA GatesList";
 static DictionaryFactory* dictionaryFactory;
 
+
 - (id)initWithGateId:(NSString *)oGateId {
     if (self = [super initWithGateId:oGateId]) {
         self.gates = [NSMutableArray array];
-        
-        // "fake" gates with 1 sub-gate are auto open
-        self.autoOpenBehavior = YES;
+    }
+    return self;
+}
+
+- (id)initWithGateId:(NSString *)oGateId andName:(NSString *)oName {
+    if (self = [super initWithGateId:oGateId andName:oName]) {
+        self.gates = [NSMutableArray array];
     }
     return self;
 }
@@ -44,10 +46,7 @@ static DictionaryFactory* dictionaryFactory;
 - (id)initWithGateId:(NSString *)oGateId andSingleGate:(Gate *)oSingleGate {
     if (self = [super initWithGateId:oGateId]) {
         self.gates = [NSMutableArray array];
-        [self addGate:oSingleGate];
-        
-        // "fake" gates with 1 sub-gate are auto open
-        self.autoOpenBehavior = YES;
+        [self.gates addObject:oSingleGate];
     }
     
     return self;
@@ -56,7 +55,6 @@ static DictionaryFactory* dictionaryFactory;
 - (id)initWithGateId:(NSString *)oGateId andGates:(NSArray*)oGates {
     if (self = [super initWithGateId:oGateId]) {
         self.gates = [NSMutableArray arrayWithArray:oGates];
-        self.autoOpenBehavior = NO;
     }
     
     return self;
@@ -79,13 +77,6 @@ static DictionaryFactory* dictionaryFactory;
         }
         
         self.gates = tmpGates;
-        if ([self.gates count] < 2) {
-            
-            // "fake" gates with 1 sub-gate are auto open
-            self.autoOpenBehavior = YES;
-        } else {
-            self.autoOpenBehavior = NO;
-        }
     }
     
     return self;

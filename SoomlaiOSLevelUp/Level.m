@@ -15,14 +15,6 @@
  */
 
 #import "Level.h"
-#import "LevelStorage.h"
-#import "Score.h"
-#import "JSONConsts.h"
-#import "LUJSONConsts.h"
-#import "VirtualItemScore.h"
-#import "VirtualItemNotFoundException.h"
-#import "StoreInventory.h"
-#import "SoomlaUtils.h"
 
 
 @implementation Level
@@ -30,14 +22,5 @@
 @synthesize state;
 
 static NSString* TAG = @"SOOMLA Level";
-
-
-- (NSDictionary*)toDictionary {
-    NSDictionary* parentDict = [super toDictionary];
-    
-    NSMutableDictionary* toReturn = [[NSMutableDictionary alloc] initWithDictionary:parentDict];
-    
-    return toReturn;
-}
 
 @end

@@ -14,30 +14,22 @@
  limitations under the License.
  */
 
-@interface Score : NSObject {
+#import "SoomlaEntity.h"
+
+@interface Score : SoomlaEntity {
     
     @private
-    NSString*   name;
-    NSString*   scoreId;
     double      startValue;
-    double      tempScore;
     BOOL        higherBetter;
 }
 
-@property (strong, nonatomic) NSString* name;
-@property (strong, nonatomic) NSString* scoreId;
 @property (nonatomic) double startValue;
-@property (nonatomic) double tempScore;
 @property (nonatomic) BOOL higherBetter;
 
 
 - (id)initWithScoreId:(NSString *)oScoreId;
 
 - (id)initWithScoreId:(NSString *)scoreId andName:(NSString *)oName andHigherBetter:(BOOL)oHigherBetter;
-
-- (id)initWithDictionary:(NSDictionary *)dict;
-
-- (NSDictionary*)toDictionary;
 
 - (BOOL)isHigherBetter;
 

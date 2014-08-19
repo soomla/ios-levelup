@@ -66,6 +66,9 @@
 
 @synthesize range;
 
+// TODO: Override other constructors and throw exceptions, since they don't have the associated item ID and desired balance
+
+
 - (id)initWithScoreId:(NSString *)oScoreId andRange:(Range *)oRange {
     if (self = [super initWithScoreId:oScoreId]) {
         self.range = oRange;
@@ -89,9 +92,6 @@
 
 - (id)initWithDictionary:(NSDictionary *)dict {
     if (self = [super initWithDictionary:dict]) {
-        self.scoreId = dict[LU_SCORE_SCOREID];
-        self.name = dict[LU_NAME];
-        self.higherBetter = [dict[LU_SCORE_HIGHBETTER] boolValue];
         self.range = [[Range alloc] initWithDictionary:dict[LU_SCORE_RANGE]];
 
         // if the score is descending, the start value should be

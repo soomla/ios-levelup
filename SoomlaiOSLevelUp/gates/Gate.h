@@ -14,20 +14,16 @@
  limitations under the License.
  */
 
-// TODO: Document abstract class
-@interface Gate : NSObject {
-    
-    @private
-    NSString* gateId;
-}
+#import "SoomlaEntity.h"
 
-@property (strong, nonatomic) NSString* gateId;
+// TODO: Document abstract class
+@interface Gate : SoomlaEntity {
+    
+}
 
 - (id)initWithGateId:(NSString *)oGateId;
 
-- (id)initWithDictionary:(NSDictionary *)dict;
-
-- (NSDictionary*)toDictionary;
+- (id)initWithGateId:(NSString *)oGateId andName:(NSString *)oName;
 
 
 // Static methods

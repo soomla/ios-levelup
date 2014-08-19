@@ -17,14 +17,7 @@
 #import "Mission.h"
 
 @interface RecordMission : Mission {
-    
-    @private
-    NSString* associatedScoreId;
-    double desiredRecord;
 }
-
-@property (strong, nonatomic) NSString* associatedScoreId;
-@property (nonatomic) double desiredRecord;
 
 - (id)initWithMissionId:(NSString *)oMissionId andName:(NSString *)oName
    andAssociatedScoreId:(NSString *)oAssociatedScoreId andDesiredRecord:(int)oDesiredRecord;

@@ -17,14 +17,7 @@
 #import "Mission.h"
 
 @interface BalanceMission : Mission {
-    
-    @private
-    NSString* associatedItemId;
-    int desiredBalance;
 }
-
-@property (strong, nonatomic) NSString* associatedItemId;
-@property (nonatomic) int desiredBalance;
 
 
 - (id)initWithMissionId:(NSString *)oMissionId andName:(NSString *)oName
