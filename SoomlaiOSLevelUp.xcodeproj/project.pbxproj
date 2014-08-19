@@ -43,8 +43,8 @@
 		EF7BA1321935D56B00FCF3C9 /* BalanceMission.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA1301935D56B00FCF3C9 /* BalanceMission.m */; };
 		EF7BA1351935FF2B00FCF3C9 /* RecordMission.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA1341935FF2B00FCF3C9 /* RecordMission.m */; };
 		EF7BA1361935FF2B00FCF3C9 /* RecordMission.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA1341935FF2B00FCF3C9 /* RecordMission.m */; };
-		EF7BA13919365DF700FCF3C9 /* ActionMission.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA13819365DF700FCF3C9 /* ActionMission.m */; };
-		EF7BA13A19365DF700FCF3C9 /* ActionMission.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA13819365DF700FCF3C9 /* ActionMission.m */; };
+		EF7BA13919365DF700FCF3C9 /* PurchasingMission.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA13819365DF700FCF3C9 /* PurchasingMission.m */; };
+		EF7BA13A19365DF700FCF3C9 /* PurchasingMission.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA13819365DF700FCF3C9 /* PurchasingMission.m */; };
 		EF7BA13D19365FF000FCF3C9 /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA13C19365FF000FCF3C9 /* Challenge.m */; };
 		EF7BA13E19365FF000FCF3C9 /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA13C19365FF000FCF3C9 /* Challenge.m */; };
 		EFC127C6194CD79300CDA66B /* SoomlaiOSLevelUpTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFCDC740192E1EB6001D0824 /* SoomlaiOSLevelUpTests-Info.plist */; };
@@ -61,7 +61,7 @@
 		EFE7A0E51963026C0054B3E9 /* Mission.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BA1271935BE9500FCF3C9 /* Mission.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFE7A0E61963026C0054B3E9 /* BalanceMission.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BA12F1935D56B00FCF3C9 /* BalanceMission.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFE7A0E71963026C0054B3E9 /* RecordMission.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BA1331935FF2B00FCF3C9 /* RecordMission.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EFE7A0E81963026C0054B3E9 /* ActionMission.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BA13719365DF700FCF3C9 /* ActionMission.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EFE7A0E81963026C0054B3E9 /* PurchasingMission.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BA13719365DF700FCF3C9 /* PurchasingMission.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFE7A0E91963026C0054B3E9 /* Challenge.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BA13B19365FF000FCF3C9 /* Challenge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFE7A0ED1963026C0054B3E9 /* Gate.h in Headers */ = {isa = PBXBuildFile; fileRef = EF73CCA419323E3200A171E5 /* Gate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFE7A0EE1963026C0054B3E9 /* GatesList.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BA0E91932555700FCF3C9 /* GatesList.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -86,8 +86,6 @@
 		EFE7A1021963026D0054B3E9 /* Level.h in Headers */ = {isa = PBXBuildFile; fileRef = EF081C91193723AD00847E47 /* Level.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFFB7A3C192E3E8100BB8BB5 /* ScoreStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A3B192E3E8100BB8BB5 /* ScoreStorage.m */; };
 		EFFB7A3D192E3E8100BB8BB5 /* ScoreStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A3B192E3E8100BB8BB5 /* ScoreStorage.m */; };
-		EFFB7A40192E406900BB8BB5 /* LevelUp.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A3F192E406900BB8BB5 /* LevelUp.m */; };
-		EFFB7A41192E406900BB8BB5 /* LevelUp.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A3F192E406900BB8BB5 /* LevelUp.m */; };
 		EFFB7A461931E25000BB8BB5 /* VirtualItemScore.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A451931E25000BB8BB5 /* VirtualItemScore.m */; };
 		EFFB7A471931E25000BB8BB5 /* VirtualItemScore.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A451931E25000BB8BB5 /* VirtualItemScore.m */; };
 		EFFB7A4B1931EC5200BB8BB5 /* LevelUpEventHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A4A1931EC5200BB8BB5 /* LevelUpEventHandling.m */; };
@@ -157,8 +155,8 @@
 		EF7BA1301935D56B00FCF3C9 /* BalanceMission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BalanceMission.m; path = challenges/BalanceMission.m; sourceTree = "<group>"; };
 		EF7BA1331935FF2B00FCF3C9 /* RecordMission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordMission.h; path = challenges/RecordMission.h; sourceTree = "<group>"; };
 		EF7BA1341935FF2B00FCF3C9 /* RecordMission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordMission.m; path = challenges/RecordMission.m; sourceTree = "<group>"; };
-		EF7BA13719365DF700FCF3C9 /* ActionMission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActionMission.h; path = challenges/ActionMission.h; sourceTree = "<group>"; };
-		EF7BA13819365DF700FCF3C9 /* ActionMission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActionMission.m; path = challenges/ActionMission.m; sourceTree = "<group>"; };
+		EF7BA13719365DF700FCF3C9 /* PurchasingMission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PurchasingMission.h; path = challenges/PurchasingMission.h; sourceTree = "<group>"; };
+		EF7BA13819365DF700FCF3C9 /* PurchasingMission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PurchasingMission.m; path = challenges/PurchasingMission.m; sourceTree = "<group>"; };
 		EF7BA13B19365FF000FCF3C9 /* Challenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Challenge.h; path = challenges/Challenge.h; sourceTree = "<group>"; };
 		EF7BA13C19365FF000FCF3C9 /* Challenge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Challenge.m; path = challenges/Challenge.m; sourceTree = "<group>"; };
 		EFC127C8194CD79F00CDA66B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -176,7 +174,6 @@
 		EFFB7A3A192E3E8100BB8BB5 /* ScoreStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScoreStorage.h; path = data/ScoreStorage.h; sourceTree = "<group>"; };
 		EFFB7A3B192E3E8100BB8BB5 /* ScoreStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScoreStorage.m; path = data/ScoreStorage.m; sourceTree = "<group>"; };
 		EFFB7A3E192E406900BB8BB5 /* LevelUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelUp.h; sourceTree = "<group>"; };
-		EFFB7A3F192E406900BB8BB5 /* LevelUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelUp.m; sourceTree = "<group>"; };
 		EFFB7A441931E25000BB8BB5 /* VirtualItemScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VirtualItemScore.h; sourceTree = "<group>"; };
 		EFFB7A451931E25000BB8BB5 /* VirtualItemScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VirtualItemScore.m; sourceTree = "<group>"; };
 		EFFB7A491931EC5200BB8BB5 /* LevelUpEventHandling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelUpEventHandling.h; sourceTree = "<group>"; };
@@ -245,8 +242,8 @@
 				EF7BA1301935D56B00FCF3C9 /* BalanceMission.m */,
 				EF7BA1331935FF2B00FCF3C9 /* RecordMission.h */,
 				EF7BA1341935FF2B00FCF3C9 /* RecordMission.m */,
-				EF7BA13719365DF700FCF3C9 /* ActionMission.h */,
-				EF7BA13819365DF700FCF3C9 /* ActionMission.m */,
+				EF7BA13719365DF700FCF3C9 /* PurchasingMission.h */,
+				EF7BA13819365DF700FCF3C9 /* PurchasingMission.m */,
 				EF7BA13B19365FF000FCF3C9 /* Challenge.h */,
 				EF7BA13C19365FF000FCF3C9 /* Challenge.m */,
 			);
@@ -292,7 +289,6 @@
 				EFCDC750192E218F001D0824 /* scoring */,
 				EFCDC72B192E1EB5001D0824 /* Supporting Files */,
 				EFFB7A3E192E406900BB8BB5 /* LevelUp.h */,
-				EFFB7A3F192E406900BB8BB5 /* LevelUp.m */,
 				EFFB7A491931EC5200BB8BB5 /* LevelUpEventHandling.h */,
 				EFFB7A4A1931EC5200BB8BB5 /* LevelUpEventHandling.m */,
 				EF7BA105193379E600FCF3C9 /* World.h */,
@@ -371,7 +367,7 @@
 				EFE7A0E51963026C0054B3E9 /* Mission.h in Headers */,
 				EFE7A0E61963026C0054B3E9 /* BalanceMission.h in Headers */,
 				EFE7A0E71963026C0054B3E9 /* RecordMission.h in Headers */,
-				EFE7A0E81963026C0054B3E9 /* ActionMission.h in Headers */,
+				EFE7A0E81963026C0054B3E9 /* PurchasingMission.h in Headers */,
 				EFE7A0E91963026C0054B3E9 /* Challenge.h in Headers */,
 				EFE7A0ED1963026C0054B3E9 /* Gate.h in Headers */,
 				EFE7A0EE1963026C0054B3E9 /* GatesList.h in Headers */,
@@ -522,9 +518,8 @@
 				EF7BA1291935BE9500FCF3C9 /* Mission.m in Sources */,
 				EF73CCA619323E3200A171E5 /* Gate.m in Sources */,
 				EF7BA12D1935C7E300FCF3C9 /* MissionStorage.m in Sources */,
-				EF7BA13919365DF700FCF3C9 /* ActionMission.m in Sources */,
+				EF7BA13919365DF700FCF3C9 /* PurchasingMission.m in Sources */,
 				EFFB7A3C192E3E8100BB8BB5 /* ScoreStorage.m in Sources */,
-				EFFB7A40192E406900BB8BB5 /* LevelUp.m in Sources */,
 				EF7BA0EB1932555700FCF3C9 /* GatesList.m in Sources */,
 				EF7BA1351935FF2B00FCF3C9 /* RecordMission.m in Sources */,
 				EFFB7A461931E25000BB8BB5 /* VirtualItemScore.m in Sources */,
@@ -559,7 +554,6 @@
 				EF73CCAB1932420300A171E5 /* GateStorage.m in Sources */,
 				EF7BA108193379E600FCF3C9 /* World.m in Sources */,
 				EF73CCA719323E3200A171E5 /* Gate.m in Sources */,
-				EFFB7A41192E406900BB8BB5 /* LevelUp.m in Sources */,
 				EF7BA1321935D56B00FCF3C9 /* BalanceMission.m in Sources */,
 				EFFB7A471931E25000BB8BB5 /* VirtualItemScore.m in Sources */,
 				EF081C90193708D400847E47 /* WorldStorage.m in Sources */,
@@ -571,7 +565,7 @@
 				EF081C94193723AD00847E47 /* Level.m in Sources */,
 				EF7BA12E1935C7E300FCF3C9 /* MissionStorage.m in Sources */,
 				EFCDC745192E1EB6001D0824 /* SoomlaiOSLevelUpTests.m in Sources */,
-				EF7BA13A19365DF700FCF3C9 /* ActionMission.m in Sources */,
+				EF7BA13A19365DF700FCF3C9 /* PurchasingMission.m in Sources */,
 				EFFB7A4C1931EC5200BB8BB5 /* LevelUpEventHandling.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

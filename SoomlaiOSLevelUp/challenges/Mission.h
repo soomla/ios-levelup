@@ -16,40 +16,39 @@
 
 // Abstract (not because of unimplemented methods, but in the sense that
 // the developer should not instantiate this class directly but only sub-classes)
-@interface Mission : NSObject {
+#import "SoomlaEntity.h"
+
+@class Schedule;
+@class Gate;
+
+@interface Mission : SoomlaEntity {
     
     @private
-    NSString* missionId;
-    NSString* name;
     NSArray* rewards;
+    Schedule* schedule;
+    Gate* gate;
 }
 
-@property (strong, nonatomic) NSString* missionId;
-@property (strong, nonatomic) NSString* name;
 @property (strong, nonatomic) NSArray* rewards;
+@property (strong, nonatomic) Schedule* schedule;
+@property (strong, nonatomic) Gate* gate;
 
 
 - (id)initWithMissionId:(NSString *)oMissionId andName:(NSString *)oName;
 
 - (id)initWithMissionId:(NSString *)oMissionId andName:(NSString *)oName andRewards:(NSArray *)oRewards;
 
-- (id)initWithDictionary:(NSDictionary *)dict;
+- (id)initWithMissionId:(NSString *)oMissionId
+                andName:(NSString *)oName
+       andGateClassName:(NSString *)oClassame
+      andGateInitParams:(NSArray *)oGateInitParams;
 
-- (NSDictionary *)toDictionary;
+- (id)initWithMissionId:(NSString *)oMissionId
+                andName:(NSString *)oName
+             andRewards:(NSArray *)oRewards
+       andGateClassName:(NSString *)oClassName
+      andGateInitParams:(NSArray *)oGateInitParams;
 
-- (BOOL)isCompleted;
-
-- (void)setCompleted:(BOOL)completed;
-
-- (BOOL)isEqualToMission:(Mission *)mission;
-
-- (BOOL)isEqual:(id)object;
-
-- (NSUInteger)hash;
-
-- (void)observeNotifications;
-
-- (void)stopObservingNotifications;
 
 // Static methods
 

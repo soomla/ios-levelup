@@ -14,34 +14,31 @@
  limitations under the License.
  */
 
-#import "BalanceMission.h"
-#import "BalanceGate.h"
+#import "PurchasingMission.h"
+#import "PurchasableGate.h"
 
-
-@implementation BalanceMission
-
+@implementation PurchasingMission
 
 - (id)initWithMissionId:(NSString *)oMissionId andName:(NSString *)oName
-    andAssociatedItemId:(NSString *)oAssociatedItemId andDesiredBalance:(int)oDesiredBalance {
+   andAssociatedItemId:(NSString *)oAssociatedItemId {
     
     if (self = [super initWithMissionId:oMissionId
                                 andName:oName
-                       andGateClassName:NSStringFromClass([BalanceGate class])
-                      andGateInitParams:@[oAssociatedItemId, @(oDesiredBalance)]]) {
-    
+                       andGateClassName:NSStringFromClass([PurchasableGate class])
+                      andGateInitParams:@[oAssociatedItemId]]) {
+        
     }
     
     return self;
 }
 
 - (id)initWithMissionId:(NSString *)oMissionId andName:(NSString *)oName
-             andRewards:(NSArray *)oRewards andAssociatedItemId:(NSString *)oAssociatedItemId andDesiredBalance:(int)oDesiredBalance{
+             andRewards:(NSArray *)oRewards andAssociatedItemId:(NSString *)oAssociatedItemId {
     
     if (self = [super initWithMissionId:oMissionId
                                 andName:oName
-                             andRewards:oRewards
-                       andGateClassName:NSStringFromClass([BalanceGate class])
-                      andGateInitParams:@[oAssociatedItemId, @(oDesiredBalance)]]) {
+                       andGateClassName:NSStringFromClass([PurchasableGate class])
+                      andGateInitParams:@[oAssociatedItemId]]) {
         
     }
     

@@ -16,6 +16,12 @@
 
 #import "Mission.h"
 
-@interface ActionMission : Mission
+@interface PurchasingMission : Mission
+
+- (id)initWithMissionId:(NSString *)oMissionId andName:(NSString *)oName
+   andAssociatedItemId:(NSString *)oAssociatedItemId;
+
+- (id)initWithMissionId:(NSString *)oMissionId andName:(NSString *)oName
+             andRewards:(NSArray *)oRewards andAssociatedItemId:(NSString *)oAssociatedItemId;
 
 @end

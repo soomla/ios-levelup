@@ -25,11 +25,11 @@
 
 
 + (void)setOpen:(BOOL)open forGate:(Gate*)gate {
-    [self setOpen:open forGate:gate];
+    [self setOpen:open forGate:gate andEvent:YES];
 }
 
 + (void)setOpen:(BOOL)open forGate:(Gate*)gate andEvent:(BOOL)notify {
-    NSString* key = [self keyGateOpen:gate.gateId];
+    NSString* key = [self keyGateOpen:gate.ID];
     
     if (open) {
         [KeyValueStorage setValue:@"yes" forKey:key];
@@ -43,7 +43,7 @@
 }
 
 + (BOOL)isOpen:(Gate*)gate {
-    NSString* key = [self keyGateOpen:gate.gateId];
+    NSString* key = [self keyGateOpen:gate.ID];
     NSString* val = [KeyValueStorage getValueForKey:key];
     return (val && [val length] > 0);
 }
