@@ -15,11 +15,7 @@
  */
 
 #import "RecordGate.h"
-#import "Score.h"
-#import "LevelUp.h"
-#import "JSONConsts.h"
 #import "LUJSONConsts.h"
-#import "LevelUpEventHandling.h"
 #import "SoomlaUtils.h"
 
 @implementation RecordGate
@@ -28,14 +24,13 @@
 
 static NSString* TAG = @"SOOMLA RecordGate";
 
+// TODO: Override other constructors and throw exceptions, since they don't have the associated item ID and desired balance
+
+
 - (id)initWithGateId:(NSString *)oGateId andScoreId:(NSString *)oScoreId andDesiredRecord:(double)oDesiredRecord {
     if (self = [super initWithGateId:oGateId]) {
         self.associatedScoreId = oScoreId;
         self.desiredRecord = oDesiredRecord;
-    }
-    
-    if (![self isOpen]) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scoreRecordChanged:) name:EVENT_SCORE_RECORD_CHANGED object:nil];
     }
     
     return self;
@@ -46,10 +41,6 @@ static NSString* TAG = @"SOOMLA RecordGate";
     if (self = [super initWithDictionary:dict]) {
         self.associatedScoreId = dict[LU_ASSOCSCOREID];
         self.desiredRecord = [dict[LU_DESIRED_RECORD] doubleValue];
-    }
-    
-    if (![self isOpen]) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scoreRecordChanged:) name:EVENT_SCORE_RECORD_CHANGED object:nil];
     }
     
     return self;
@@ -64,37 +55,5 @@ static NSString* TAG = @"SOOMLA RecordGate";
     
     return toReturn;
 }
-
-- (BOOL)canOpen {
-    
-    Score* score = [[LevelUp getInstance] getScoreWithScoreId:self.associatedScoreId];
-    if (!score) {
-        LogError(TAG, ([NSString stringWithFormat:@"(canOpen) couldn't find score with scoreId: %@", self.associatedScoreId]));
-        return NO;
-    }
-    
-    return [score hasRecordReachedScore:self.desiredRecord];
-}
-
-- (BOOL)tryOpenInner {
-    if ([self canOpen]) {
-        [self forceOpen:YES];
-        return YES;
-    }
-    return NO;
-}
-
-// Private
-
-- (void)scoreRecordChanged:(NSNotification *)notification {
-    
-    NSDictionary* userInfo = notification.userInfo;
-    Score* score = userInfo[DICT_ELEMENT_SCORE];
-    
-    if ([score.scoreId isEqualToString:self.associatedScoreId] && [score hasRecordReachedScore:self.desiredRecord]) {
-        [[NSNotificationCenter defaultCenter] removeObserver:self];
-        // gate can now open
-    }
-};
 
 @end

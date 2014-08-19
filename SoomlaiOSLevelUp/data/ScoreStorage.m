@@ -25,31 +25,24 @@
 /** Latest Score **/
 
 + (void)setLatest:(double)latest toScore:(Score*)score {
-    NSString* scoreId = score.scoreId;
-    NSString* key = [self keyLatestScoreWithScoreId:scoreId];
+    NSString* key = [self keyLatestScoreWithScoreId:score.ID];
     NSString* val = [[NSNumber numberWithDouble:latest] stringValue];
     
     [KeyValueStorage setValue:val forKey:key];
 }
 
 + (double)getLatestScore:(Score *)score {
-    NSString* scoreId = score.scoreId;
-    NSString* key = [self keyLatestScoreWithScoreId:scoreId];
+    NSString* key = [self keyLatestScoreWithScoreId:score.ID];
     NSString* val = [KeyValueStorage getValueForKey:key];
 
-    if (!val || [val length] == 0){
-        return 0.0;
-    }
-
-    return [val doubleValue];
+    return (![val length]) ? score.startValue : [val doubleValue];
 }
 
 
 /** Record Score **/
 
 + (void)setRecord:(double)record toScore:(Score*)score {
-    NSString* scoreId = score.scoreId;
-    NSString* key = [self keyRecordScoreWithScoreId:scoreId];
+    NSString* key = [self keyRecordScoreWithScoreId:score.ID];
     NSString* val = [[NSNumber numberWithDouble:record] stringValue];
     
     [KeyValueStorage setValue:val forKey:key];
@@ -58,15 +51,10 @@
 }
 
 + (double)getRecordScore:(Score *)score {
-    NSString* scoreId = score.scoreId;
-    NSString* key = [self keyRecordScoreWithScoreId:scoreId];
+    NSString* key = [self keyRecordScoreWithScoreId:score.ID];
     NSString* val = [KeyValueStorage getValueForKey:key];
     
-    if (!val || [val length]==0){
-        return 0.0;
-    }
-    
-    return [val doubleValue];
+    return (![val length]) ? score.startValue : [val doubleValue];
 }
 
 

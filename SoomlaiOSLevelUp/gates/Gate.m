@@ -15,91 +15,45 @@
  */
 
 #import "Gate.h"
-#import "JSONConsts.h"
-#import "LUJSONConsts.h"
-#import "GateStorage.h"
 #import "DictionaryFactory.h"
-#import "BalanceGate.h"
-#import "GatesListAND.h"
-#import "GatesListOR.h"
-#import "PurchasableGate.h"
-#import "RecordGate.h"
-#import "WorldCompletionGate.h"
 
 
 @implementation Gate
-
-@synthesize gateId;
 
 static DictionaryFactory* dictionaryFactory;
 
 
 - (id)initWithGateId:(NSString *)oGateId {
-    self = [super init];
+    return 
+    self = [super initWithName:@"" andDescription:@"" andID:oGateId];
     if ([self class] == [Gate class]) {
         @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                        reason:@"Error, attempting to instantiate AbstractClass directly." userInfo:nil];
     }
     
-    if (self) {
-        self.gateId = oGateId;
-    }
     return self;
 }
+
+- (id)initWithGateId:(NSString *)oGateId andName:(NSString *)oName {
+    self = [super initWithName:oName andDescription:@"" andID:oGateId];
+    if ([self class] == [Gate class]) {
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                       reason:@"Error, attempting to instantiate AbstractClass directly." userInfo:nil];
+    }
+    
+    return self;
+}
+
 
 - (id)initWithDictionary:(NSDictionary *)dict {
-    self = [super init];
+    self = [super initWithDictionary:dict];
     if ([self class] == [Gate class]) {
         @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                        reason:@"Error, attempting to instantiate AbstractClass directly." userInfo:nil];
     }
     
-    if (self) {
-        self.gateId = dict[LU_GATE_GATEID];
-    }
-    
     return self;
 }
-
-- (NSDictionary*)toDictionary {
-    return @{
-             SOOM_CLASSNAME: NSStringFromClass([self class]),
-             LU_GATE_GATEID: self.gateId
-             };
-}
-
-- (BOOL)tryOpen {
-    if ([GateStorage isOpen:self]) {
-        return YES;
-    }
-    
-    return [self tryOpenInner];
-}
-
-- (void)forceOpen:(BOOL)open {
-    [GateStorage setOpen:open forGate:self];
-}
-
-- (BOOL)isOpen {
-    return [GateStorage isOpen:self];
-}
-
-// Abstract methods
-
-- (BOOL)tryOpenInner {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:[NSString stringWithFormat:@"You must override %@ in a subclass",
-                                           NSStringFromSelector(_cmd)]
-                                 userInfo:nil];
-}
-
-- (BOOL)canOpen {
-    @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                   reason:[NSString stringWithFormat:@"You must override %@ in a subclass",
-                                           NSStringFromSelector(_cmd)]
-                                 userInfo:nil];
-}
-
 
 // Static methods
 

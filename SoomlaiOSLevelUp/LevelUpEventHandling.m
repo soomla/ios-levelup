@@ -16,17 +16,14 @@
 
 #import "LevelUpEventHandling.h"
 #import "Challenge.h"
-#import "BadgeReward.h"
 
 @implementation LevelUpEventHandling
 
 
 + (void)observeAllEventsWithObserver:(id)observer withSelector:(SEL)selector{
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_SCORE_RECORD_CHANGED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_SCORE_RECORD_REACHED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_GATE_OPENED object:nil];
-    // todo: remove? should be handled in core, no?
-//    [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_REWARD_GIVEN object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_REWARD_TAKEN object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_MISSION_COMPLETED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_MISSION_COMPLETION_REVOKED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_WORLD_COMPLETED object:nil];
@@ -40,20 +37,15 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_SCORE_RECORD_CHANGED object:self userInfo:userInfo];
 }
 
++ (void)postScoreRecordReached:(Score *)score {
+    NSDictionary *userInfo = @{DICT_ELEMENT_SCORE: score};
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_SCORE_RECORD_REACHED object:self userInfo:userInfo];
+}
+
 + (void)postGateOpened:(Gate *)gate {
     NSDictionary *userInfo = @{DICT_ELEMENT_GATE: gate};
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_GATE_OPENED object:self userInfo:userInfo];
 }
-
-//+ (void)postRewardGiven:(Reward *)reward {
-//    NSDictionary *userInfo = @{DICT_ELEMENT_REWARD: reward};
-//    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_REWARD_GIVEN object:self userInfo:userInfo];
-//}
-//
-//+ (void)postRewardTaken:(Reward *)reward {
-//    NSDictionary *userInfo = @{DICT_ELEMENT_REWARD: reward};
-//    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_REWARD_TAKEN object:self userInfo:userInfo];
-//}
 
 + (void)postMissionCompleted:(Mission *)mission {
     NSDictionary *userInfo = @{

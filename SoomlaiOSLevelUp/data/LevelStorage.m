@@ -26,25 +26,25 @@
 
 
 + (void)setSlowestDurationMillis:(long long)duration forLevel:(Level *)level {
-    NSString* key = [self keySlowestDurationWithLevelId:level.worldId];
+    NSString* key = [self keySlowestDurationWithLevelId:level.ID];
     NSString* val = [[NSNumber numberWithLongLong:duration] stringValue];
     [KeyValueStorage setValue:val forKey:key];
 }
 
 + (long long)getSlowestDurationMillisForLevel:(Level *)level {
-    NSString* key = [self keySlowestDurationWithLevelId:level.worldId];
+    NSString* key = [self keySlowestDurationWithLevelId:level.ID];
     NSString* val = [KeyValueStorage getValueForKey:key];
     return (val && [val length] > 0) ? [val longLongValue] : LONG_LONG_MIN;
 }
 
 + (void)setFastestDurationMillis:(long long)duration forLevel:(Level *)level {
-    NSString* key = [self keyFastestDurationWithLevelId:level.worldId];
+    NSString* key = [self keyFastestDurationWithLevelId:level.ID];
     NSString* val = [[NSNumber numberWithLongLong:duration] stringValue];
     [KeyValueStorage setValue:val forKey:key];
 }
 
 + (long long)getFastestDurationMillisforLevel:(Level *)level {
-    NSString* key = [self keyFastestDurationWithLevelId:level.worldId];
+    NSString* key = [self keyFastestDurationWithLevelId:level.ID];
     NSString* val = [KeyValueStorage getValueForKey:key];
     return (val && [val length] > 0) ? [val longLongValue] : LONG_LONG_MAX;
 }
@@ -56,7 +56,7 @@
     }
     started++;
     
-    NSString* key = [self keyTimesStartedWithLevelId:level.worldId];
+    NSString* key = [self keyTimesStartedWithLevelId:level.ID];
     NSString* val = [[NSNumber numberWithInt:started] stringValue];
     [KeyValueStorage setValue:val forKey:key];
     
@@ -73,14 +73,14 @@
     }
     started--;
     
-    NSString* key = [self keyTimesStartedWithLevelId:level.worldId];
+    NSString* key = [self keyTimesStartedWithLevelId:level.ID];
     NSString* val = [[NSNumber numberWithInt:started] stringValue];
     [KeyValueStorage setValue:val forKey:key];
     return started;
 }
 
 + (int)getTimesStartedForLevel:(Level *)level {
-    NSString* key = [self keyTimesStartedWithLevelId:level.worldId];
+    NSString* key = [self keyTimesStartedWithLevelId:level.ID];
     NSString* val = [KeyValueStorage getValueForKey:key];
     return (val && [val length] > 0) ? [val intValue] : 0;
 }
@@ -92,7 +92,7 @@
     }
     played++;
     
-    NSString* key = [self keyTimesPlayedWithLevelId:level.worldId];
+    NSString* key = [self keyTimesPlayedWithLevelId:level.ID];
     NSString* val = [[NSNumber numberWithInt:played] stringValue];
     [KeyValueStorage setValue:val forKey:key];
     
@@ -109,14 +109,14 @@
     }
     played--;
     
-    NSString* key = [self keyTimesPlayedWithLevelId:level.worldId];
+    NSString* key = [self keyTimesPlayedWithLevelId:level.ID];
     NSString* val = [[NSNumber numberWithInt:played] stringValue];
     [KeyValueStorage setValue:val forKey:key];
     return played;
 }
 
 + (int)getTimesPlayedForLevel:(Level *)level {
-    NSString* key = [self keyTimesPlayedWithLevelId:level.worldId];
+    NSString* key = [self keyTimesPlayedWithLevelId:level.ID];
     NSString* val = [KeyValueStorage getValueForKey:key];
     return (val && [val length] > 0) ? [val intValue] : 0;
 }
@@ -125,7 +125,7 @@
 // Private
 
 + (NSString *)keyLevelsWithLevelId:(NSString *)levelId andPostfix:(NSString *)postfix {
-    return [NSString stringWithFormat: @"%@level.%@.%@", LU_DB_KEY_PREFIX, levelId, postfix];
+    return [NSString stringWithFormat: @"%@levels.%@.%@", LU_DB_KEY_PREFIX, levelId, postfix];
 }
 
 + (NSString *)keyTimesStartedWithLevelId:(NSString *)levelId {

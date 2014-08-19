@@ -24,4 +24,6 @@
 
 + (BOOL)isMissionCompleted:(Mission *)mission;
 
++ (int)getTimesCompleted:(Mission *)mission;
+
 @end
