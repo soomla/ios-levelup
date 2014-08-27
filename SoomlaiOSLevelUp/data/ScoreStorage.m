@@ -18,43 +18,42 @@
 #import "LevelUp.h"
 #import "LevelUpEventHandling.h"
 #import "KeyValueStorage.h"
-#import "Score.h"
 
 @implementation ScoreStorage
 
 /** Latest Score **/
 
 + (void)setLatest:(double)latest toScore:(Score*)score {
-    NSString* key = [self keyLatestScoreWithScoreId:score.ID];
+    NSString* key = [self keyLatestScoreWithScoreId:scoreId];
     NSString* val = [[NSNumber numberWithDouble:latest] stringValue];
     
     [KeyValueStorage setValue:val forKey:key];
 }
 
-+ (double)getLatestScore:(Score *)score {
-    NSString* key = [self keyLatestScoreWithScoreId:score.ID];
++ (double)getLatestScore:(NSString *)scoreId {
+    NSString* key = [self keyLatestScoreWithScoreId:scoreId];
     NSString* val = [KeyValueStorage getValueForKey:key];
 
-    return (![val length]) ? score.startValue : [val doubleValue];
+    return (![val length]) ? -1 : [val doubleValue];
 }
 
 
 /** Record Score **/
 
 + (void)setRecord:(double)record toScore:(Score*)score {
-    NSString* key = [self keyRecordScoreWithScoreId:score.ID];
+    NSString* key = [self keyRecordScoreWithScoreId:scoreId];
     NSString* val = [[NSNumber numberWithDouble:record] stringValue];
     
     [KeyValueStorage setValue:val forKey:key];
     
-    [LevelUpEventHandling postScoreRecordChanged:score];
+    [LevelUpEventHandling postScoreRecordChanged:scoreId];
 }
 
-+ (double)getRecordScore:(Score *)score {
-    NSString* key = [self keyRecordScoreWithScoreId:score.ID];
++ (double)getRecordScore:(NSString *)scoreId {
+    NSString* key = [self keyRecordScoreWithScoreId:scoreId];
     NSString* val = [KeyValueStorage getValueForKey:key];
     
-    return (![val length]) ? score.startValue : [val doubleValue];
+    return (![val length]) ? -1 : [val doubleValue];
 }
 
 

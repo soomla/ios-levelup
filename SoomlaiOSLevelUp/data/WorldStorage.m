@@ -15,7 +15,6 @@
  */
 
 #import "WorldStorage.h"
-#import "World.h"
 #import "LevelUp.h"
 #import "LevelUpEventHandling.h"
 #import "StorageManager.h"
@@ -23,13 +22,13 @@
 
 @implementation WorldStorage
 
-+ (void)setCompleted:(BOOL)completed forWorld:(World *)world {
++ (void)setCompleted:(BOOL)completed forWorld:(NSString *)worldId {
     [self setCompleted:completed forWorld:world andNotify:YES];
 }
 
-+ (void)setCompleted:(BOOL)completed forWorld:(World *)world andNotify:(BOOL)notify {
++ (void)setCompleted:(BOOL)completed forWorld:(NSString *)worldId andNotify:(BOOL)notify {
     
-    BOOL currentStatus = [self isWorldCompleted:world];
+    BOOL currentStatus = [self isWorldCompleted:worldId];
     if (currentStatus == completed) {
         
         // we don't need to set the status of a world to the same status over and over again.
@@ -38,27 +37,27 @@
     }
     
     
-    NSString* key = [self keyWorldCompletedWithWorldId:world.ID];
+    NSString* key = [self keyWorldCompletedWithWorldId:worldId];
     
     if (completed) {
         [KeyValueStorage setValue:@"yes" forKey:key];
         
         if (notify) {
-            [LevelUpEventHandling postWorldCompleted:world];
+            [LevelUpEventHandling postWorldCompleted:worldId];
         }
     } else {
         [KeyValueStorage deleteValueForKey:key];
     }
 }
 
-+ (BOOL)isWorldCompleted:(World *)world {
-    NSString* key = [self keyWorldCompletedWithWorldId:world.ID];
++ (BOOL)isWorldCompleted:(NSString *)worldId {
+    NSString* key = [self keyWorldCompletedWithWorldId:worldId];
     NSString* val = [KeyValueStorage getValueForKey:key];
     return (val && [val length] > 0);
 }
 
-+ (void)setReward:(NSString*)rewardId forWorld:(World *)world {
-    NSString* key = [self keyRewardWithWorldId:world.ID];
++ (void)setReward:(NSString*)rewardId forWorld:(NSString *)worldId {
+    NSString* key = [self keyRewardWithWorldId:worldId];
     
     if (rewardId && [rewardId length] > 0) {
         [KeyValueStorage setValue:rewardId forKey:key];
@@ -67,11 +66,11 @@
     }
     
     // Notify world was assigned a reward
-    [LevelUpEventHandling postWorldRewardAssigned:world];
+    [LevelUpEventHandling postWorldRewardAssigned:worldId];
 }
 
-+ (NSString*)getAssignedReward:(World *)world {
-    NSString* key = [self keyRewardWithWorldId:world.ID];
++ (NSString*)getAssignedReward:(NSString *)worldId {
+    NSString* key = [self keyRewardWithWorldId:worldId];
     return [KeyValueStorage getValueForKey:key];
 }
 

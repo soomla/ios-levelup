@@ -14,8 +14,6 @@
  limitations under the License.
  */
 
-@class Score;
-
 // TODO: Document
 @interface ScoreStorage : NSObject
 
@@ -35,7 +33,7 @@
  @param score the score to examine
  @return the last saved value
  */
-+ (double)getLatestScore:(Score *)score;
++ (double)getLatestScore:(NSString *)scoreId;
 
 
 /** Record Score **/
@@ -54,6 +52,6 @@
  @param score the score to examine
  @return the record of the given score
  */
-+ (double)getRecordScore:(Score *)score;
++ (double)getRecordScore:(NSString *)scoreId;
 
 @end

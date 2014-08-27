@@ -16,7 +16,6 @@
 
 #import "GateStorage.h"
 #import "LevelUp.h"
-#import "Gate.h"
 #import "KeyValueStorage.h"
 #import "LevelUpEventHandling.h"
 
@@ -24,26 +23,26 @@
 @implementation GateStorage
 
 
-+ (void)setOpen:(BOOL)open forGate:(Gate*)gate {
++ (void)setOpen:(BOOL)open forGate:(NSString *)gateId {
     [self setOpen:open forGate:gate andEvent:YES];
 }
 
-+ (void)setOpen:(BOOL)open forGate:(Gate*)gate andEvent:(BOOL)notify {
-    NSString* key = [self keyGateOpen:gate.ID];
++ (void)setOpen:(BOOL)open forGate:(NSString *)gateId andEvent:(BOOL)notify {
+    NSString* key = [self keyGateOpen:gateId];
     
     if (open) {
         [KeyValueStorage setValue:@"yes" forKey:key];
         
         if (notify) {
-            [LevelUpEventHandling postGateOpened:gate];
+            [LevelUpEventHandling postGateOpened:gateId];
         }
     } else {
         [KeyValueStorage deleteValueForKey:key];
     }
 }
 
-+ (BOOL)isOpen:(Gate*)gate {
-    NSString* key = [self keyGateOpen:gate.ID];
++ (BOOL)isOpen:(NSString *)gateId {
+    NSString* key = [self keyGateOpen:gateId];
     NSString* val = [KeyValueStorage getValueForKey:key];
     return (val && [val length] > 0);
 }

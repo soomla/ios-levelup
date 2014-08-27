@@ -14,15 +14,13 @@
  limitations under the License.
  */
 
-@class Gate;
-
 
 @interface GateStorage : NSObject
 
-+ (void)setOpen:(BOOL)open forGate:(Gate*)gate;
++ (void)setOpen:(BOOL)open forGate:(NSString *)gateId;
 
-+ (void)setOpen:(BOOL)open forGate:(Gate*)gate andEvent:(BOOL)notify;
++ (void)setOpen:(BOOL)open forGate:(NSString *)gateId andEvent:(BOOL)notify;
 
-+ (BOOL)isOpen:(Gate*)gate;
++ (BOOL)isOpen:(NSString *)gateId;
 
 @end

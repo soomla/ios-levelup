@@ -16,28 +16,26 @@
 
 #import <Foundation/Foundation.h>
 
-@class Level;
-
 @interface LevelStorage : NSObject
 
-+ (void)setSlowestDurationMillis:(long long)duration forLevel:(Level *)level;
++ (void)setSlowestDurationMillis:(long long)duration forLevel:(NSString *)levelId;
 
-+ (long long)getSlowestDurationMillisForLevel:(Level *)level;
++ (long long)getSlowestDurationMillisForLevel:(NSString *)levelId;
 
-+ (void)setFastestDurationMillis:(long long)duration forLevel:(Level *)level;
++ (void)setFastestDurationMillis:(long long)duration forLevel:(NSString *)levelId;
 
-+ (long long)getFastestDurationMillisForLevel:(Level *)level;
++ (long long)getFastestDurationMillisForLevel:(NSString *)levelId;
 
-+ (int)incTimesStartedForLevel:(Level *)level;
++ (int)incTimesStartedForLevel:(NSString *)levelId;
 
-+ (int)decTimesStartedForLevel:(Level *)level;
++ (int)decTimesStartedForLevel:(NSString *)levelId;
 
-+ (int)getTimesStartedForLevel:(Level *)level;
++ (int)getTimesStartedForLevel:(NSString *)levelId;
 
-+ (int)incTimesPlayedForLevel:(Level *)level;
++ (int)incTimesPlayedForLevel:(NSString *)levelId;
 
-+ (int)decTimesPlayedForLevel:(Level *)level;
++ (int)decTimesPlayedForLevel:(NSString *)levelId;
 
-+ (int)getTimesPlayedForLevel:(Level *)level;
++ (int)getTimesPlayedForLevel:(NSString *)levelId;
 
 @end

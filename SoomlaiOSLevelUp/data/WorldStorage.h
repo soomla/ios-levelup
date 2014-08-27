@@ -14,18 +14,16 @@
  limitations under the License.
  */
 
-@class World;
-
 @interface WorldStorage : NSObject
 
-+ (void)setCompleted:(BOOL)completed forWorld:(World *)world;
++ (void)setCompleted:(BOOL)completed forWorld:(NSString *)worldId;
 
-+ (void)setCompleted:(BOOL)completed forWorld:(World *)world andNotify:(BOOL)notify;
++ (void)setCompleted:(BOOL)completed forWorld:(NSString *)worldId andNotify:(BOOL)notify;
 
-+ (BOOL)isWorldCompleted:(World *)world;
++ (BOOL)isWorldCompleted:(NSString *)worldId;
 
-+ (void)setReward:(NSString*)rewardId forWorld:(World *)world;
++ (void)setReward:(NSString*)rewardId forWorld:(NSString *)worldId;
 
-+ (NSString*)getAssignedReward:(World *)world;
++ (NSString*)getAssignedReward:(NSString *)worldId;
 
 @end

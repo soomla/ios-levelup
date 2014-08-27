@@ -14,12 +14,6 @@
  limitations under the License.
  */
 
-@class Score;
-@class Gate;
-@class Mission;
-@class World;
-@class Level;
-
 // Events
 #define EVENT_SCORE_RECORD_CHANGED           @"lu_score_record_changed"
 #define EVENT_SCORE_RECORD_REACHED           @"lu_score_record_reached"
@@ -48,23 +42,23 @@
 
 + (void)observeAllEventsWithObserver:(id)observer withSelector:(SEL)selector;
 
-+ (void)postScoreRecordChanged:(Score *)score;
++ (void)postScoreRecordChanged:(NSString *)scoreId;
 
-+ (void)postScoreRecordReached:(Score *)score;
++ (void)postScoreRecordReached:(NSString *)scoreId;
 
-+ (void)postGateOpened:(Gate *)gate;
++ (void)postGateOpened:(NSString *)gateId;
 
-+ (void)postMissionCompleted:(Mission *)mission;
++ (void)postMissionCompleted:(NSString *)missionId;
 
-+ (void)postMissionCompletionRevoked:(Mission *)mission;
++ (void)postMissionCompletionRevoked:(NSString *)missionId;
 
-+ (void)postWorldCompleted:(World *)world;
++ (void)postWorldCompleted:(NSString *)worldId;
 
-+ (void)postWorldRewardAssigned:(World *)world;
++ (void)postWorldRewardAssigned:(NSString *)worldId;
 
-+ (void)postLevelStarted:(Level *)level;
++ (void)postLevelStarted:(NSString *)levelId;
 
-+ (void)postLevelEnded:(Level *)level;
++ (void)postLevelEnded:(NSString *)levelId;
 
 
 @end

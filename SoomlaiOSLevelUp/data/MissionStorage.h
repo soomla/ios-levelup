@@ -14,16 +14,14 @@
  limitations under the License.
  */
 
-@class Mission;
-
 @interface MissionStorage : NSObject
 
-+ (void)setCompleted:(BOOL)completed forMission:(Mission *)mission;
++ (void)setCompleted:(BOOL)completed forMission:(NSString *)missionId;
 
-+ (void)setCompleted:(BOOL)completed forMission:(Mission *)mission andNotify:(BOOL)notify;
++ (void)setCompleted:(BOOL)completed forMission:(NSString *)missionId andNotify:(BOOL)notify;
 
-+ (BOOL)isMissionCompleted:(Mission *)mission;
++ (BOOL)isMissionCompleted:(NSString *)missionId;
 
-+ (int)getTimesCompleted:(Mission *)mission;
++ (int)getTimesCompleted:(NSString *)missionId;
 
 @end
