@@ -43,7 +43,7 @@
     [KeyValueStorage setValue:val forKey:key];
 }
 
-+ (long long)getFastestDurationMillisforLevel:(Level *)level {
++ (long long)getFastestDurationMillisForLevel:(Level *)level {
     NSString* key = [self keyFastestDurationWithLevelId:level.ID];
     NSString* val = [KeyValueStorage getValueForKey:key];
     return (val && [val length] > 0) ? [val longLongValue] : LONG_LONG_MAX;

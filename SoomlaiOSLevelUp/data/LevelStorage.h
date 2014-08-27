@@ -26,7 +26,7 @@
 
 + (void)setFastestDurationMillis:(long long)duration forLevel:(Level *)level;
 
-+ (long long)getFastestDurationMillisforLevel:(Level *)level;
++ (long long)getFastestDurationMillisForLevel:(Level *)level;
 
 + (int)incTimesStartedForLevel:(Level *)level;
 
