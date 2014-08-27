@@ -24,7 +24,7 @@
 
 
 + (void)setOpen:(BOOL)open forGate:(NSString *)gateId {
-    [self setOpen:open forGate:gate andEvent:YES];
+    [self setOpen:open forGate:gateId andEvent:YES];
 }
 
 + (void)setOpen:(BOOL)open forGate:(NSString *)gateId andEvent:(BOOL)notify {

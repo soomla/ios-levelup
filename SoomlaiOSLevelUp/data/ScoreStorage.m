@@ -23,7 +23,7 @@
 
 /** Latest Score **/
 
-+ (void)setLatest:(double)latest toScore:(Score*)score {
++ (void)setLatest:(double)latest toScore:(NSString *)scoreId {
     NSString* key = [self keyLatestScoreWithScoreId:scoreId];
     NSString* val = [[NSNumber numberWithDouble:latest] stringValue];
     
@@ -40,7 +40,7 @@
 
 /** Record Score **/
 
-+ (void)setRecord:(double)record toScore:(Score*)score {
++ (void)setRecord:(double)record toScore:(NSString *)scoreId {
     NSString* key = [self keyRecordScoreWithScoreId:scoreId];
     NSString* val = [[NSNumber numberWithDouble:record] stringValue];
     

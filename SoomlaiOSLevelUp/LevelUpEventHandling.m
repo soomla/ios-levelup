@@ -70,7 +70,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_LEVEL_STARTED object:self userInfo:userInfo];
 }
 
-+ (void)postWorldRewardAssigned:(World *)world {
++ (void)postWorldRewardAssigned:(NSString *)worldId {
     NSDictionary *userInfo = @{DICT_ELEMENT_WORLD: worldId};
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_WORLD_REWARD_ASSIGNED object:self userInfo:userInfo];
 }

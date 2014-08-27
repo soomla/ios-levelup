@@ -25,7 +25,7 @@
 static NSString* TAG = @"SOOMLA MissionStorage";
 
 + (void)setCompleted:(BOOL)completed forMission:(NSString *)missionId {
-    [self setCompleted:completed forMission:mission andNotify:YES];
+    [self setCompleted:completed forMission:missionId andNotify:YES];
 }
 
 + (void)setCompleted:(BOOL)completed forMission:(NSString *)missionId andNotify:(BOOL)notify {

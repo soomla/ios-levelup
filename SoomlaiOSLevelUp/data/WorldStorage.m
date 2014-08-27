@@ -23,7 +23,7 @@
 @implementation WorldStorage
 
 + (void)setCompleted:(BOOL)completed forWorld:(NSString *)worldId {
-    [self setCompleted:completed forWorld:world andNotify:YES];
+    [self setCompleted:completed forWorld:worldId andNotify:YES];
 }
 
 + (void)setCompleted:(BOOL)completed forWorld:(NSString *)worldId andNotify:(BOOL)notify {
