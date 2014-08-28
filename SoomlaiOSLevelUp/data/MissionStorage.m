@@ -15,7 +15,6 @@
  */
 
 #import "MissionStorage.h"
-#import "Mission.h"
 #import "LevelUp.h"
 #import "LevelUpEventHandling.h"
 #import "KeyValueStorage.h"
@@ -25,34 +24,34 @@
 
 static NSString* TAG = @"SOOMLA MissionStorage";
 
-+ (void)setCompleted:(BOOL)completed forMission:(Mission *)mission {
-    [self setCompleted:completed forMission:mission andNotify:YES];
++ (void)setCompleted:(BOOL)completed forMission:(NSString *)missionId {
+    [self setCompleted:completed forMission:missionId andNotify:YES];
 }
 
-+ (void)setCompleted:(BOOL)completed forMission:(Mission *)mission andNotify:(BOOL)notify {
++ (void)setCompleted:(BOOL)completed forMission:(NSString *)missionId andNotify:(BOOL)notify {
     
-    int total = [self getTimesCompleted:mission] + (completed ? 1 : -1);
+    int total = [self getTimesCompleted:missionId] + (completed ? 1 : -1);
     if (total < 0) {
         total = 0;
     }
-    NSString* key = [self keyMissionTimesCompletedWithMissionId:mission.ID];
+    NSString* key = [self keyMissionTimesCompletedWithMissionId:missionId];
     [KeyValueStorage setValue:[@(total) stringValue] forKey:key];
     
     if (notify) {
         if (completed) {
-            [LevelUpEventHandling postMissionCompleted:mission];
+            [LevelUpEventHandling postMissionCompleted:missionId];
         } else {
-            [LevelUpEventHandling postMissionCompletionRevoked:mission];
+            [LevelUpEventHandling postMissionCompletionRevoked:missionId];
         }
     }
 }
 
-+ (BOOL)isMissionCompleted:(Mission *)mission {
-    return [self getTimesCompleted:mission] > 0;
++ (BOOL)isMissionCompleted:(NSString *)missionId {
+    return [self getTimesCompleted:missionId] > 0;
 }
 
-+ (int)getTimesCompleted:(Mission *)mission {
-    NSString* key = [self keyMissionTimesCompletedWithMissionId:mission.ID];
++ (int)getTimesCompleted:(NSString *)missionId {
+    NSString* key = [self keyMissionTimesCompletedWithMissionId:missionId];
     NSString* val = [KeyValueStorage getValueForKey:key];
     NSString* msg = [NSString stringWithFormat:@"key:%@ val:%@", key, val];
     LogDebug(TAG, msg)

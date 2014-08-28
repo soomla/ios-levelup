@@ -15,7 +15,6 @@
  */
 
 #import "LevelUpEventHandling.h"
-#import "Challenge.h"
 
 @implementation LevelUpEventHandling
 
@@ -32,54 +31,52 @@
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_WORLD_REWARD_ASSIGNED object:nil];
 }
 
-+ (void)postScoreRecordChanged:(Score *)score {
-    NSDictionary *userInfo = @{DICT_ELEMENT_SCORE: score};
++ (void)postScoreRecordChanged:(NSString *)scoreId {
+    NSDictionary *userInfo = @{DICT_ELEMENT_SCORE: scoreId};
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_SCORE_RECORD_CHANGED object:self userInfo:userInfo];
 }
 
-+ (void)postScoreRecordReached:(Score *)score {
-    NSDictionary *userInfo = @{DICT_ELEMENT_SCORE: score};
++ (void)postScoreRecordReached:(NSString *)scoreId {
+    NSDictionary *userInfo = @{DICT_ELEMENT_SCORE: scoreId};
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_SCORE_RECORD_REACHED object:self userInfo:userInfo];
 }
 
-+ (void)postGateOpened:(Gate *)gate {
-    NSDictionary *userInfo = @{DICT_ELEMENT_GATE: gate};
++ (void)postGateOpened:(NSString *)gateId {
+    NSDictionary *userInfo = @{DICT_ELEMENT_GATE: gateId};
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_GATE_OPENED object:self userInfo:userInfo];
 }
 
-+ (void)postMissionCompleted:(Mission *)mission {
++ (void)postMissionCompleted:(NSString *)missionId {
     NSDictionary *userInfo = @{
-                               DICT_ELEMENT_MISSION: mission,
-                               DICT_ELEMENT_IS_CHALLENGE: @([mission isKindOfClass:[Challenge class]])
+                               DICT_ELEMENT_MISSION: missionId
                                };
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_MISSION_COMPLETED object:self userInfo:userInfo];
 }
 
-+ (void)postMissionCompletionRevoked:(Mission *)mission {
++ (void)postMissionCompletionRevoked:(NSString *)missionId {
     NSDictionary *userInfo = @{
-                               DICT_ELEMENT_MISSION: mission,
-                               DICT_ELEMENT_IS_CHALLENGE: @([mission isKindOfClass:[Challenge class]])
+                               DICT_ELEMENT_MISSION: missionId
                                };
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_MISSION_COMPLETION_REVOKED object:self userInfo:userInfo];
 }
 
-+ (void)postWorldCompleted:(Mission *)world {
-    NSDictionary *userInfo = @{DICT_ELEMENT_WORLD: world};
++ (void)postWorldCompleted:(NSString *)worldId {
+    NSDictionary *userInfo = @{DICT_ELEMENT_WORLD: worldId};
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_WORLD_COMPLETED object:self userInfo:userInfo];
 }
 
-+ (void)postLevelStarted:(Level *)level {
-    NSDictionary *userInfo = @{DICT_ELEMENT_LEVEL: level};
++ (void)postLevelStarted:(NSString *)levelId {
+    NSDictionary *userInfo = @{DICT_ELEMENT_LEVEL: levelId};
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_LEVEL_STARTED object:self userInfo:userInfo];
 }
 
-+ (void)postWorldRewardAssigned:(World *)world {
-    NSDictionary *userInfo = @{DICT_ELEMENT_WORLD: world};
++ (void)postWorldRewardAssigned:(NSString *)worldId {
+    NSDictionary *userInfo = @{DICT_ELEMENT_WORLD: worldId};
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_WORLD_REWARD_ASSIGNED object:self userInfo:userInfo];
 }
 
-+ (void)postLevelEnded:(Level *)level {
-    NSDictionary *userInfo = @{DICT_ELEMENT_LEVEL: level};
++ (void)postLevelEnded:(NSString *)levelId {
+    NSDictionary *userInfo = @{DICT_ELEMENT_LEVEL: levelId};
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_LEVEL_ENDED object:self userInfo:userInfo];
 }
 
