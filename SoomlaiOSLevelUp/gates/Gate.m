@@ -24,7 +24,6 @@ static DictionaryFactory* dictionaryFactory;
 
 
 - (id)initWithGateId:(NSString *)oGateId {
-    return 
     self = [super initWithName:@"" andDescription:@"" andID:oGateId];
     if ([self class] == [Gate class]) {
         @throw [NSException exceptionWithName:NSInternalInconsistencyException

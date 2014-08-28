@@ -47,6 +47,10 @@
 		EF7BA13A19365DF700FCF3C9 /* PurchasingMission.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA13819365DF700FCF3C9 /* PurchasingMission.m */; };
 		EF7BA13D19365FF000FCF3C9 /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA13C19365FF000FCF3C9 /* Challenge.m */; };
 		EF7BA13E19365FF000FCF3C9 /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA13C19365FF000FCF3C9 /* Challenge.m */; };
+		EF800A2C19AF002200717CA0 /* WorldCompletionMission.h in Headers */ = {isa = PBXBuildFile; fileRef = EF800A2A19AF002200717CA0 /* WorldCompletionMission.h */; };
+		EF800A2D19AF002200717CA0 /* WorldCompletionMission.m in Sources */ = {isa = PBXBuildFile; fileRef = EF800A2B19AF002200717CA0 /* WorldCompletionMission.m */; };
+		EF800A3019AF1AC400717CA0 /* ScheduleGate.h in Headers */ = {isa = PBXBuildFile; fileRef = EF800A2E19AF1AC400717CA0 /* ScheduleGate.h */; };
+		EF800A3119AF1AC400717CA0 /* ScheduleGate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF800A2F19AF1AC400717CA0 /* ScheduleGate.m */; };
 		EFC127C6194CD79300CDA66B /* SoomlaiOSLevelUpTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFCDC740192E1EB6001D0824 /* SoomlaiOSLevelUpTests-Info.plist */; };
 		EFC127C9194CD79F00CDA66B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EFC127C7194CD79F00CDA66B /* InfoPlist.strings */; };
 		EFCDC729192E1EB5001D0824 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFCDC728192E1EB5001D0824 /* Foundation.framework */; };
@@ -159,6 +163,10 @@
 		EF7BA13819365DF700FCF3C9 /* PurchasingMission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PurchasingMission.m; path = challenges/PurchasingMission.m; sourceTree = "<group>"; };
 		EF7BA13B19365FF000FCF3C9 /* Challenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Challenge.h; path = challenges/Challenge.h; sourceTree = "<group>"; };
 		EF7BA13C19365FF000FCF3C9 /* Challenge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Challenge.m; path = challenges/Challenge.m; sourceTree = "<group>"; };
+		EF800A2A19AF002200717CA0 /* WorldCompletionMission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorldCompletionMission.h; path = challenges/WorldCompletionMission.h; sourceTree = "<group>"; };
+		EF800A2B19AF002200717CA0 /* WorldCompletionMission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorldCompletionMission.m; path = challenges/WorldCompletionMission.m; sourceTree = "<group>"; };
+		EF800A2E19AF1AC400717CA0 /* ScheduleGate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScheduleGate.h; path = gates/ScheduleGate.h; sourceTree = "<group>"; };
+		EF800A2F19AF1AC400717CA0 /* ScheduleGate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleGate.m; path = gates/ScheduleGate.m; sourceTree = "<group>"; };
 		EFC127C8194CD79F00CDA66B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EFCDC725192E1EB5001D0824 /* libSoomlaiOSLevelUp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSoomlaiOSLevelUp.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFCDC728192E1EB5001D0824 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -229,6 +237,8 @@
 				EF7BA1021933637A00FCF3C9 /* RecordGate.m */,
 				EF7BA10919337A1D00FCF3C9 /* WorldCompletionGate.h */,
 				EF7BA10A19337A1D00FCF3C9 /* WorldCompletionGate.m */,
+				EF800A2E19AF1AC400717CA0 /* ScheduleGate.h */,
+				EF800A2F19AF1AC400717CA0 /* ScheduleGate.m */,
 			);
 			name = gates;
 			sourceTree = "<group>";
@@ -246,6 +256,8 @@
 				EF7BA13819365DF700FCF3C9 /* PurchasingMission.m */,
 				EF7BA13B19365FF000FCF3C9 /* Challenge.h */,
 				EF7BA13C19365FF000FCF3C9 /* Challenge.m */,
+				EF800A2A19AF002200717CA0 /* WorldCompletionMission.h */,
+				EF800A2B19AF002200717CA0 /* WorldCompletionMission.m */,
 			);
 			name = challenges;
 			sourceTree = "<group>";
@@ -364,6 +376,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF800A2C19AF002200717CA0 /* WorldCompletionMission.h in Headers */,
 				EFE7A0E51963026C0054B3E9 /* Mission.h in Headers */,
 				EFE7A0E61963026C0054B3E9 /* BalanceMission.h in Headers */,
 				EFE7A0E71963026C0054B3E9 /* RecordMission.h in Headers */,
@@ -389,6 +402,7 @@
 				EFE7A1001963026C0054B3E9 /* LevelUpEventHandling.h in Headers */,
 				EFE7A1011963026C0054B3E9 /* World.h in Headers */,
 				EFE7A1021963026D0054B3E9 /* Level.h in Headers */,
+				EF800A3019AF1AC400717CA0 /* ScheduleGate.h in Headers */,
 				EFE7A0F51963026C0054B3E9 /* LUJSONConsts.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,6 +530,7 @@
 				EF7BA13D19365FF000FCF3C9 /* Challenge.m in Sources */,
 				EF7BA0F71933209F00FCF3C9 /* BalanceGate.m in Sources */,
 				EF7BA1291935BE9500FCF3C9 /* Mission.m in Sources */,
+				EF800A3119AF1AC400717CA0 /* ScheduleGate.m in Sources */,
 				EF73CCA619323E3200A171E5 /* Gate.m in Sources */,
 				EF7BA12D1935C7E300FCF3C9 /* MissionStorage.m in Sources */,
 				EF7BA13919365DF700FCF3C9 /* PurchasingMission.m in Sources */,
@@ -526,6 +541,7 @@
 				EF081C8F193708CF00847E47 /* WorldStorage.m in Sources */,
 				EF7BA107193379E600FCF3C9 /* World.m in Sources */,
 				EF081C971937252B00847E47 /* LevelStorage.m in Sources */,
+				EF800A2D19AF002200717CA0 /* WorldCompletionMission.m in Sources */,
 				EF7BA10B19337A1D00FCF3C9 /* WorldCompletionGate.m in Sources */,
 				EF7BA1311935D56B00FCF3C9 /* BalanceMission.m in Sources */,
 				EF73CCA11932292D00A171E5 /* RangeScore.m in Sources */,
