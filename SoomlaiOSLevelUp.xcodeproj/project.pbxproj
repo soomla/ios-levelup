@@ -9,48 +9,12 @@
 /* Begin PBXBuildFile section */
 		EF081C8F193708CF00847E47 /* WorldStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = EF081C8E193708CF00847E47 /* WorldStorage.m */; };
 		EF081C90193708D400847E47 /* WorldStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = EF081C8E193708CF00847E47 /* WorldStorage.m */; };
-		EF081C93193723AD00847E47 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = EF081C92193723AD00847E47 /* Level.m */; };
-		EF081C94193723AD00847E47 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = EF081C92193723AD00847E47 /* Level.m */; };
 		EF081C971937252B00847E47 /* LevelStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = EF081C961937252B00847E47 /* LevelStorage.m */; };
 		EF081C981937252B00847E47 /* LevelStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = EF081C961937252B00847E47 /* LevelStorage.m */; };
-		EF73CCA11932292D00A171E5 /* RangeScore.m in Sources */ = {isa = PBXBuildFile; fileRef = EF73CCA01932292D00A171E5 /* RangeScore.m */; };
-		EF73CCA21932293000A171E5 /* RangeScore.m in Sources */ = {isa = PBXBuildFile; fileRef = EF73CCA01932292D00A171E5 /* RangeScore.m */; };
-		EF73CCA619323E3200A171E5 /* Gate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF73CCA519323E3200A171E5 /* Gate.m */; };
-		EF73CCA719323E3200A171E5 /* Gate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF73CCA519323E3200A171E5 /* Gate.m */; };
 		EF73CCAA1932420300A171E5 /* GateStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = EF73CCA91932420300A171E5 /* GateStorage.m */; };
 		EF73CCAB1932420300A171E5 /* GateStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = EF73CCA91932420300A171E5 /* GateStorage.m */; };
-		EF7BA0EB1932555700FCF3C9 /* GatesList.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA0EA1932555700FCF3C9 /* GatesList.m */; };
-		EF7BA0EC1932555700FCF3C9 /* GatesList.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA0EA1932555700FCF3C9 /* GatesList.m */; };
-		EF7BA0EF19331CDA00FCF3C9 /* GatesListAND.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA0EE19331CDA00FCF3C9 /* GatesListAND.m */; };
-		EF7BA0F019331CDA00FCF3C9 /* GatesListAND.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA0EE19331CDA00FCF3C9 /* GatesListAND.m */; };
-		EF7BA0F31933204900FCF3C9 /* GatesListOR.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA0F21933204900FCF3C9 /* GatesListOR.m */; };
-		EF7BA0F41933204900FCF3C9 /* GatesListOR.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA0F21933204900FCF3C9 /* GatesListOR.m */; };
-		EF7BA0F71933209F00FCF3C9 /* BalanceGate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA0F61933209F00FCF3C9 /* BalanceGate.m */; };
-		EF7BA0F81933209F00FCF3C9 /* BalanceGate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA0F61933209F00FCF3C9 /* BalanceGate.m */; };
-		EF7BA0FF1933424700FCF3C9 /* PurchasableGate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA0FE1933424700FCF3C9 /* PurchasableGate.m */; };
-		EF7BA1001933424700FCF3C9 /* PurchasableGate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA0FE1933424700FCF3C9 /* PurchasableGate.m */; };
-		EF7BA1031933637A00FCF3C9 /* RecordGate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA1021933637A00FCF3C9 /* RecordGate.m */; };
-		EF7BA1041933637A00FCF3C9 /* RecordGate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA1021933637A00FCF3C9 /* RecordGate.m */; };
-		EF7BA107193379E600FCF3C9 /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA106193379E600FCF3C9 /* World.m */; };
-		EF7BA108193379E600FCF3C9 /* World.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA106193379E600FCF3C9 /* World.m */; };
-		EF7BA10B19337A1D00FCF3C9 /* WorldCompletionGate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA10A19337A1D00FCF3C9 /* WorldCompletionGate.m */; };
-		EF7BA10C19337A1D00FCF3C9 /* WorldCompletionGate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA10A19337A1D00FCF3C9 /* WorldCompletionGate.m */; };
-		EF7BA1291935BE9500FCF3C9 /* Mission.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA1281935BE9500FCF3C9 /* Mission.m */; };
-		EF7BA12A1935BE9500FCF3C9 /* Mission.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA1281935BE9500FCF3C9 /* Mission.m */; };
 		EF7BA12D1935C7E300FCF3C9 /* MissionStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA12C1935C7E300FCF3C9 /* MissionStorage.m */; };
 		EF7BA12E1935C7E300FCF3C9 /* MissionStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA12C1935C7E300FCF3C9 /* MissionStorage.m */; };
-		EF7BA1311935D56B00FCF3C9 /* BalanceMission.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA1301935D56B00FCF3C9 /* BalanceMission.m */; };
-		EF7BA1321935D56B00FCF3C9 /* BalanceMission.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA1301935D56B00FCF3C9 /* BalanceMission.m */; };
-		EF7BA1351935FF2B00FCF3C9 /* RecordMission.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA1341935FF2B00FCF3C9 /* RecordMission.m */; };
-		EF7BA1361935FF2B00FCF3C9 /* RecordMission.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA1341935FF2B00FCF3C9 /* RecordMission.m */; };
-		EF7BA13919365DF700FCF3C9 /* PurchasingMission.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA13819365DF700FCF3C9 /* PurchasingMission.m */; };
-		EF7BA13A19365DF700FCF3C9 /* PurchasingMission.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA13819365DF700FCF3C9 /* PurchasingMission.m */; };
-		EF7BA13D19365FF000FCF3C9 /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA13C19365FF000FCF3C9 /* Challenge.m */; };
-		EF7BA13E19365FF000FCF3C9 /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7BA13C19365FF000FCF3C9 /* Challenge.m */; };
-		EF800A2C19AF002200717CA0 /* WorldCompletionMission.h in Headers */ = {isa = PBXBuildFile; fileRef = EF800A2A19AF002200717CA0 /* WorldCompletionMission.h */; };
-		EF800A2D19AF002200717CA0 /* WorldCompletionMission.m in Sources */ = {isa = PBXBuildFile; fileRef = EF800A2B19AF002200717CA0 /* WorldCompletionMission.m */; };
-		EF800A3019AF1AC400717CA0 /* ScheduleGate.h in Headers */ = {isa = PBXBuildFile; fileRef = EF800A2E19AF1AC400717CA0 /* ScheduleGate.h */; };
-		EF800A3119AF1AC400717CA0 /* ScheduleGate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF800A2F19AF1AC400717CA0 /* ScheduleGate.m */; };
 		EFC127C6194CD79300CDA66B /* SoomlaiOSLevelUpTests-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFCDC740192E1EB6001D0824 /* SoomlaiOSLevelUpTests-Info.plist */; };
 		EFC127C9194CD79F00CDA66B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EFC127C7194CD79F00CDA66B /* InfoPlist.strings */; };
 		EFCDC729192E1EB5001D0824 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFCDC728192E1EB5001D0824 /* Foundation.framework */; };
@@ -58,40 +22,18 @@
 		EFCDC738192E1EB6001D0824 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFCDC728192E1EB5001D0824 /* Foundation.framework */; };
 		EFCDC73D192E1EB6001D0824 /* libSoomlaiOSLevelUp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFCDC725192E1EB5001D0824 /* libSoomlaiOSLevelUp.a */; };
 		EFCDC745192E1EB6001D0824 /* SoomlaiOSLevelUpTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EFCDC744192E1EB6001D0824 /* SoomlaiOSLevelUpTests.m */; };
-		EFCDC759192E218F001D0824 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = EFCDC754192E218F001D0824 /* Score.m */; };
-		EFCDC75A192E218F001D0824 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = EFCDC754192E218F001D0824 /* Score.m */; };
 		EFCDC760192E2248001D0824 /* LUJSONConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = EFCDC75F192E2248001D0824 /* LUJSONConsts.m */; };
 		EFCDC761192E2248001D0824 /* LUJSONConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = EFCDC75F192E2248001D0824 /* LUJSONConsts.m */; };
-		EFE7A0E51963026C0054B3E9 /* Mission.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BA1271935BE9500FCF3C9 /* Mission.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EFE7A0E61963026C0054B3E9 /* BalanceMission.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BA12F1935D56B00FCF3C9 /* BalanceMission.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EFE7A0E71963026C0054B3E9 /* RecordMission.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BA1331935FF2B00FCF3C9 /* RecordMission.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EFE7A0E81963026C0054B3E9 /* PurchasingMission.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BA13719365DF700FCF3C9 /* PurchasingMission.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EFE7A0E91963026C0054B3E9 /* Challenge.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BA13B19365FF000FCF3C9 /* Challenge.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EFE7A0ED1963026C0054B3E9 /* Gate.h in Headers */ = {isa = PBXBuildFile; fileRef = EF73CCA419323E3200A171E5 /* Gate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EFE7A0EE1963026C0054B3E9 /* GatesList.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BA0E91932555700FCF3C9 /* GatesList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EFE7A0EF1963026C0054B3E9 /* GatesListAND.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BA0ED19331CDA00FCF3C9 /* GatesListAND.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EFE7A0F01963026C0054B3E9 /* GatesListOR.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BA0F11933204900FCF3C9 /* GatesListOR.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EFE7A0F11963026C0054B3E9 /* BalanceGate.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BA0F51933209F00FCF3C9 /* BalanceGate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EFE7A0F21963026C0054B3E9 /* PurchasableGate.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BA0FD1933424700FCF3C9 /* PurchasableGate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EFE7A0F31963026C0054B3E9 /* RecordGate.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BA1011933637A00FCF3C9 /* RecordGate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EFE7A0F41963026C0054B3E9 /* WorldCompletionGate.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BA10919337A1D00FCF3C9 /* WorldCompletionGate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFE7A0F51963026C0054B3E9 /* LUJSONConsts.h in Headers */ = {isa = PBXBuildFile; fileRef = EFCDC75E192E2248001D0824 /* LUJSONConsts.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		EFE7A0F61963026C0054B3E9 /* ScoreStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = EFFB7A3A192E3E8100BB8BB5 /* ScoreStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFE7A0F71963026C0054B3E9 /* GateStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = EF73CCA81932420300A171E5 /* GateStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFE7A0F91963026C0054B3E9 /* MissionStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BA12B1935C7E300FCF3C9 /* MissionStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFE7A0FA1963026C0054B3E9 /* WorldStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = EF081C8D193708CF00847E47 /* WorldStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFE7A0FB1963026C0054B3E9 /* LevelStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = EF081C951937252B00847E47 /* LevelStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EFE7A0FC1963026C0054B3E9 /* Score.h in Headers */ = {isa = PBXBuildFile; fileRef = EFCDC753192E218F001D0824 /* Score.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EFE7A0FD1963026C0054B3E9 /* VirtualItemScore.h in Headers */ = {isa = PBXBuildFile; fileRef = EFFB7A441931E25000BB8BB5 /* VirtualItemScore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EFE7A0FE1963026C0054B3E9 /* RangeScore.h in Headers */ = {isa = PBXBuildFile; fileRef = EF73CC9F1932292D00A171E5 /* RangeScore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFE7A0FF1963026C0054B3E9 /* LevelUp.h in Headers */ = {isa = PBXBuildFile; fileRef = EFFB7A3E192E406900BB8BB5 /* LevelUp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFE7A1001963026C0054B3E9 /* LevelUpEventHandling.h in Headers */ = {isa = PBXBuildFile; fileRef = EFFB7A491931EC5200BB8BB5 /* LevelUpEventHandling.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EFE7A1011963026C0054B3E9 /* World.h in Headers */ = {isa = PBXBuildFile; fileRef = EF7BA105193379E600FCF3C9 /* World.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EFE7A1021963026D0054B3E9 /* Level.h in Headers */ = {isa = PBXBuildFile; fileRef = EF081C91193723AD00847E47 /* Level.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFFB7A3C192E3E8100BB8BB5 /* ScoreStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A3B192E3E8100BB8BB5 /* ScoreStorage.m */; };
 		EFFB7A3D192E3E8100BB8BB5 /* ScoreStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A3B192E3E8100BB8BB5 /* ScoreStorage.m */; };
-		EFFB7A461931E25000BB8BB5 /* VirtualItemScore.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A451931E25000BB8BB5 /* VirtualItemScore.m */; };
-		EFFB7A471931E25000BB8BB5 /* VirtualItemScore.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A451931E25000BB8BB5 /* VirtualItemScore.m */; };
 		EFFB7A4B1931EC5200BB8BB5 /* LevelUpEventHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A4A1931EC5200BB8BB5 /* LevelUpEventHandling.m */; };
 		EFFB7A4C1931EC5200BB8BB5 /* LevelUpEventHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A4A1931EC5200BB8BB5 /* LevelUpEventHandling.m */; };
 /* End PBXBuildFile section */
@@ -123,50 +65,14 @@
 /* Begin PBXFileReference section */
 		EF081C8D193708CF00847E47 /* WorldStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorldStorage.h; path = data/WorldStorage.h; sourceTree = "<group>"; };
 		EF081C8E193708CF00847E47 /* WorldStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorldStorage.m; path = data/WorldStorage.m; sourceTree = "<group>"; };
-		EF081C91193723AD00847E47 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
-		EF081C92193723AD00847E47 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
 		EF081C951937252B00847E47 /* LevelStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelStorage.h; path = data/LevelStorage.h; sourceTree = "<group>"; };
 		EF081C961937252B00847E47 /* LevelStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelStorage.m; path = data/LevelStorage.m; sourceTree = "<group>"; };
 		EF4CDD4F194F319F008B1CF2 /* SoomlaiOSStore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SoomlaiOSStore.xcodeproj; path = "submodules/ios-store/SoomlaiOSStore.xcodeproj"; sourceTree = "<group>"; };
 		EF4CDD59194F31AC008B1CF2 /* libSoomlaiOSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSoomlaiOSCore.a; path = "../../../Library/Developer/Xcode/DerivedData/SoomlaiOSLevelUp-dftodavkzlghkiedetnqhlcslapb/Build/Products/Debug-iphoneos/libSoomlaiOSCore.a"; sourceTree = "<group>"; };
-		EF73CC9F1932292D00A171E5 /* RangeScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RangeScore.h; sourceTree = "<group>"; };
-		EF73CCA01932292D00A171E5 /* RangeScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RangeScore.m; sourceTree = "<group>"; };
-		EF73CCA419323E3200A171E5 /* Gate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gate.h; path = gates/Gate.h; sourceTree = "<group>"; };
-		EF73CCA519323E3200A171E5 /* Gate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Gate.m; path = gates/Gate.m; sourceTree = "<group>"; };
 		EF73CCA81932420300A171E5 /* GateStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GateStorage.h; path = data/GateStorage.h; sourceTree = "<group>"; };
 		EF73CCA91932420300A171E5 /* GateStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GateStorage.m; path = data/GateStorage.m; sourceTree = "<group>"; };
-		EF7BA0E91932555700FCF3C9 /* GatesList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GatesList.h; path = gates/GatesList.h; sourceTree = "<group>"; };
-		EF7BA0EA1932555700FCF3C9 /* GatesList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GatesList.m; path = gates/GatesList.m; sourceTree = "<group>"; };
-		EF7BA0ED19331CDA00FCF3C9 /* GatesListAND.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GatesListAND.h; path = gates/GatesListAND.h; sourceTree = "<group>"; };
-		EF7BA0EE19331CDA00FCF3C9 /* GatesListAND.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GatesListAND.m; path = gates/GatesListAND.m; sourceTree = "<group>"; };
-		EF7BA0F11933204900FCF3C9 /* GatesListOR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GatesListOR.h; path = gates/GatesListOR.h; sourceTree = "<group>"; };
-		EF7BA0F21933204900FCF3C9 /* GatesListOR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GatesListOR.m; path = gates/GatesListOR.m; sourceTree = "<group>"; };
-		EF7BA0F51933209F00FCF3C9 /* BalanceGate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BalanceGate.h; path = gates/BalanceGate.h; sourceTree = "<group>"; };
-		EF7BA0F61933209F00FCF3C9 /* BalanceGate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BalanceGate.m; path = gates/BalanceGate.m; sourceTree = "<group>"; };
-		EF7BA0FD1933424700FCF3C9 /* PurchasableGate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PurchasableGate.h; path = gates/PurchasableGate.h; sourceTree = "<group>"; };
-		EF7BA0FE1933424700FCF3C9 /* PurchasableGate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PurchasableGate.m; path = gates/PurchasableGate.m; sourceTree = "<group>"; };
-		EF7BA1011933637A00FCF3C9 /* RecordGate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordGate.h; path = gates/RecordGate.h; sourceTree = "<group>"; };
-		EF7BA1021933637A00FCF3C9 /* RecordGate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordGate.m; path = gates/RecordGate.m; sourceTree = "<group>"; };
-		EF7BA105193379E600FCF3C9 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
-		EF7BA106193379E600FCF3C9 /* World.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = World.m; sourceTree = "<group>"; };
-		EF7BA10919337A1D00FCF3C9 /* WorldCompletionGate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorldCompletionGate.h; path = gates/WorldCompletionGate.h; sourceTree = "<group>"; };
-		EF7BA10A19337A1D00FCF3C9 /* WorldCompletionGate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorldCompletionGate.m; path = gates/WorldCompletionGate.m; sourceTree = "<group>"; };
-		EF7BA1271935BE9500FCF3C9 /* Mission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Mission.h; path = challenges/Mission.h; sourceTree = "<group>"; };
-		EF7BA1281935BE9500FCF3C9 /* Mission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Mission.m; path = challenges/Mission.m; sourceTree = "<group>"; };
 		EF7BA12B1935C7E300FCF3C9 /* MissionStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MissionStorage.h; path = data/MissionStorage.h; sourceTree = "<group>"; };
 		EF7BA12C1935C7E300FCF3C9 /* MissionStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MissionStorage.m; path = data/MissionStorage.m; sourceTree = "<group>"; };
-		EF7BA12F1935D56B00FCF3C9 /* BalanceMission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BalanceMission.h; path = challenges/BalanceMission.h; sourceTree = "<group>"; };
-		EF7BA1301935D56B00FCF3C9 /* BalanceMission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BalanceMission.m; path = challenges/BalanceMission.m; sourceTree = "<group>"; };
-		EF7BA1331935FF2B00FCF3C9 /* RecordMission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordMission.h; path = challenges/RecordMission.h; sourceTree = "<group>"; };
-		EF7BA1341935FF2B00FCF3C9 /* RecordMission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordMission.m; path = challenges/RecordMission.m; sourceTree = "<group>"; };
-		EF7BA13719365DF700FCF3C9 /* PurchasingMission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PurchasingMission.h; path = challenges/PurchasingMission.h; sourceTree = "<group>"; };
-		EF7BA13819365DF700FCF3C9 /* PurchasingMission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PurchasingMission.m; path = challenges/PurchasingMission.m; sourceTree = "<group>"; };
-		EF7BA13B19365FF000FCF3C9 /* Challenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Challenge.h; path = challenges/Challenge.h; sourceTree = "<group>"; };
-		EF7BA13C19365FF000FCF3C9 /* Challenge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Challenge.m; path = challenges/Challenge.m; sourceTree = "<group>"; };
-		EF800A2A19AF002200717CA0 /* WorldCompletionMission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WorldCompletionMission.h; path = challenges/WorldCompletionMission.h; sourceTree = "<group>"; };
-		EF800A2B19AF002200717CA0 /* WorldCompletionMission.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorldCompletionMission.m; path = challenges/WorldCompletionMission.m; sourceTree = "<group>"; };
-		EF800A2E19AF1AC400717CA0 /* ScheduleGate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScheduleGate.h; path = gates/ScheduleGate.h; sourceTree = "<group>"; };
-		EF800A2F19AF1AC400717CA0 /* ScheduleGate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScheduleGate.m; path = gates/ScheduleGate.m; sourceTree = "<group>"; };
 		EFC127C8194CD79F00CDA66B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EFCDC725192E1EB5001D0824 /* libSoomlaiOSLevelUp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSoomlaiOSLevelUp.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFCDC728192E1EB5001D0824 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -175,15 +81,11 @@
 		EFCDC736192E1EB6001D0824 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		EFCDC740192E1EB6001D0824 /* SoomlaiOSLevelUpTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SoomlaiOSLevelUpTests-Info.plist"; sourceTree = "<group>"; };
 		EFCDC744192E1EB6001D0824 /* SoomlaiOSLevelUpTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoomlaiOSLevelUpTests.m; sourceTree = "<group>"; };
-		EFCDC753192E218F001D0824 /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Score.h; sourceTree = "<group>"; };
-		EFCDC754192E218F001D0824 /* Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Score.m; sourceTree = "<group>"; };
 		EFCDC75E192E2248001D0824 /* LUJSONConsts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LUJSONConsts.h; path = data/LUJSONConsts.h; sourceTree = "<group>"; };
 		EFCDC75F192E2248001D0824 /* LUJSONConsts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LUJSONConsts.m; path = data/LUJSONConsts.m; sourceTree = "<group>"; };
 		EFFB7A3A192E3E8100BB8BB5 /* ScoreStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScoreStorage.h; path = data/ScoreStorage.h; sourceTree = "<group>"; };
 		EFFB7A3B192E3E8100BB8BB5 /* ScoreStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScoreStorage.m; path = data/ScoreStorage.m; sourceTree = "<group>"; };
 		EFFB7A3E192E406900BB8BB5 /* LevelUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelUp.h; sourceTree = "<group>"; };
-		EFFB7A441931E25000BB8BB5 /* VirtualItemScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VirtualItemScore.h; sourceTree = "<group>"; };
-		EFFB7A451931E25000BB8BB5 /* VirtualItemScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VirtualItemScore.m; sourceTree = "<group>"; };
 		EFFB7A491931EC5200BB8BB5 /* LevelUpEventHandling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelUpEventHandling.h; sourceTree = "<group>"; };
 		EFFB7A4A1931EC5200BB8BB5 /* LevelUpEventHandling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelUpEventHandling.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -216,50 +118,6 @@
 				EF1892781963F28B0096F624 /* libSoomlaiOSStore.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		EF73CCA319323E1B00A171E5 /* gates */ = {
-			isa = PBXGroup;
-			children = (
-				EF73CCA419323E3200A171E5 /* Gate.h */,
-				EF73CCA519323E3200A171E5 /* Gate.m */,
-				EF7BA0E91932555700FCF3C9 /* GatesList.h */,
-				EF7BA0EA1932555700FCF3C9 /* GatesList.m */,
-				EF7BA0ED19331CDA00FCF3C9 /* GatesListAND.h */,
-				EF7BA0EE19331CDA00FCF3C9 /* GatesListAND.m */,
-				EF7BA0F11933204900FCF3C9 /* GatesListOR.h */,
-				EF7BA0F21933204900FCF3C9 /* GatesListOR.m */,
-				EF7BA0F51933209F00FCF3C9 /* BalanceGate.h */,
-				EF7BA0F61933209F00FCF3C9 /* BalanceGate.m */,
-				EF7BA0FD1933424700FCF3C9 /* PurchasableGate.h */,
-				EF7BA0FE1933424700FCF3C9 /* PurchasableGate.m */,
-				EF7BA1011933637A00FCF3C9 /* RecordGate.h */,
-				EF7BA1021933637A00FCF3C9 /* RecordGate.m */,
-				EF7BA10919337A1D00FCF3C9 /* WorldCompletionGate.h */,
-				EF7BA10A19337A1D00FCF3C9 /* WorldCompletionGate.m */,
-				EF800A2E19AF1AC400717CA0 /* ScheduleGate.h */,
-				EF800A2F19AF1AC400717CA0 /* ScheduleGate.m */,
-			);
-			name = gates;
-			sourceTree = "<group>";
-		};
-		EF7BA1261935BE7A00FCF3C9 /* challenges */ = {
-			isa = PBXGroup;
-			children = (
-				EF7BA1271935BE9500FCF3C9 /* Mission.h */,
-				EF7BA1281935BE9500FCF3C9 /* Mission.m */,
-				EF7BA12F1935D56B00FCF3C9 /* BalanceMission.h */,
-				EF7BA1301935D56B00FCF3C9 /* BalanceMission.m */,
-				EF7BA1331935FF2B00FCF3C9 /* RecordMission.h */,
-				EF7BA1341935FF2B00FCF3C9 /* RecordMission.m */,
-				EF7BA13719365DF700FCF3C9 /* PurchasingMission.h */,
-				EF7BA13819365DF700FCF3C9 /* PurchasingMission.m */,
-				EF7BA13B19365FF000FCF3C9 /* Challenge.h */,
-				EF7BA13C19365FF000FCF3C9 /* Challenge.m */,
-				EF800A2A19AF002200717CA0 /* WorldCompletionMission.h */,
-				EF800A2B19AF002200717CA0 /* WorldCompletionMission.m */,
-			);
-			name = challenges;
 			sourceTree = "<group>";
 		};
 		EFCDC71C192E1EB5001D0824 = {
@@ -295,18 +153,11 @@
 		EFCDC72A192E1EB5001D0824 /* SoomlaiOSLevelUp */ = {
 			isa = PBXGroup;
 			children = (
-				EF7BA1261935BE7A00FCF3C9 /* challenges */,
-				EF73CCA319323E1B00A171E5 /* gates */,
 				EFCDC75D192E2210001D0824 /* data */,
-				EFCDC750192E218F001D0824 /* scoring */,
 				EFCDC72B192E1EB5001D0824 /* Supporting Files */,
 				EFFB7A3E192E406900BB8BB5 /* LevelUp.h */,
 				EFFB7A491931EC5200BB8BB5 /* LevelUpEventHandling.h */,
 				EFFB7A4A1931EC5200BB8BB5 /* LevelUpEventHandling.m */,
-				EF7BA105193379E600FCF3C9 /* World.h */,
-				EF7BA106193379E600FCF3C9 /* World.m */,
-				EF081C91193723AD00847E47 /* Level.h */,
-				EF081C92193723AD00847E47 /* Level.m */,
 			);
 			path = SoomlaiOSLevelUp;
 			sourceTree = "<group>";
@@ -337,19 +188,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EFCDC750192E218F001D0824 /* scoring */ = {
-			isa = PBXGroup;
-			children = (
-				EFCDC753192E218F001D0824 /* Score.h */,
-				EFCDC754192E218F001D0824 /* Score.m */,
-				EFFB7A441931E25000BB8BB5 /* VirtualItemScore.h */,
-				EFFB7A451931E25000BB8BB5 /* VirtualItemScore.m */,
-				EF73CC9F1932292D00A171E5 /* RangeScore.h */,
-				EF73CCA01932292D00A171E5 /* RangeScore.m */,
-			);
-			path = scoring;
-			sourceTree = "<group>";
-		};
 		EFCDC75D192E2210001D0824 /* data */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,33 +214,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF800A2C19AF002200717CA0 /* WorldCompletionMission.h in Headers */,
-				EFE7A0E51963026C0054B3E9 /* Mission.h in Headers */,
-				EFE7A0E61963026C0054B3E9 /* BalanceMission.h in Headers */,
-				EFE7A0E71963026C0054B3E9 /* RecordMission.h in Headers */,
-				EFE7A0E81963026C0054B3E9 /* PurchasingMission.h in Headers */,
-				EFE7A0E91963026C0054B3E9 /* Challenge.h in Headers */,
-				EFE7A0ED1963026C0054B3E9 /* Gate.h in Headers */,
-				EFE7A0EE1963026C0054B3E9 /* GatesList.h in Headers */,
-				EFE7A0EF1963026C0054B3E9 /* GatesListAND.h in Headers */,
-				EFE7A0F01963026C0054B3E9 /* GatesListOR.h in Headers */,
-				EFE7A0F11963026C0054B3E9 /* BalanceGate.h in Headers */,
-				EFE7A0F21963026C0054B3E9 /* PurchasableGate.h in Headers */,
-				EFE7A0F31963026C0054B3E9 /* RecordGate.h in Headers */,
-				EFE7A0F41963026C0054B3E9 /* WorldCompletionGate.h in Headers */,
 				EFE7A0F61963026C0054B3E9 /* ScoreStorage.h in Headers */,
 				EFE7A0F71963026C0054B3E9 /* GateStorage.h in Headers */,
 				EFE7A0F91963026C0054B3E9 /* MissionStorage.h in Headers */,
 				EFE7A0FA1963026C0054B3E9 /* WorldStorage.h in Headers */,
 				EFE7A0FB1963026C0054B3E9 /* LevelStorage.h in Headers */,
-				EFE7A0FC1963026C0054B3E9 /* Score.h in Headers */,
-				EFE7A0FD1963026C0054B3E9 /* VirtualItemScore.h in Headers */,
-				EFE7A0FE1963026C0054B3E9 /* RangeScore.h in Headers */,
 				EFE7A0FF1963026C0054B3E9 /* LevelUp.h in Headers */,
 				EFE7A1001963026C0054B3E9 /* LevelUpEventHandling.h in Headers */,
-				EFE7A1011963026C0054B3E9 /* World.h in Headers */,
-				EFE7A1021963026D0054B3E9 /* Level.h in Headers */,
-				EF800A3019AF1AC400717CA0 /* ScheduleGate.h in Headers */,
 				EFE7A0F51963026C0054B3E9 /* LUJSONConsts.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,32 +342,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFCDC760192E2248001D0824 /* LUJSONConsts.m in Sources */,
-				EF7BA0F31933204900FCF3C9 /* GatesListOR.m in Sources */,
 				EF73CCAA1932420300A171E5 /* GateStorage.m in Sources */,
-				EFCDC759192E218F001D0824 /* Score.m in Sources */,
-				EF7BA13D19365FF000FCF3C9 /* Challenge.m in Sources */,
-				EF7BA0F71933209F00FCF3C9 /* BalanceGate.m in Sources */,
-				EF7BA1291935BE9500FCF3C9 /* Mission.m in Sources */,
-				EF800A3119AF1AC400717CA0 /* ScheduleGate.m in Sources */,
-				EF73CCA619323E3200A171E5 /* Gate.m in Sources */,
 				EF7BA12D1935C7E300FCF3C9 /* MissionStorage.m in Sources */,
-				EF7BA13919365DF700FCF3C9 /* PurchasingMission.m in Sources */,
 				EFFB7A3C192E3E8100BB8BB5 /* ScoreStorage.m in Sources */,
-				EF7BA0EB1932555700FCF3C9 /* GatesList.m in Sources */,
-				EF7BA1351935FF2B00FCF3C9 /* RecordMission.m in Sources */,
-				EFFB7A461931E25000BB8BB5 /* VirtualItemScore.m in Sources */,
 				EF081C8F193708CF00847E47 /* WorldStorage.m in Sources */,
-				EF7BA107193379E600FCF3C9 /* World.m in Sources */,
 				EF081C971937252B00847E47 /* LevelStorage.m in Sources */,
-				EF800A2D19AF002200717CA0 /* WorldCompletionMission.m in Sources */,
-				EF7BA10B19337A1D00FCF3C9 /* WorldCompletionGate.m in Sources */,
-				EF7BA1311935D56B00FCF3C9 /* BalanceMission.m in Sources */,
-				EF73CCA11932292D00A171E5 /* RangeScore.m in Sources */,
-				EF7BA0FF1933424700FCF3C9 /* PurchasableGate.m in Sources */,
 				EFFB7A4B1931EC5200BB8BB5 /* LevelUpEventHandling.m in Sources */,
-				EF7BA0EF19331CDA00FCF3C9 /* GatesListAND.m in Sources */,
-				EF7BA1031933637A00FCF3C9 /* RecordGate.m in Sources */,
-				EF081C93193723AD00847E47 /* Level.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,31 +355,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF73CCA21932293000A171E5 /* RangeScore.m in Sources */,
 				EFCDC761192E2248001D0824 /* LUJSONConsts.m in Sources */,
-				EF7BA1001933424700FCF3C9 /* PurchasableGate.m in Sources */,
-				EFCDC75A192E218F001D0824 /* Score.m in Sources */,
 				EFFB7A3D192E3E8100BB8BB5 /* ScoreStorage.m in Sources */,
-				EF7BA1361935FF2B00FCF3C9 /* RecordMission.m in Sources */,
-				EF7BA0F019331CDA00FCF3C9 /* GatesListAND.m in Sources */,
-				EF7BA0F41933204900FCF3C9 /* GatesListOR.m in Sources */,
-				EF7BA1041933637A00FCF3C9 /* RecordGate.m in Sources */,
-				EF7BA12A1935BE9500FCF3C9 /* Mission.m in Sources */,
 				EF73CCAB1932420300A171E5 /* GateStorage.m in Sources */,
-				EF7BA108193379E600FCF3C9 /* World.m in Sources */,
-				EF73CCA719323E3200A171E5 /* Gate.m in Sources */,
-				EF7BA1321935D56B00FCF3C9 /* BalanceMission.m in Sources */,
-				EFFB7A471931E25000BB8BB5 /* VirtualItemScore.m in Sources */,
 				EF081C90193708D400847E47 /* WorldStorage.m in Sources */,
-				EF7BA10C19337A1D00FCF3C9 /* WorldCompletionGate.m in Sources */,
 				EF081C981937252B00847E47 /* LevelStorage.m in Sources */,
-				EF7BA13E19365FF000FCF3C9 /* Challenge.m in Sources */,
-				EF7BA0EC1932555700FCF3C9 /* GatesList.m in Sources */,
-				EF7BA0F81933209F00FCF3C9 /* BalanceGate.m in Sources */,
-				EF081C94193723AD00847E47 /* Level.m in Sources */,
 				EF7BA12E1935C7E300FCF3C9 /* MissionStorage.m in Sources */,
 				EFCDC745192E1EB6001D0824 /* SoomlaiOSLevelUpTests.m in Sources */,
-				EF7BA13A19365DF700FCF3C9 /* PurchasingMission.m in Sources */,
 				EFFB7A4C1931EC5200BB8BB5 /* LevelUpEventHandling.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
