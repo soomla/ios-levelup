@@ -29,6 +29,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_LEVEL_STARTED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_LEVEL_ENDED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_WORLD_REWARD_ASSIGNED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_LEVEL_UP_INITIALIZED object:nil];
 }
 
 + (void)postScoreRecordChanged:(NSString *)scoreId {
@@ -78,6 +79,11 @@
 + (void)postLevelEnded:(NSString *)levelId {
     NSDictionary *userInfo = @{DICT_ELEMENT_LEVEL: levelId};
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_LEVEL_ENDED object:self userInfo:userInfo];
+}
+
++ (void)postLevelUpInitialized:(NSDictionary *)metadata {
+    NSDictionary *userInfo = @{DICT_ELEMENT_METADATA: metadata};
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_LEVEL_UP_INITIALIZED object:self userInfo:userInfo];
 }
 
 @end
