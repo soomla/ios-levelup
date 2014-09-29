@@ -24,7 +24,7 @@ We have great RESPECT for contributors.
 Code Documentation
 ---
 
-unity3d-levelup follows strict code documentation conventions. If you would like to contribute please read our [Documentation Guidelines](https://github.com/soomla/unity3d-store/tree/master/documentation.md) and follow them. Clear, consistent  comments will make our code easy to understand.
+ios-levelup follows strict code documentation conventions. If you would like to contribute please read our [Documentation Guidelines](https://github.com/soomla/ios-store/tree/master/documentation.md) and follow them. Clear, consistent  comments will make our code easy to understand.
 
 SOOMLA, Elsewhere ...
 ---
