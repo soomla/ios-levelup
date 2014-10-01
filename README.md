@@ -10,6 +10,8 @@ ios-levelup is a library built for easily modeling game structure and user progr
 **ios-levelup** is used only for writing _LevelUp_ related data to an iOS device storage, from game-engine related modules such as [unity3d-levelup](https://github.com/soomla/unity3d-levelup) and [cocos2dx-levelup](https://github.com/soomla/cocos2dx-levelup).
 Please see the aforementioned modules to use the full capabilities of the _LevelUp_ module.
 
+![Model Overview](http://know.soom.la/img/tutorial_img/soomla_diagrams/levelup.png)
+
 <!-- Check out our [Wiki] (https://github.com/soomla/android-store/wiki) for more information about the project and how to use it better. -->
 
 Contribution
