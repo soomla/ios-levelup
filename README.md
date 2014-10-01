@@ -5,7 +5,7 @@
 <!-- updates when you have any -->
 <!-- end updates -->
 
-ios-levelup is an open code initiative as part of The SOOMLA Project. The _LevelUp_ module organizes and simplifies structuring of games for user progress.
+ios-levelup is a library built for easily modeling game structure and user progression, and allows rapid protoyping using a standard and simplified model.
 
 **ios-levelup** is used only for writing _LevelUp_ related data to an iOS device storage, from game-engine related modules such as [unity3d-levelup](https://github.com/soomla/unity3d-levelup) and [cocos2dx-levelup](https://github.com/soomla/cocos2dx-levelup).
 Please see the aforementioned modules to use the full capabilities of the _LevelUp_ module.
