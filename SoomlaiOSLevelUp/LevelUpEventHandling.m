@@ -81,9 +81,8 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_LEVEL_ENDED object:self userInfo:userInfo];
 }
 
-+ (void)postLevelUpInitialized:(NSDictionary *)metadata {
-    NSDictionary *userInfo = @{DICT_ELEMENT_METADATA: metadata};
-    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_LEVEL_UP_INITIALIZED object:self userInfo:userInfo];
++ (void)postLevelUpInitialized {
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_LEVEL_UP_INITIALIZED object:self];
 }
 
 @end

@@ -22,8 +22,8 @@
 
 @implementation WorldStorage
 
-+ (void)initLevelUp:(NSDictionary *)metadata {
-    [LevelUpEventHandling postLevelUpInitialized:metadata];
++ (void)initLevelUp {
+    [LevelUpEventHandling postLevelUpInitialized];
 }
 
 + (void)setCompleted:(BOOL)completed forWorld:(NSString *)worldId {
