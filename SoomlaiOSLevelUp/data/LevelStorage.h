@@ -38,4 +38,10 @@
 
 + (int)getTimesPlayedForLevel:(NSString *)levelId;
 
++ (int)incTimesCompletedForLevel:(NSString *)levelId;
+
++ (int)decTimesCompletedForLevel:(NSString *)levelId;
+
++ (int)getTimesCompletedForLevel:(NSString *)levelId;
+
 @end
