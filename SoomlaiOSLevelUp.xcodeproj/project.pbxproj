@@ -23,6 +23,7 @@
 		EFE7A1001963026C0054B3E9 /* LevelUpEventHandling.h in Headers */ = {isa = PBXBuildFile; fileRef = EFFB7A491931EC5200BB8BB5 /* LevelUpEventHandling.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFFB7A3C192E3E8100BB8BB5 /* ScoreStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A3B192E3E8100BB8BB5 /* ScoreStorage.m */; };
 		EFFB7A4B1931EC5200BB8BB5 /* LevelUpEventHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFB7A4A1931EC5200BB8BB5 /* LevelUpEventHandling.m */; };
+		F80CD13E1A4C5E9D0051587C /* LevelUp.m in Sources */ = {isa = PBXBuildFile; fileRef = F80CD13D1A4C5E9D0051587C /* LevelUp.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		EFFB7A3E192E406900BB8BB5 /* LevelUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelUp.h; sourceTree = "<group>"; };
 		EFFB7A491931EC5200BB8BB5 /* LevelUpEventHandling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelUpEventHandling.h; sourceTree = "<group>"; };
 		EFFB7A4A1931EC5200BB8BB5 /* LevelUpEventHandling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelUpEventHandling.m; sourceTree = "<group>"; };
+		F80CD13D1A4C5E9D0051587C /* LevelUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelUp.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				EFCDC75D192E2210001D0824 /* data */,
 				EFCDC72B192E1EB5001D0824 /* Supporting Files */,
 				EFFB7A3E192E406900BB8BB5 /* LevelUp.h */,
+				F80CD13D1A4C5E9D0051587C /* LevelUp.m */,
 				EFFB7A491931EC5200BB8BB5 /* LevelUpEventHandling.h */,
 				EFFB7A4A1931EC5200BB8BB5 /* LevelUpEventHandling.m */,
 			);
@@ -249,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFCDC760192E2248001D0824 /* LUJSONConsts.m in Sources */,
+				F80CD13E1A4C5E9D0051587C /* LevelUp.m in Sources */,
 				EF73CCAA1932420300A171E5 /* GateStorage.m in Sources */,
 				EF7BA12D1935C7E300FCF3C9 /* MissionStorage.m in Sources */,
 				EFFB7A3C192E3E8100BB8BB5 /* ScoreStorage.m in Sources */,

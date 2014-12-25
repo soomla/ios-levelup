@@ -24,4 +24,6 @@
 
 + (int)getTimesCompleted:(NSString *)missionId;
 
++ (void)setTimesCompleted:(NSString *)missionId andTimesCompleted:(int)timesCompleted;
+
 @end

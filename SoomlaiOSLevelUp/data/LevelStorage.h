@@ -32,16 +32,22 @@
 
 + (int)getTimesStartedForLevel:(NSString *)levelId;
 
++ (void)setTimesStartedForLevel:(NSString *)levelId andStartedCount:(int)started;
+
 + (int)incTimesPlayedForLevel:(NSString *)levelId;
 
 + (int)decTimesPlayedForLevel:(NSString *)levelId;
 
 + (int)getTimesPlayedForLevel:(NSString *)levelId;
 
++ (void)setTimesPlayedForLevel:(NSString *)levelId andPlayedCount:(int)played;
+
 + (int)incTimesCompletedForLevel:(NSString *)levelId;
 
 + (int)decTimesCompletedForLevel:(NSString *)levelId;
 
 + (int)getTimesCompletedForLevel:(NSString *)levelId;
+
++ (void)setTimesCompletedForLevel:(NSString *)levelId andTimesCompleted:(int)timesCompleted;
 
 @end

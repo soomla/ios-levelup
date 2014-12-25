@@ -60,6 +60,10 @@
 }
 
 + (void)setReward:(NSString*)rewardId forWorld:(NSString *)worldId {
+    [self setReward:rewardId forWorld:worldId andNotify:YES];
+}
+
++ (void)setReward:(NSString*)rewardId forWorld:(NSString *)worldId andNotify:(BOOL)notify {
     NSString* key = [self keyRewardWithWorldId:worldId];
     
     if (rewardId && [rewardId length] > 0) {
@@ -68,13 +72,32 @@
         [KeyValueStorage deleteValueForKey:key];
     }
     
-    // Notify world was assigned a reward
-    [LevelUpEventHandling postWorldRewardAssigned:worldId];
+    if (notify) {
+        // Notify world was assigned a reward
+        [LevelUpEventHandling postWorldRewardAssigned:worldId];
+    }
 }
 
 + (NSString*)getAssignedReward:(NSString *)worldId {
     NSString* key = [self keyRewardWithWorldId:worldId];
     return [KeyValueStorage getValueForKey:key];
+}
+
++ (BOOL)isLevel:(NSString *)worldId {
+    NSDictionary *model = [LevelUp getLevelUpModel];
+    if (model) {
+        NSDictionary *worlds = [LevelUp getWorlds:model];
+        NSDictionary *world = worlds[world];
+        if (world) {
+            NSString *itemId = world[@"itemId"];
+            if (itemId && [itemId isEqualToString:worldId]) {
+                NSString *className = world[@"className"];
+                return [className isEqualToString:@"Level"];
+            }
+        }
+    }
+    
+    return NO;
 }
 
 // Private

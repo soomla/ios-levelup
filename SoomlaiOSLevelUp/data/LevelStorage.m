@@ -53,9 +53,7 @@
     }
     started++;
     
-    NSString* key = [self keyTimesStartedWithLevelId:levelId];
-    NSString* val = [[NSNumber numberWithInt:started] stringValue];
-    [KeyValueStorage setValue:val forKey:key];
+    [self setTimesStartedForLevel:levelId andStartedCount:started];
     
     // Notify level has started
     [LevelUpEventHandling postLevelStarted:levelId];
@@ -70,9 +68,7 @@
     }
     started--;
     
-    NSString* key = [self keyTimesStartedWithLevelId:levelId];
-    NSString* val = [[NSNumber numberWithInt:started] stringValue];
-    [KeyValueStorage setValue:val forKey:key];
+    [self setTimesStartedForLevel:levelId andStartedCount:started];
     return started;
 }
 
@@ -82,6 +78,12 @@
     return (val && [val length] > 0) ? [val intValue] : 0;
 }
 
++ (void)setTimesStartedForLevel:(NSString *)levelId andStartedCount:(int)started {
+    NSString* key = [self keyTimesStartedWithLevelId:levelId];
+    NSString* val = [[NSNumber numberWithInt:started] stringValue];
+    [KeyValueStorage setValue:val forKey:key];
+}
+
 + (int)incTimesPlayedForLevel:(NSString *)levelId {
     int played = [self getTimesPlayedForLevel:levelId];
     if (played < 0) { /* can't be negative */
@@ -89,9 +91,7 @@
     }
     played++;
     
-    NSString* key = [self keyTimesPlayedWithLevelId:levelId];
-    NSString* val = [[NSNumber numberWithInt:played] stringValue];
-    [KeyValueStorage setValue:val forKey:key];
+    [self setTimesPlayedForLevel:levelId andPlayedCount:played];
     
     // Notify level has ended
     [LevelUpEventHandling postLevelEnded:levelId];
@@ -106,9 +106,7 @@
     }
     played--;
     
-    NSString* key = [self keyTimesPlayedWithLevelId:levelId];
-    NSString* val = [[NSNumber numberWithInt:played] stringValue];
-    [KeyValueStorage setValue:val forKey:key];
+    [self setTimesPlayedForLevel:levelId andPlayedCount:played];
     return played;
 }
 
@@ -118,6 +116,12 @@
     return (val && [val length] > 0) ? [val intValue] : 0;
 }
 
++ (void)setTimesPlayedForLevel:(NSString *)levelId andPlayedCount:(int)played {
+    NSString* key = [self keyTimesPlayedWithLevelId:levelId];
+    NSString* val = [[NSNumber numberWithInt:played] stringValue];
+    [KeyValueStorage setValue:val forKey:key];
+}
+
 + (int)incTimesCompletedForLevel:(NSString *)levelId {
     int played = [self getTimesCompletedForLevel:levelId];
     if (played < 0) { /* can't be negative */
@@ -125,9 +129,7 @@
     }
     played++;
     
-    NSString* key = [self keyTimesCompletedWithLevelId:levelId];
-    NSString* val = [[NSNumber numberWithInt:played] stringValue];
-    [KeyValueStorage setValue:val forKey:key];
+    [self setTimesCompletedForLevel:levelId andTimesCompleted:played];
     
     return played;
 }
@@ -139,9 +141,7 @@
     }
     played--;
     
-    NSString* key = [self keyTimesCompletedWithLevelId:levelId];
-    NSString* val = [[NSNumber numberWithInt:played] stringValue];
-    [KeyValueStorage setValue:val forKey:key];
+    [self setTimesCompletedForLevel:levelId andTimesCompleted:played];
     return played;
 }
 
@@ -149,6 +149,12 @@
     NSString* key = [self keyTimesCompletedWithLevelId:levelId];
     NSString* val = [KeyValueStorage getValueForKey:key];
     return (val && [val length] > 0) ? [val intValue] : 0;
+}
+
++ (void)setTimesCompletedForLevel:(NSString *)levelId andTimesCompleted:(int)timesCompleted {
+    NSString* key = [self keyTimesCompletedWithLevelId:levelId];
+    NSString* val = [[NSNumber numberWithInt:timesCompleted] stringValue];
+    [KeyValueStorage setValue:val forKey:key];
 }
 
 // Private

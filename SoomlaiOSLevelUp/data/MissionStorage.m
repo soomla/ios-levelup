@@ -34,8 +34,8 @@ static NSString* TAG = @"SOOMLA MissionStorage";
     if (total < 0) {
         total = 0;
     }
-    NSString* key = [self keyMissionTimesCompletedWithMissionId:missionId];
-    [KeyValueStorage setValue:[@(total) stringValue] forKey:key];
+    
+    [self setTimesCompleted:missionId andTimesCompleted:total];
     
     if (notify) {
         if (completed) {
@@ -57,6 +57,11 @@ static NSString* TAG = @"SOOMLA MissionStorage";
     LogDebug(TAG, msg)
     
     return (![val length]) ? 0 : [val intValue];
+}
+
++ (void)setTimesCompleted:(NSString *)missionId andTimesCompleted:(int)timesCompleted {
+    NSString* key = [self keyMissionTimesCompletedWithMissionId:missionId];
+    [KeyValueStorage setValue:[@(timesCompleted) stringValue] forKey:key];
 }
 
 
