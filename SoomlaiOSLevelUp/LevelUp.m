@@ -295,7 +295,13 @@ static NSString *TAG = @"SOOMLA LevelUp";
     
     for (NSString *itemId in itemsDict) {
         NSDictionary *itemValuesDict = itemsDict[itemId];
-        if (!applierBlock(itemId, itemValuesDict)) {
+        @try {
+            if (!applierBlock(itemId, itemValuesDict)) {
+                return NO;
+            }
+        }
+        @catch (NSException *exception) {
+            LogError(TAG, ([NSString stringWithFormat:@"Unable to apply state for %@. error: %@", itemId, exception.description]));
             return NO;
         }
     }
@@ -360,34 +366,5 @@ static NSString *TAG = @"SOOMLA LevelUp";
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @end
