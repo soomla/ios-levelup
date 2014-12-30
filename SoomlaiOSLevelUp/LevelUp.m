@@ -48,10 +48,10 @@ static NSString *TAG = @"SOOMLA LevelUp";
         return NO;
     }
     
-    return [self applyGatesStateFromDict:state] &&
-    [self applyWorldsStateFromDict:state] &&
-    [self applyMissionsStateFromDict:state] &&
-    [self applyScoresStateFromDict:state];
+    return [self resetGatesStateFromDict:state] &&
+    [self resetWorldsStateFromDict:state] &&
+    [self resetMissionsStateFromDict:state] &&
+    [self resetScoresStateFromDict:state];
     
 }
 
@@ -192,8 +192,8 @@ static NSString *TAG = @"SOOMLA LevelUp";
     state[@"scores"] = scoresStateDict;
 }
 
-+ (BOOL) applyGatesStateFromDict:(NSDictionary *)state {
-    return [self applyStateFromDict:state
++ (BOOL) resetGatesStateFromDict:(NSDictionary *)state {
+    return [self resetStateFromDict:state
                         andListName:@"gates"
                     andApplierBlock:^BOOL(NSString *itemId, NSDictionary *itemValuesDict) {
                         NSNumber *openState = itemValuesDict[@"open"];
@@ -205,8 +205,8 @@ static NSString *TAG = @"SOOMLA LevelUp";
                     }];
 }
 
-+ (BOOL) applyWorldsStateFromDict:(NSDictionary *)state {
-    BOOL worldsApplyState = [self applyStateFromDict:state
++ (BOOL) resetWorldsStateFromDict:(NSDictionary *)state {
+    BOOL worldsApplyState = [self resetStateFromDict:state
                                          andListName:@"worlds"
                                      andApplierBlock:^BOOL(NSString *itemId, NSDictionary *itemValuesDict) {
                                          NSNumber *completedState = itemValuesDict[@"completed"];
@@ -222,7 +222,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
                                          return YES;
                                      }];
     
-    BOOL levelsApplyState = [self applyStateFromDict:state
+    BOOL levelsApplyState = [self resetStateFromDict:state
                                          andListName:@"levels"
                                      andApplierBlock:^BOOL(NSString *itemId, NSDictionary *itemValuesDict) {
                                          NSNumber *timesStarted = itemValuesDict[@"started"];
@@ -256,8 +256,8 @@ static NSString *TAG = @"SOOMLA LevelUp";
     return worldsApplyState && levelsApplyState;
 }
 
-+ (BOOL) applyMissionsStateFromDict:(NSDictionary *)state {
-    return [self applyStateFromDict:state andListName:@"missions"
++ (BOOL) resetMissionsStateFromDict:(NSDictionary *)state {
+    return [self resetStateFromDict:state andListName:@"missions"
                     andApplierBlock:^BOOL(NSString *itemId, NSDictionary *itemValuesDict) {
                         NSNumber *timesCompleted = itemValuesDict[@"timesCompleted"];
                         if (timesCompleted) {
@@ -268,8 +268,8 @@ static NSString *TAG = @"SOOMLA LevelUp";
                     }];
 }
 
-+ (BOOL) applyScoresStateFromDict:(NSDictionary *)state {
-    return [self applyStateFromDict:state andListName:@"scores"
++ (BOOL) resetScoresStateFromDict:(NSDictionary *)state {
+    return [self resetStateFromDict:state andListName:@"scores"
                     andApplierBlock:^BOOL(NSString *itemId, NSDictionary *itemValuesDict) {
                         NSNumber *latestScore = itemValuesDict[@"latest"];
                         if (latestScore) {
@@ -285,7 +285,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
                     }];
 }
 
-+ (BOOL) applyStateFromDict:(NSDictionary *)state andListName:(NSString *)targetListName
++ (BOOL) resetStateFromDict:(NSDictionary *)state andListName:(NSString *)targetListName
             andApplierBlock:(BOOL (^)(NSString * itemId, NSDictionary *itemValuesDict))applierBlock{
     
     NSDictionary *itemsDict = state[targetListName];
