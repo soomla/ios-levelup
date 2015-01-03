@@ -21,6 +21,12 @@
 
 @implementation WorldStorage
 
+static NSString *DB_WORLD_KEY_PREFIX;
+
++(void)initialize {
+    DB_WORLD_KEY_PREFIX = [NSString stringWithFormat:@"%@worlds.", LU_DB_KEY_PREFIX];
+}
+
 + (void)initLevelUp {
     [LevelUpEventHandling postLevelUpInitialized];
 }
@@ -100,9 +106,13 @@
     return NO;
 }
 
++ (NSString *)keyWorldPrefix {
+    return DB_WORLD_KEY_PREFIX;
+}
+
 // Private
 + (NSString *)keyWorldsWithWorldId:(NSString *)worldId andPostfix:(NSString *)postfix {
-    return [NSString stringWithFormat: @"%@worlds.%@.%@", LU_DB_KEY_PREFIX, worldId, postfix];
+    return [NSString stringWithFormat: @"%@%@.%@", DB_WORLD_KEY_PREFIX, worldId, postfix];
 }
 
 + (NSString *)keyWorldCompletedWithWorldId:(NSString *)worldId {

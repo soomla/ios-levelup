@@ -23,6 +23,11 @@
 @implementation MissionStorage
 
 static NSString* TAG = @"SOOMLA MissionStorage";
+static NSString* DB_MISSION_KEY_PREFIX;
+
++ (void)initialize {
+    DB_MISSION_KEY_PREFIX = [NSString stringWithFormat:@"%@missions.", LU_DB_KEY_PREFIX];
+}
 
 + (void)setCompleted:(BOOL)completed forMission:(NSString *)missionId {
     [self setCompleted:completed forMission:missionId andNotify:YES];
@@ -64,10 +69,14 @@ static NSString* TAG = @"SOOMLA MissionStorage";
     [KeyValueStorage setValue:[@(timesCompleted) stringValue] forKey:key];
 }
 
++ (NSString *)keyMissionPrefix {
+    return DB_MISSION_KEY_PREFIX;
+}
+
 
 // Private
 + (NSString *)keyMissionsWithMissionId:(NSString *)missionId andPostfix:(NSString *)postfix {
-    return [NSString stringWithFormat: @"%@missions.%@.%@", LU_DB_KEY_PREFIX, missionId, postfix];
+    return [NSString stringWithFormat: @"%@%@.%@", DB_MISSION_KEY_PREFIX, missionId, postfix];
 }
 
 + (NSString *)keyMissionTimesCompletedWithMissionId:(NSString *)missionId {

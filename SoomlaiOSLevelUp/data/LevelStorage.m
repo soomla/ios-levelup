@@ -21,6 +21,11 @@
 
 @implementation LevelStorage
 
+static NSString *DB_LEVEL_KEY_PREFIX;
+
++(void)initialize {
+    DB_LEVEL_KEY_PREFIX = [NSString stringWithFormat:@"%@levels.", LU_DB_KEY_PREFIX];
+}
 
 + (void)setSlowestDurationMillis:(long long)duration forLevel:(NSString *)levelId {
     NSString* key = [self keySlowestDurationWithLevelId:levelId];
@@ -157,10 +162,14 @@
     [KeyValueStorage setValue:val forKey:key];
 }
 
++ (NSString *)keyLevelPrefix {
+    return DB_LEVEL_KEY_PREFIX;
+}
+
 // Private
 
 + (NSString *)keyLevelsWithLevelId:(NSString *)levelId andPostfix:(NSString *)postfix {
-    return [NSString stringWithFormat: @"%@levels.%@.%@", LU_DB_KEY_PREFIX, levelId, postfix];
+    return [NSString stringWithFormat: @"%@%@.%@", DB_LEVEL_KEY_PREFIX, levelId, postfix];
 }
 
 + (NSString *)keyTimesStartedWithLevelId:(NSString *)levelId {

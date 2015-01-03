@@ -54,4 +54,6 @@
  */
 + (double)getRecordScore:(NSString *)scoreId;
 
++ (NSString *)keyScorePrefix;
+
 @end

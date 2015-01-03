@@ -21,6 +21,12 @@
 
 @implementation ScoreStorage
 
+static NSString *DB_SCORE_KEY_PREFIX;
+
++(void)initialize {
+    DB_SCORE_KEY_PREFIX = [NSString stringWithFormat:@"%@scores.", LU_DB_KEY_PREFIX];
+}
+
 /** Latest Score **/
 
 + (void)setLatest:(double)latest toScore:(NSString *)scoreId {
@@ -56,11 +62,15 @@
     return (![val length]) ? -1 : [val doubleValue];
 }
 
++ (NSString *)keyScorePrefix {
+    return DB_SCORE_KEY_PREFIX;
+}
+
 
 /** Private methods **/
 
 + (NSString *)keyScoresWithScoreId:(NSString *)scoreId andPostfix:(NSString *)postfix {
-    return [NSString stringWithFormat: @"%@scores.%@.%@", LU_DB_KEY_PREFIX, scoreId, postfix];
+    return [NSString stringWithFormat: @"%@%@.%@", DB_SCORE_KEY_PREFIX, scoreId, postfix];
 }
 
 + (NSString *)keyLatestScoreWithScoreId:(NSString *)scoreId {

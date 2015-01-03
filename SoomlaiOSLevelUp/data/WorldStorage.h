@@ -32,4 +32,6 @@
 
 + (BOOL)isLevel:(NSString *)worldId;
 
++ (NSString *)keyWorldPrefix;
+
 @end

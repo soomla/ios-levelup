@@ -50,4 +50,6 @@
 
 + (void)setTimesCompletedForLevel:(NSString *)levelId andTimesCompleted:(int)timesCompleted;
 
++ (NSString *)keyLevelPrefix;
+
 @end

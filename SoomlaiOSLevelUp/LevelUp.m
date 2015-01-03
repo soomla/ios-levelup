@@ -48,6 +48,12 @@ static NSString *TAG = @"SOOMLA LevelUp";
         return NO;
     }
     
+    LogDebug(TAG, ([NSString stringWithFormat:@"Resetting state with: %@", state]));
+    
+    [self clearCurrentState];
+    
+    LogDebug(TAG, @"Current state was cleared");
+    
     return [self resetGatesStateFromDict:state] &&
     [self resetWorldsStateFromDict:state] &&
     [self resetMissionsStateFromDict:state] &&
@@ -107,6 +113,19 @@ static NSString *TAG = @"SOOMLA LevelUp";
 }
 
 // Private
+
++ (void) clearCurrentState {
+    NSArray *allKeys = [KeyValueStorage getAllKeysUnencrypted];
+    for (NSString *key in allKeys) {
+        if (([key rangeOfString:[GateStorage keyGatePrefix]].length > 0) ||
+            ([key rangeOfString:[LevelStorage keyLevelPrefix]].length > 0) ||
+            ([key rangeOfString:[MissionStorage keyMissionPrefix]].length > 0) ||
+            ([key rangeOfString:[ScoreStorage keyScorePrefix]].length > 0) ||
+            ([key rangeOfString:[WorldStorage keyWorldPrefix]].length > 0)) {
+            [KeyValueStorage deleteValueForKey:key];
+        }
+    }
+}
 
 + (void)applyGatesStateToDict:(NSDictionary *)model andApplyTo:(NSMutableDictionary *)state {
     NSMutableDictionary *gatesStateDict = [NSMutableDictionary dictionary];
@@ -292,6 +311,8 @@ static NSString *TAG = @"SOOMLA LevelUp";
     if (!itemsDict) {
         return YES;
     }
+    
+    LogDebug(TAG, ([NSString stringWithFormat:@"Resetting state for %@", targetListName]));
     
     for (NSString *itemId in itemsDict) {
         NSDictionary *itemValuesDict = itemsDict[itemId];

@@ -22,6 +22,11 @@
 
 @implementation GateStorage
 
+static NSString *DB_GATE_KEY_PREFIX;
+
++(void)initialize {
+    DB_GATE_KEY_PREFIX = [NSString stringWithFormat:@"%@gates.", LU_DB_KEY_PREFIX];
+}
 
 + (void)setOpen:(BOOL)open forGate:(NSString *)gateId {
     [self setOpen:open forGate:gateId andEvent:YES];
@@ -51,11 +56,15 @@
 // Private
 
 + (NSString*)keyGatesWithGateId:(NSString*)gateId andPostfix:(NSString*)postfix {
-    return [NSString stringWithFormat: @"%@gates.%@.%@", LU_DB_KEY_PREFIX, gateId, postfix];
+    return [NSString stringWithFormat: @"%@%@.%@", DB_GATE_KEY_PREFIX, gateId, postfix];
 }
 
 + (NSString*)keyGateOpen:(NSString*)gateId {
     return [self keyGatesWithGateId:gateId andPostfix:@"open"];
+}
+
++ (NSString *)keyGatePrefix {
+    return DB_GATE_KEY_PREFIX;
 }
 
 @end
