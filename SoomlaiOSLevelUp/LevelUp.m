@@ -115,7 +115,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
 // Private
 
 + (void) clearCurrentState {
-    NSArray *allKeys = [KeyValueStorage getAllKeysUnencrypted];
+    NSArray *allKeys = [KeyValueStorage getEncryptedKeys];
     for (NSString *key in allKeys) {
         if (([key rangeOfString:[GateStorage keyGatePrefix]].length > 0) ||
             ([key rangeOfString:[LevelStorage keyLevelPrefix]].length > 0) ||
