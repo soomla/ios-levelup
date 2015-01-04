@@ -95,7 +95,8 @@ static NSString *TAG = @"SOOMLA LevelUp";
     NSMutableDictionary *resultHash = [NSMutableDictionary dictionary];
     
     NSDictionary *worlds = [self getWorlds:model];
-    for (NSDictionary *worldDict in worlds) {
+    for (NSString *worldId in worlds.allKeys) {
+        NSDictionary *worldDict = worlds[worldId];
         NSDictionary *gateDict = worldDict[@"gate"];
         if (gateDict) {
             NSString *objectId = gateDict[@"itemId"];
@@ -131,7 +132,8 @@ static NSString *TAG = @"SOOMLA LevelUp";
     NSMutableDictionary *gatesStateDict = [NSMutableDictionary dictionary];
     NSDictionary *gates = [self getGates:model];
     
-    for (NSDictionary *gateDict in gates) {
+    for (NSString *gateId in gates.allKeys) {
+        NSDictionary *gateDict = gates[gateId];
         NSMutableDictionary *gateValuesDict = [NSMutableDictionary dictionary];
         NSString *gateId = gateDict[@"itemId"];
         if (gateId && (gateId.length > 0)) {
@@ -149,7 +151,8 @@ static NSString *TAG = @"SOOMLA LevelUp";
     NSMutableDictionary *levelsStateDict = [NSMutableDictionary dictionary];
     
     NSDictionary *worlds = [self getWorlds:model];
-    for (NSDictionary *worldDict in worlds) {
+    for (NSString *wId in worlds.allKeys) {
+        NSDictionary *worldDict = worlds[wId];
         NSString *worldId = worldDict[@"itemId"];
         if (worldId && (worldId.length > 0)) {
             NSMutableDictionary *worldValuesDict = [NSMutableDictionary dictionary];
@@ -180,7 +183,8 @@ static NSString *TAG = @"SOOMLA LevelUp";
     NSMutableDictionary *missionsStateDict = [NSMutableDictionary dictionary];
     
     NSDictionary *missions = [self getMissions:model];
-    for (NSDictionary *missionDict in missions) {
+    for (NSString *mId in missions.allKeys) {
+        NSDictionary *missionDict = missions[mId];
         NSString *missionId = missionDict[@"itemId"];
         if (missionId && (missionId.length > 0)) {
             NSMutableDictionary *missionValuesDict = [NSMutableDictionary dictionary];
@@ -197,7 +201,8 @@ static NSString *TAG = @"SOOMLA LevelUp";
     NSMutableDictionary *scoresStateDict = [NSMutableDictionary dictionary];
     
     NSDictionary *scores = [self getScores:model];
-    for (NSDictionary *scoreDict in scores) {
+    for (NSString *sId in scores.allKeys) {
+        NSDictionary *scoreDict = scores[sId];
         NSString *scoreId = scoreDict[@"itemId"];
         if (scoreId && (scoreId.length > 0)) {
             NSMutableDictionary *scoreValuesDict = [NSMutableDictionary dictionary];
@@ -348,7 +353,8 @@ static NSString *TAG = @"SOOMLA LevelUp";
     NSMutableDictionary *resultHash = [NSMutableDictionary dictionary];
     
     NSDictionary *worlds = [self getWorlds:model];
-    for (NSDictionary *worldDict in worlds) {
+    for (NSString *worldId in worlds.allKeys) {
+        NSDictionary *worldDict = worlds[worldId];
         NSArray *objectDicts = worldDict[listName];
         if (objectDicts) {
             for (NSDictionary *objectDict in objectDicts) {
@@ -364,7 +370,8 @@ static NSString *TAG = @"SOOMLA LevelUp";
 }
 
 + (void)findInternalLists:(NSMutableDictionary *)objects andContainersList:(NSArray *)listClasses andListName:(NSString *)listName {
-    for (NSDictionary *objectDict in objects) {
+    for (NSString *objectId in objects.allKeys) {
+        NSDictionary *objectDict = objects[objectId];
         [self findInternalLists:objects andContainersList:listClasses andListName:listName andCheckDict:objectDict];
     }
 }
