@@ -36,7 +36,7 @@ static NSString *DB_LEVEL_KEY_PREFIX;
 + (long long)getSlowestDurationMillisForLevel:(NSString *)levelId {
     NSString* key = [self keySlowestDurationWithLevelId:levelId];
     NSString* val = [KeyValueStorage getValueForKey:key];
-    return (val && [val length] > 0) ? [val longLongValue] : LONG_LONG_MIN;
+    return (val && [val length] > 0) ? [val longLongValue] : 0;
 }
 
 + (void)setFastestDurationMillis:(long long)duration forLevel:(NSString *)levelId {
@@ -48,7 +48,7 @@ static NSString *DB_LEVEL_KEY_PREFIX;
 + (long long)getFastestDurationMillisForLevel:(NSString *)levelId {
     NSString* key = [self keyFastestDurationWithLevelId:levelId];
     NSString* val = [KeyValueStorage getValueForKey:key];
-    return (val && [val length] > 0) ? [val longLongValue] : LONG_LONG_MAX;
+    return (val && [val length] > 0) ? [val longLongValue] : 0;
 }
 
 + (int)incTimesStartedForLevel:(NSString *)levelId {

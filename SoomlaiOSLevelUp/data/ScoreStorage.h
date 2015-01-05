@@ -45,6 +45,7 @@
  @param record the new record value
  */
 + (void)setRecord:(double)record toScore:(NSString *)scoreId;
++ (void)setRecord:(double)record toScore:(NSString *)scoreId andNotify:(BOOL)notify;
 
 /**
  Retrieves the record of the given score

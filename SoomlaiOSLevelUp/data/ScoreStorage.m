@@ -47,12 +47,18 @@ static NSString *DB_SCORE_KEY_PREFIX;
 /** Record Score **/
 
 + (void)setRecord:(double)record toScore:(NSString *)scoreId {
+    [self setRecord:record toScore:scoreId andNotify:YES];
+}
+
++ (void)setRecord:(double)record toScore:(NSString *)scoreId andNotify:(BOOL)notify {
     NSString* key = [self keyRecordScoreWithScoreId:scoreId];
     NSString* val = [[NSNumber numberWithDouble:record] stringValue];
     
     [KeyValueStorage setValue:val forKey:key];
     
-    [LevelUpEventHandling postScoreRecordChanged:scoreId];
+    if (notify) {
+        [LevelUpEventHandling postScoreRecordChanged:scoreId];
+    }
 }
 
 + (double)getRecordScore:(NSString *)scoreId {

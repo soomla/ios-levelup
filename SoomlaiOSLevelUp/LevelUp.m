@@ -106,6 +106,20 @@ static NSString *TAG = @"SOOMLA LevelUp";
         }
     }
     
+    NSDictionary *missions = [self getMissions:model];
+    for (NSString *missionId in missions.allKeys) {
+        NSDictionary *missionDict = missions[missionId];
+        NSDictionary *gateDict = missionDict[@"gate"];
+        if (gateDict) {
+            NSString *objectId = gateDict[@"itemId"];
+            if (!IsStringEmpty(objectId)) {
+                resultHash[objectId] = gateDict;
+            }
+        }
+    }
+    
+    [self findInternalLists:resultHash andContainersList:@[ @"GatesListAND", @"GatesListOR" ] andListName:@"gates"];
+    
     return resultHash;
 }
 
@@ -163,7 +177,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
                 worldValuesDict[@"assignedReward"] = assignedRewardId;
             }
             
-            worldsStateDict[worldId] = worldDict;
+            worldsStateDict[worldId] = worldValuesDict;
             
             NSString *className = worldDict[@"className"];
             if (!IsStringEmpty(className) && [className isEqualToString:@"Level"]) {
@@ -226,7 +240,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
                     andApplierBlock:^BOOL(NSString *itemId, NSDictionary *itemValuesDict) {
                         NSNumber *openState = itemValuesDict[@"open"];
                         if (openState) {
-                            [GateStorage setOpen:[openState boolValue] forGate:itemId];
+                            [GateStorage setOpen:[openState boolValue] forGate:itemId andEvent:NO];
                         }
                         
                         return YES;
@@ -239,7 +253,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
                                      andApplierBlock:^BOOL(NSString *itemId, NSDictionary *itemValuesDict) {
                                          NSNumber *completedState = itemValuesDict[@"completed"];
                                          if (completedState) {
-                                             [WorldStorage setCompleted:[completedState boolValue] forWorld:itemId];
+                                             [WorldStorage setCompleted:[completedState boolValue] forWorld:itemId andNotify:NO];
                                          }
                                          
                                          NSString *assignedRewardId = itemValuesDict[@"assignedReward"];
@@ -306,7 +320,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
                         
                         NSNumber *recordScore = itemValuesDict[@"record"];
                         if (recordScore) {
-                            [ScoreStorage setRecord:[recordScore doubleValue] toScore:itemId];
+                            [ScoreStorage setRecord:[recordScore doubleValue] toScore:itemId andNotify:NO];
                         }
                         
                         return YES;
