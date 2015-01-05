@@ -65,7 +65,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
     NSString *modelStr = [KeyValueStorage getValueForKey:[NSString stringWithFormat:@"%@%@", LU_DB_KEY_PREFIX, @"model"]];
     LogDebug(TAG, ([NSString stringWithFormat:@"model: %@", modelStr]));
     
-    if (!modelStr && (modelStr.length == 0)) {
+    if (IsStringEmpty(modelStr)) {
         return nil;
     }
     
@@ -100,7 +100,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
         NSDictionary *gateDict = worldDict[@"gate"];
         if (gateDict) {
             NSString *objectId = gateDict[@"itemId"];
-            if (objectId) {
+            if (!IsStringEmpty(objectId)) {
                 resultHash[objectId] = gateDict;
             }
         }
@@ -136,7 +136,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
         NSDictionary *gateDict = gates[gateId];
         NSMutableDictionary *gateValuesDict = [NSMutableDictionary dictionary];
         NSString *gateId = gateDict[@"itemId"];
-        if (gateId && (gateId.length > 0)) {
+        if (!IsStringEmpty(gateId)) {
             gateValuesDict[@"open"] = [NSNumber numberWithBool:[GateStorage isOpen:gateId]];
             
             gatesStateDict[gateId] = gateValuesDict;
@@ -154,15 +154,19 @@ static NSString *TAG = @"SOOMLA LevelUp";
     for (NSString *wId in worlds.allKeys) {
         NSDictionary *worldDict = worlds[wId];
         NSString *worldId = worldDict[@"itemId"];
-        if (worldId && (worldId.length > 0)) {
+        if (!IsStringEmpty(worldId)) {
             NSMutableDictionary *worldValuesDict = [NSMutableDictionary dictionary];
+            
             worldValuesDict[@"completed"] = [NSNumber numberWithBool:[WorldStorage isWorldCompleted:worldId]];
-            worldValuesDict[@"assignedReward"] = [WorldStorage getAssignedReward:worldId];
+            NSString *assignedRewardId = [WorldStorage getAssignedReward:worldId];
+            if (!IsStringEmpty(assignedRewardId)) {
+                worldValuesDict[@"assignedReward"] = assignedRewardId;
+            }
             
             worldsStateDict[worldId] = worldDict;
             
             NSString *className = worldDict[@"className"];
-            if (className && (className.length > 0) && [className isEqualToString:@"Level"]) {
+            if (!IsStringEmpty(className) && [className isEqualToString:@"Level"]) {
                 NSMutableDictionary *levelValuesDict = [NSMutableDictionary dictionary];
                 levelValuesDict[@"started"] = [NSNumber numberWithInt:[LevelStorage getTimesStartedForLevel:worldId]];
                 levelValuesDict[@"played"] = [NSNumber numberWithInt:[LevelStorage getTimesPlayedForLevel:worldId]];
@@ -186,7 +190,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
     for (NSString *mId in missions.allKeys) {
         NSDictionary *missionDict = missions[mId];
         NSString *missionId = missionDict[@"itemId"];
-        if (missionId && (missionId.length > 0)) {
+        if (!IsStringEmpty(missionId)) {
             NSMutableDictionary *missionValuesDict = [NSMutableDictionary dictionary];
             missionValuesDict[@"timesCompleted"] = [NSNumber numberWithInt:[MissionStorage getTimesCompleted:missionId]];
             
@@ -204,7 +208,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
     for (NSString *sId in scores.allKeys) {
         NSDictionary *scoreDict = scores[sId];
         NSString *scoreId = scoreDict[@"itemId"];
-        if (scoreId && (scoreId.length > 0)) {
+        if (!IsStringEmpty(scoreId)) {
             NSMutableDictionary *scoreValuesDict = [NSMutableDictionary dictionary];
             scoreValuesDict[@"latest"] = [NSNumber numberWithDouble:[ScoreStorage getLatestScore:scoreId]];
             scoreValuesDict[@"record"] = [NSNumber numberWithDouble:[ScoreStorage getRecordScore:scoreId]];
@@ -239,7 +243,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
                                          }
                                          
                                          NSString *assignedRewardId = itemValuesDict[@"assignedReward"];
-                                         if (assignedRewardId) {
+                                         if (!IsStringEmpty(assignedRewardId)) {
                                              [WorldStorage setReward:assignedRewardId forWorld:itemId andNotify:NO];
                                          }
                                          
@@ -319,7 +323,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
     
     LogDebug(TAG, ([NSString stringWithFormat:@"Resetting state for %@", targetListName]));
     
-    for (NSString *itemId in itemsDict) {
+    for (NSString *itemId in itemsDict.allKeys) {
         NSDictionary *itemValuesDict = itemsDict[itemId];
         @try {
             if (!applierBlock(itemId, itemValuesDict)) {
@@ -359,7 +363,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
         if (objectDicts) {
             for (NSDictionary *objectDict in objectDicts) {
                 NSString *objectId = objectDict[@"itemId"];
-                if (objectId) {
+                if (!IsStringEmpty(objectId)) {
                     resultHash[objectId] = objectDict;
                 }
             }
@@ -378,14 +382,14 @@ static NSString *TAG = @"SOOMLA LevelUp";
 
 + (void)findInternalLists:(NSMutableDictionary *)objects andContainersList:(NSArray *)listClasses andListName:(NSString *)listName andCheckDict:(NSDictionary *)checkDict {
     NSString *className = checkDict[@"className"];
-    if (className) {
+    if (!IsStringEmpty(className)) {
         if ([listClasses indexOfObject:className]) {
             // of the right type to contain more objects
             NSArray *internalList = checkDict[listName];
             if (internalList) {
                 for (NSDictionary *targetObject in internalList) {
                     NSString *itemId = targetObject[@"itemId"];
-                    if (itemId) {
+                    if (!IsStringEmpty(itemId)) {
                         objects[itemId] = targetObject;
                         [self findInternalLists:objects andContainersList:listClasses andListName:listName andCheckDict:targetObject];
                     }
