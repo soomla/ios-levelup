@@ -397,7 +397,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
 + (void)findInternalLists:(NSMutableDictionary *)objects andContainersList:(NSArray *)listClasses andListName:(NSString *)listName andCheckDict:(NSDictionary *)checkDict {
     NSString *className = checkDict[@"className"];
     if (!IsStringEmpty(className)) {
-        if ([listClasses indexOfObject:className]) {
+        if ([listClasses indexOfObject:className] != NSNotFound) {
             // of the right type to contain more objects
             NSArray *internalList = checkDict[listName];
             if (internalList) {
