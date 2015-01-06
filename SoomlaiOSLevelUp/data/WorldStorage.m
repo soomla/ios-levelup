@@ -93,7 +93,7 @@ static NSString *DB_WORLD_KEY_PREFIX;
     NSDictionary *model = [LevelUp getLevelUpModel];
     if (model) {
         NSDictionary *worlds = [LevelUp getWorlds:model];
-        NSDictionary *world = worlds[world];
+        NSDictionary *world = worlds[worldId];
         if (world) {
             NSString *itemId = world[@"itemId"];
             if (itemId && [itemId isEqualToString:worldId]) {
