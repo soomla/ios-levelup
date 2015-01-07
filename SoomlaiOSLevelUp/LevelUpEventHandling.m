@@ -24,6 +24,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_SCORE_LATEST_CHANGED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_SCORE_RECORD_REACHED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_GATE_OPENED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_GATE_CLOSED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_MISSION_COMPLETED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_MISSION_COMPLETION_REVOKED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_WORLD_COMPLETED object:nil];
@@ -51,6 +52,11 @@
 + (void)postGateOpened:(NSString *)gateId {
     NSDictionary *userInfo = @{DICT_ELEMENT_GATE: gateId};
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_GATE_OPENED object:self userInfo:userInfo];
+}
+
++ (void)postGateClosed:(NSString *)gateId {
+    NSDictionary *userInfo = @{DICT_ELEMENT_GATE: gateId};
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_GATE_CLOSED object:self userInfo:userInfo];
 }
 
 + (void)postMissionCompleted:(NSString *)missionId {
