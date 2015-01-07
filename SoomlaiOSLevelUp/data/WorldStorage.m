@@ -37,15 +37,6 @@ static NSString *DB_WORLD_KEY_PREFIX;
 
 + (void)setCompleted:(BOOL)completed forWorld:(NSString *)worldId andNotify:(BOOL)notify {
     
-    BOOL currentStatus = [self isWorldCompleted:worldId];
-    if (currentStatus == completed) {
-        
-        // we don't need to set the status of a world to the same status over and over again.
-        // couldn't only cause trouble.
-        return;
-    }
-    
-    
     NSString* key = [self keyWorldCompletedWithWorldId:worldId];
     
     if (completed) {
