@@ -30,10 +30,17 @@ static NSString *DB_SCORE_KEY_PREFIX;
 /** Latest Score **/
 
 + (void)setLatest:(double)latest toScore:(NSString *)scoreId {
+    [self setLatest:latest toScore:scoreId andNotify:YES];
+}
++ (void)setLatest:(double)latest toScore:(NSString *)scoreId andNotify:(BOOL)notify {
     NSString* key = [self keyLatestScoreWithScoreId:scoreId];
     NSString* val = [[NSNumber numberWithDouble:latest] stringValue];
     
     [KeyValueStorage setValue:val forKey:key];
+    
+    if (notify) {
+        [LevelUpEventHandling postScoreLatestChanged:scoreId];
+    }
 }
 
 + (double)getLatestScore:(NSString *)scoreId {

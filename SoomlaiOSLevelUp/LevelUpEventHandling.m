@@ -21,6 +21,7 @@
 
 + (void)observeAllEventsWithObserver:(id)observer withSelector:(SEL)selector{
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_SCORE_RECORD_CHANGED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_SCORE_LATEST_CHANGED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_SCORE_RECORD_REACHED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_GATE_OPENED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_MISSION_COMPLETED object:nil];
@@ -35,6 +36,11 @@
 + (void)postScoreRecordChanged:(NSString *)scoreId {
     NSDictionary *userInfo = @{DICT_ELEMENT_SCORE: scoreId};
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_SCORE_RECORD_CHANGED object:self userInfo:userInfo];
+}
+
++ (void)postScoreLatestChanged:(NSString *)scoreId {
+    NSDictionary *userInfo = @{DICT_ELEMENT_SCORE: scoreId};
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_SCORE_LATEST_CHANGED object:self userInfo:userInfo];
 }
 
 + (void)postScoreRecordReached:(NSString *)scoreId {

@@ -16,6 +16,7 @@
 
 // Events
 #define EVENT_SCORE_RECORD_CHANGED           @"lu_score_record_changed"
+#define EVENT_SCORE_LATEST_CHANGED           @"lu_score_latest_changed"
 #define EVENT_SCORE_RECORD_REACHED           @"lu_score_record_reached"
 #define EVENT_GATE_OPENED                    @"lu_gate_opened"
 #define EVENT_MISSION_COMPLETED              @"lu_mission_completed"
@@ -45,6 +46,8 @@
 + (void)observeAllEventsWithObserver:(id)observer withSelector:(SEL)selector;
 
 + (void)postScoreRecordChanged:(NSString *)scoreId;
+
++ (void)postScoreLatestChanged:(NSString *)scoreId;
 
 + (void)postScoreRecordReached:(NSString *)scoreId;
 
