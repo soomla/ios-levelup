@@ -26,6 +26,7 @@
  @param latest the latest value to save
  */
 + (void)setLatest:(double)latest toScore:(NSString *)scoreId;
++ (void)setLatest:(double)latest toScore:(NSString *)scoreId andNotify:(BOOL)notify;
 
 /**
  Gets the most recently saved value of the given score.

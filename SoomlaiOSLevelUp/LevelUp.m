@@ -315,7 +315,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
                     andApplierBlock:^BOOL(NSString *itemId, NSDictionary *itemValuesDict) {
                         NSNumber *latestScore = itemValuesDict[@"latest"];
                         if (latestScore) {
-                            [ScoreStorage setLatest:[latestScore doubleValue] toScore:itemId];
+                            [ScoreStorage setLatest:[latestScore doubleValue] toScore:itemId andNotify:NO];
                         }
                         
                         NSNumber *recordScore = itemValuesDict[@"record"];
