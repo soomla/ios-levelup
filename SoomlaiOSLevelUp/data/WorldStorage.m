@@ -18,6 +18,7 @@
 #import "LevelUp.h"
 #import "LevelUpEventHandling.h"
 #import "KeyValueStorage.h"
+#import "SoomlaUtils.h"
 
 @implementation WorldStorage
 
@@ -63,7 +64,7 @@ static NSString *DB_WORLD_KEY_PREFIX;
 + (void)setReward:(NSString*)rewardId forWorld:(NSString *)worldId andNotify:(BOOL)notify {
     NSString* key = [self keyRewardWithWorldId:worldId];
     
-    if (rewardId && [rewardId length] > 0) {
+    if (!IsStringEmpty(rewardId)) {
         [KeyValueStorage setValue:rewardId forKey:key];
     } else {
         [KeyValueStorage deleteValueForKey:key];
@@ -77,6 +78,30 @@ static NSString *DB_WORLD_KEY_PREFIX;
 
 + (NSString*)getAssignedReward:(NSString *)worldId {
     NSString* key = [self keyRewardWithWorldId:worldId];
+    return [KeyValueStorage getValueForKey:key];
+}
+
++ (void)setLastCompletedInnerWorld:(NSString*)innerWorldId forWorld:(NSString *)worldId {
+    [self setLastCompletedInnerWorld:innerWorldId forWorld:worldId andNotify:YES];
+}
+
++ (void)setLastCompletedInnerWorld:(NSString*)innerWorldId forWorld:(NSString *)worldId andNotify:(BOOL)notify {
+    NSString* key = [self keyLastCompletedInnerWorldWithWorldId:worldId];
+    
+    if (!IsStringEmpty(innerWorldId)) {
+        [KeyValueStorage setValue:innerWorldId forKey:key];
+    } else {
+        [KeyValueStorage deleteValueForKey:key];
+    }
+    
+    if (notify) {
+        // Notify world had inner level complete
+        [LevelUpEventHandling postLastCompletedInnerWorldChanged:worldId andInnerWorld:innerWorldId];
+    }
+}
+
++ (NSString*)getLastCompletedInnerWorld:(NSString *)worldId {
+    NSString* key = [self keyLastCompletedInnerWorldWithWorldId:worldId];
     return [KeyValueStorage getValueForKey:key];
 }
 
@@ -112,6 +137,10 @@ static NSString *DB_WORLD_KEY_PREFIX;
 
 + (NSString *)keyRewardWithWorldId:(NSString *)worldId {
     return [self keyWorldsWithWorldId:worldId andPostfix:@"assignedReward"];
+}
+
++ (NSString *)keyLastCompletedInnerWorldWithWorldId:(NSString *)worldId {
+    return [self keyWorldsWithWorldId:worldId andPostfix:@"lastCompletedInnerWorld"];
 }
 
 @end
