@@ -31,6 +31,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_LEVEL_STARTED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_LEVEL_ENDED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_WORLD_REWARD_ASSIGNED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_LAST_COMPLETED_INNER_WORLD_CHANGED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:observer selector:selector name:EVENT_LEVEL_UP_INITIALIZED object:nil];
 }
 
@@ -86,6 +87,14 @@
 + (void)postWorldRewardAssigned:(NSString *)worldId {
     NSDictionary *userInfo = @{DICT_ELEMENT_WORLD: worldId};
     [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_WORLD_REWARD_ASSIGNED object:self userInfo:userInfo];
+}
+
++ (void)postLastCompletedInnerWorldChanged:(NSString *)worldId andInnerWorld:(NSString *)innerWorldId {
+    NSDictionary *userInfo = @{
+                               DICT_ELEMENT_WORLD: worldId,
+                               DICT_ELEMENT_INNER_WORLD: innerWorldId
+                               };
+    [[NSNotificationCenter defaultCenter] postNotificationName:EVENT_LAST_COMPLETED_INNER_WORLD_CHANGED object:self userInfo:userInfo];
 }
 
 + (void)postLevelEnded:(NSString *)levelId {

@@ -177,6 +177,11 @@ static NSString *TAG = @"SOOMLA LevelUp";
                 worldValuesDict[@"assignedReward"] = assignedRewardId;
             }
             
+            NSString *innerWorldId = [WorldStorage getLastCompletedInnerWorld:worldId];
+            if (!IsStringEmpty(innerWorldId)) {
+                worldValuesDict[@"lastCompletedInnerWorld"] = innerWorldId;
+            }
+            
             worldsStateDict[worldId] = worldValuesDict;
             
             NSString *className = worldDict[@"className"];
@@ -259,6 +264,11 @@ static NSString *TAG = @"SOOMLA LevelUp";
                                          NSString *assignedRewardId = itemValuesDict[@"assignedReward"];
                                          if (!IsStringEmpty(assignedRewardId)) {
                                              [WorldStorage setReward:assignedRewardId forWorld:itemId andNotify:NO];
+                                         }
+                                         
+                                         NSString *innerWorldId = itemValuesDict[@"lastCompletedInnerWorld"];
+                                         if (!IsStringEmpty(innerWorldId)) {
+                                             [WorldStorage setLastCompletedInnerWorld:innerWorldId forWorld:itemId andNotify:NO];
                                          }
                                          
                                          return YES;
