@@ -40,8 +40,6 @@ static NSString *DB_GATE_KEY_PREFIX;
         
         if (notify) {
             [LevelUpEventHandling postGateOpened:gateId];
-        }if (notify) {
-            [LevelUpEventHandling postGateOpened:gateId];
         }
     } else {
         [KeyValueStorage deleteValueForKey:key];
