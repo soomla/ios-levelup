@@ -23,9 +23,15 @@
 #import "LevelStorage.h"
 #import "ScoreStorage.h"
 
+#define SOOMLA_LEVELUP_VERSION @"1.0.9"
+
 @implementation LevelUp
 
 static NSString *TAG = @"SOOMLA LevelUp";
+
++ (NSString*)getVersion {
+    return SOOMLA_LEVELUP_VERSION;
+}
 
 + (NSDictionary *)getLevelUpState {
     NSMutableDictionary *stateDict = [NSMutableDictionary dictionary];
