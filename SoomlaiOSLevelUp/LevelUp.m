@@ -1,12 +1,12 @@
 /*
  Copyright (C) 2012-2014 Soomla Inc.
- 
+
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
- 
+
  http://www.apache.org/licenses/LICENSE-2.0
- 
+
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -23,7 +23,7 @@
 #import "LevelStorage.h"
 #import "ScoreStorage.h"
 
-#define SOOMLA_LEVELUP_VERSION @"1.0.9"
+#define SOOMLA_LEVELUP_VERSION @"1.0.10"
 
 @implementation LevelUp
 
@@ -35,17 +35,17 @@ static NSString *TAG = @"SOOMLA LevelUp";
 
 + (NSDictionary *)getLevelUpState {
     NSMutableDictionary *stateDict = [NSMutableDictionary dictionary];
-    
+
     NSDictionary *modelDict = [self getLevelUpModel];
     if (!modelDict) {
         return stateDict;
     }
-    
+
     [self applyGatesStateToDict:modelDict andApplyTo:stateDict];
     [self applyWorldsStateToDict:modelDict andApplyTo:stateDict];
     [self applyMissionsStateToDict:modelDict andApplyTo:stateDict];
     [self applyScoresStateToDict:modelDict andApplyTo:stateDict];
-    
+
     return stateDict;
 }
 
@@ -53,53 +53,53 @@ static NSString *TAG = @"SOOMLA LevelUp";
     if (!state) {
         return NO;
     }
-    
+
     LogDebug(TAG, ([NSString stringWithFormat:@"Resetting state with: %@", state]));
-    
+
     [self clearCurrentState];
-    
+
     LogDebug(TAG, @"Current state was cleared");
-    
+
     return [self resetGatesStateFromDict:state] &&
     [self resetWorldsStateFromDict:state] &&
     [self resetMissionsStateFromDict:state] &&
     [self resetScoresStateFromDict:state];
-    
+
 }
 
 + (NSDictionary *)getLevelUpModel {
     NSString *modelStr = [KeyValueStorage getValueForKey:[NSString stringWithFormat:@"%@%@", LU_DB_KEY_PREFIX, @"model"]];
     LogDebug(TAG, ([NSString stringWithFormat:@"model: %@", modelStr]));
-    
+
     if (IsStringEmpty(modelStr)) {
         return nil;
     }
-    
+
     NSDictionary* modelDict = [SoomlaUtils jsonStringToDict:modelStr];
     return modelDict;
 }
 
 + (NSDictionary *)getWorlds:(NSDictionary *)model {
     NSMutableDictionary *worlds = [NSMutableDictionary dictionary];
-    
+
     NSDictionary *mainWorld = model[@"mainWorld"];
     if (mainWorld) {
         [self addWorldObjectToWorlds:worlds worldToAdd:mainWorld];
     }
-    
+
     return worlds;
 }
 
 + (NSDictionary *)getMissions:(NSDictionary *)model {
     NSMutableDictionary *missions = [self getListFromWorlds:model andListName:@"missions"];
     [self findInternalLists:missions andContainersList:@[ @"Challenge" ] andListName:@"missions"];
-    
+
     return missions;
 }
 
 + (NSDictionary *)getGates:(NSDictionary *)model {
     NSMutableDictionary *resultHash = [NSMutableDictionary dictionary];
-    
+
     NSDictionary *worlds = [self getWorlds:model];
     for (NSString *worldId in worlds.allKeys) {
         NSDictionary *worldDict = worlds[worldId];
@@ -111,7 +111,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
             }
         }
     }
-    
+
     NSDictionary *missions = [self getMissions:model];
     for (NSString *missionId in missions.allKeys) {
         NSDictionary *missionDict = missions[missionId];
@@ -123,9 +123,9 @@ static NSString *TAG = @"SOOMLA LevelUp";
             }
         }
     }
-    
+
     [self findInternalLists:resultHash andContainersList:@[ @"GatesListAND", @"GatesListOR" ] andListName:@"gates"];
-    
+
     return resultHash;
 }
 
@@ -151,45 +151,45 @@ static NSString *TAG = @"SOOMLA LevelUp";
 + (void)applyGatesStateToDict:(NSDictionary *)model andApplyTo:(NSMutableDictionary *)state {
     NSMutableDictionary *gatesStateDict = [NSMutableDictionary dictionary];
     NSDictionary *gates = [self getGates:model];
-    
+
     for (NSString *gateId in gates.allKeys) {
         NSDictionary *gateDict = gates[gateId];
         NSMutableDictionary *gateValuesDict = [NSMutableDictionary dictionary];
         NSString *gateId = gateDict[@"itemId"];
         if (!IsStringEmpty(gateId)) {
             gateValuesDict[@"open"] = [NSNumber numberWithBool:[GateStorage isOpen:gateId]];
-            
+
             gatesStateDict[gateId] = gateValuesDict;
         }
     }
-    
+
     state[@"gates"] = gatesStateDict;
 }
 
 + (void)applyWorldsStateToDict:(NSDictionary *)model andApplyTo:(NSMutableDictionary *)state {
     NSMutableDictionary *worldsStateDict = [NSMutableDictionary dictionary];
     NSMutableDictionary *levelsStateDict = [NSMutableDictionary dictionary];
-    
+
     NSDictionary *worlds = [self getWorlds:model];
     for (NSString *wId in worlds.allKeys) {
         NSDictionary *worldDict = worlds[wId];
         NSString *worldId = worldDict[@"itemId"];
         if (!IsStringEmpty(worldId)) {
             NSMutableDictionary *worldValuesDict = [NSMutableDictionary dictionary];
-            
+
             worldValuesDict[@"completed"] = [NSNumber numberWithBool:[WorldStorage isWorldCompleted:worldId]];
             NSString *assignedRewardId = [WorldStorage getAssignedReward:worldId];
             if (!IsStringEmpty(assignedRewardId)) {
                 worldValuesDict[@"assignedReward"] = assignedRewardId;
             }
-            
+
             NSString *innerWorldId = [WorldStorage getLastCompletedInnerWorld:worldId];
             if (!IsStringEmpty(innerWorldId)) {
                 worldValuesDict[@"lastCompletedInnerWorld"] = innerWorldId;
             }
-            
+
             worldsStateDict[worldId] = worldValuesDict;
-            
+
             NSString *className = worldDict[@"className"];
             if (!IsStringEmpty(className) && [className isEqualToString:@"Level"]) {
                 NSMutableDictionary *levelValuesDict = [NSMutableDictionary dictionary];
@@ -198,19 +198,19 @@ static NSString *TAG = @"SOOMLA LevelUp";
                 levelValuesDict[@"timesCompleted"] = [NSNumber numberWithInt:[LevelStorage getTimesCompletedForLevel:worldId]];
                 levelValuesDict[@"slowest"] = [NSNumber numberWithLongLong:[LevelStorage getSlowestDurationMillisForLevel:worldId]];
                 levelValuesDict[@"fastest"] = [NSNumber numberWithLongLong:[LevelStorage getFastestDurationMillisForLevel:worldId]];
-                
+
                 levelsStateDict[worldId] = levelValuesDict;
             }
         }
     }
-    
+
     state[@"worlds"] = worldsStateDict;
     state[@"levels"] = levelsStateDict;
 }
 
 + (void)applyMissionsStateToDict:(NSDictionary *)model andApplyTo:(NSMutableDictionary *)state {
     NSMutableDictionary *missionsStateDict = [NSMutableDictionary dictionary];
-    
+
     NSDictionary *missions = [self getMissions:model];
     for (NSString *mId in missions.allKeys) {
         NSDictionary *missionDict = missions[mId];
@@ -218,17 +218,17 @@ static NSString *TAG = @"SOOMLA LevelUp";
         if (!IsStringEmpty(missionId)) {
             NSMutableDictionary *missionValuesDict = [NSMutableDictionary dictionary];
             missionValuesDict[@"timesCompleted"] = [NSNumber numberWithInt:[MissionStorage getTimesCompleted:missionId]];
-            
+
             missionsStateDict[missionId] = missionValuesDict;
         }
     }
-    
+
     state[@"missions"] = missionsStateDict;
 }
 
 + (void)applyScoresStateToDict:(NSDictionary *)model andApplyTo:(NSMutableDictionary *)state {
     NSMutableDictionary *scoresStateDict = [NSMutableDictionary dictionary];
-    
+
     NSDictionary *scores = [self getScores:model];
     for (NSString *sId in scores.allKeys) {
         NSDictionary *scoreDict = scores[sId];
@@ -237,11 +237,11 @@ static NSString *TAG = @"SOOMLA LevelUp";
             NSMutableDictionary *scoreValuesDict = [NSMutableDictionary dictionary];
             scoreValuesDict[@"latest"] = [NSNumber numberWithDouble:[ScoreStorage getLatestScore:scoreId]];
             scoreValuesDict[@"record"] = [NSNumber numberWithDouble:[ScoreStorage getRecordScore:scoreId]];
-            
+
             scoresStateDict[scoreId] = scoreValuesDict;
         }
     }
-    
+
     state[@"scores"] = scoresStateDict;
 }
 
@@ -253,7 +253,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
                         if (openState) {
                             [GateStorage setOpen:[openState boolValue] forGate:itemId andEvent:NO];
                         }
-                        
+
                         return YES;
                     }];
 }
@@ -266,20 +266,20 @@ static NSString *TAG = @"SOOMLA LevelUp";
                                          if (completedState) {
                                              [WorldStorage setCompleted:[completedState boolValue] forWorld:itemId andNotify:NO];
                                          }
-                                         
+
                                          NSString *assignedRewardId = itemValuesDict[@"assignedReward"];
                                          if (!IsStringEmpty(assignedRewardId)) {
                                              [WorldStorage setReward:assignedRewardId forWorld:itemId andNotify:NO];
                                          }
-                                         
+
                                          NSString *innerWorldId = itemValuesDict[@"lastCompletedInnerWorld"];
                                          if (!IsStringEmpty(innerWorldId)) {
                                              [WorldStorage setLastCompletedInnerWorld:innerWorldId forWorld:itemId andNotify:NO];
                                          }
-                                         
+
                                          return YES;
                                      }];
-    
+
     BOOL levelsApplyState = [self resetStateFromDict:state
                                          andListName:@"levels"
                                      andApplierBlock:^BOOL(NSString *itemId, NSDictionary *itemValuesDict) {
@@ -287,30 +287,30 @@ static NSString *TAG = @"SOOMLA LevelUp";
                                          if (timesStarted) {
                                              [LevelStorage setTimesStartedForLevel:itemId andStartedCount:[timesStarted intValue]];
                                          }
-                                         
+
                                          NSNumber *timesPlayed = itemValuesDict[@"played"];
                                          if (timesPlayed) {
                                              [LevelStorage setTimesPlayedForLevel:itemId andPlayedCount:[timesPlayed intValue]];
                                          }
-                                         
+
                                          NSNumber *timesCompleted = itemValuesDict[@"timesCompleted"];
                                          if (timesCompleted) {
                                              [LevelStorage setTimesCompletedForLevel:itemId andTimesCompleted:[timesCompleted intValue]];
                                          }
-                                         
+
                                          NSNumber *slowest = itemValuesDict[@"slowest"];
                                          if (slowest) {
                                              [LevelStorage setSlowestDurationMillis:[slowest longLongValue] forLevel:itemId];
                                          }
-                                         
+
                                          NSNumber *fastest = itemValuesDict[@"fastest"];
                                          if (fastest) {
                                              [LevelStorage setFastestDurationMillis:[fastest longLongValue] forLevel:itemId];
                                          }
-                                         
+
                                          return YES;
                                      }];
-    
+
     return worldsApplyState && levelsApplyState;
 }
 
@@ -321,7 +321,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
                         if (timesCompleted) {
                             [MissionStorage setTimesCompleted:itemId andTimesCompleted:[timesCompleted intValue]];
                         }
-                        
+
                         return YES;
                     }];
 }
@@ -333,26 +333,26 @@ static NSString *TAG = @"SOOMLA LevelUp";
                         if (latestScore) {
                             [ScoreStorage setLatest:[latestScore doubleValue] toScore:itemId andNotify:NO];
                         }
-                        
+
                         NSNumber *recordScore = itemValuesDict[@"record"];
                         if (recordScore) {
                             [ScoreStorage setRecord:[recordScore doubleValue] toScore:itemId andNotify:NO];
                         }
-                        
+
                         return YES;
                     }];
 }
 
 + (BOOL) resetStateFromDict:(NSDictionary *)state andListName:(NSString *)targetListName
             andApplierBlock:(BOOL (^)(NSString * itemId, NSDictionary *itemValuesDict))applierBlock{
-    
+
     NSDictionary *itemsDict = state[targetListName];
     if (!itemsDict) {
         return YES;
     }
-    
+
     LogDebug(TAG, ([NSString stringWithFormat:@"Resetting state for %@", targetListName]));
-    
+
     for (NSString *itemId in itemsDict.allKeys) {
         NSDictionary *itemValuesDict = itemsDict[itemId];
         @try {
@@ -365,7 +365,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
             return NO;
         }
     }
-    
+
     return YES;
 }
 
@@ -374,7 +374,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
     if (worldId) {
         worlds[worldId] = worldDict;
     }
-    
+
     NSArray *worldsArray = worldDict[@"worlds"];
     if (worldsArray) {
         for (NSDictionary *innerWorldDict in worldsArray) {
@@ -385,7 +385,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
 
 + (NSMutableDictionary *)getListFromWorlds:(NSDictionary *)model andListName:(NSString *)listName {
     NSMutableDictionary *resultHash = [NSMutableDictionary dictionary];
-    
+
     NSDictionary *worlds = [self getWorlds:model];
     for (NSString *worldId in worlds.allKeys) {
         NSDictionary *worldDict = worlds[worldId];
@@ -399,7 +399,7 @@ static NSString *TAG = @"SOOMLA LevelUp";
             }
         }
     }
-    
+
     return resultHash;
 }
 
