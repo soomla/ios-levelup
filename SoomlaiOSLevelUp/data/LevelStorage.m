@@ -27,6 +27,18 @@ static NSString *DB_LEVEL_KEY_PREFIX;
     DB_LEVEL_KEY_PREFIX = [NSString stringWithFormat:@"%@levels.", LU_DB_KEY_PREFIX];
 }
 
++ (void)setLastDurationMillis:(long long)duration forLevel:(NSString *)levelId {
+    NSString* key = [self keyLastDurationWithLevelId:levelId];
+    NSString* val = [[NSNumber numberWithLongLong:duration] stringValue];
+    [KeyValueStorage setValue:val forKey:key];
+}
+
++ (long long)getLastDurationMillisForLevel:(NSString *)levelId {
+    NSString* key = [self keyLastDurationWithLevelId:levelId];
+    NSString* val = [KeyValueStorage getValueForKey:key];
+    return (val && [val length] > 0) ? [val longLongValue] : 0;
+}
+
 + (void)setSlowestDurationMillis:(long long)duration forLevel:(NSString *)levelId {
     NSString* key = [self keySlowestDurationWithLevelId:levelId];
     NSString* val = [[NSNumber numberWithLongLong:duration] stringValue];
@@ -182,6 +194,10 @@ static NSString *DB_LEVEL_KEY_PREFIX;
 
 + (NSString *)keyTimesPlayedWithLevelId:(NSString *)levelId {
     return [self keyLevelsWithLevelId:levelId andPostfix:@"played"];
+}
+
++ (NSString *)keyLastDurationWithLevelId:(NSString *)levelId {
+    return [self keyLevelsWithLevelId:levelId andPostfix:@"last"];
 }
 
 + (NSString *)keySlowestDurationWithLevelId:(NSString *)levelId {

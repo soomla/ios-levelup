@@ -18,6 +18,10 @@
 
 @interface LevelStorage : NSObject
 
++ (void)setLastDurationMillis:(long long)duration forLevel:(NSString *)levelId;
+
++ (long long)getLastDurationMillisForLevel:(NSString *)levelId;
+
 + (void)setSlowestDurationMillis:(long long)duration forLevel:(NSString *)levelId;
 
 + (long long)getSlowestDurationMillisForLevel:(NSString *)levelId;
