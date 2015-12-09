@@ -1,0 +1,6 @@
+language: objective-c
+sudo: false
+install: true
+before_script:
+    - ./submodules/build_all
+script: xctool -project SoomlaiOSLevelUp.xcodeproj -scheme SoomlaiOSLevelUp build
