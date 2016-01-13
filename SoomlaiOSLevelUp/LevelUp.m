@@ -23,7 +23,7 @@
 #import "LevelStorage.h"
 #import "ScoreStorage.h"
 
-#define SOOMLA_LEVELUP_VERSION @"1.0.11"
+#define SOOMLA_LEVELUP_VERSION @"1.0.12"
 
 @implementation LevelUp
 
